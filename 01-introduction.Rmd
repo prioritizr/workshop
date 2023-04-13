@@ -1,0 +1,41 @@
+# Introduction
+
+## Overview {#overview}
+
+The aim of this workshop is to help you get started with using the prioritizr R package for systematic conservation planning. It is not designed to give you a comprehensive overview and you will not become an expert after completing this workshop. Instead, we want to help you understand the core principles of conservation planning and guide you through some of the common tasks involved with generating prioritizations. In other words, we want to give you the knowledge base and confidence needed to start applying systematic conservation planning to your own work.
+
+You are not alone in this workshop. If you are having trouble, please put your hand up and one of the instructors will help you as soon as they can. You can also ask the people sitting next to you for help too. **Most importantly, the code needed to answer the questions in this workshop are almost always located in the same section as the question. So if you are stuck, try rereading the example code and see if you can modify it to answer the question.** Please note that the first thing an instructor will ask you will be "what have you tried so far?". We can't help you if you haven't tried anything.
+
+## Setting up your computer {#setup}
+
+You will need to have both [R](https://www.r-project.org) and [RStudio](https://www.rstudio.com/) installed on your computer to complete this workshop. Although it is not imperative that you have the latest version of RStudio installed, **you will need the latest version of R installed (i.e., version `r as.character(getRversion())`)**. Please note that you might need administrative permissions to install these programs. After installing them, you will also need to install some R packages too.
+
+\clearpage
+
+### R {#r}
+
+The [R statistical computing environment](https://www.r-project.org) can be downloaded from the Comprehensive R Archive Network (CRAN). Specifically, you can download the latest version of R (version `r as.character(getRversion())`) from here: https://cloud.r-project.org. Please note that you will need to download the correct file for your operating system (i.e., Linux, macOS, Windows).
+
+### RStudio {#rstudio}
+
+[RStudio](https://www.rstudio.com) is an integrated development environment (IDE). In other words, it is a program that is designed to make your R programming experience more enjoyable. During this workshop, you will interact with R through RStudio---meaning that you will open RStudio to code in R. You can download the latest version of RStudio here: http://www.rstudio.com/download. When you start RStudio, you will see two main parts of the interface: the _Console_ and the _Output_ (see below). You can type R code into the _Console_ and press the enter key to run code. When you create maps or plots, they will appear in the _Output_.
+
+```{r, out.width = "100%", echo = FALSE}
+knitr::include_graphics("images/rstudio-console.png")
+```
+
+### R packages {#r-packages}
+
+An R package is a collection of R code and documentation that can be installed to enhance the standard R environment with additional functionality. Currently, there are over fifteen thousand R packages available on CRAN. Each of these R packages are developed to perform a specific task, such as [reading Excel spreadsheets](https://cran.r-project.org/web/packages/readxl/index.html), [downloading satellite imagery data](https://cran.r-project.org/web/packages/MODIStsp/index.html), [downloading and cleaning protected area data](https://cran.r-project.org/web/packages/wdpar/index.html), or [fitting environmental niche models](https://cran.r-project.org/web/packages/ENMeval/index.html). In fact, R has such a diverse ecosystem of R packages, that the question is almost always not "can I use R to ...?" but "what R package can I use to ...?". During this workshop, we will use several R packages. To install these R packages, please enter the code below in the _Console_ part of the RStudio interface and press enter. Note that you will require an Internet connection and the installation process may take some time to complete.
+
+```{r, eval = FALSE}
+install.packages("remotes")
+remotes::install_cran(
+  c("tidyverse", "mapview", "highs", "prioritizr"),
+  upgrade = "always"
+)
+```
+
+## Further reading {#further-reading}
+
+There is a wealth of resources available for learning how to use R. Although not required for this workshop, I would highly recommend that you read [_R for Data Science_ by Garrett Grolemund and Hadley Wickham](https://r4ds.had.co.nz/). **This veritable trove of R goodness is freely available online.** If you spend a week going through this book then you will save months debugging and rerunning incorrect code. I would urge any and all ecologists, especially those working on Masters or PhD degrees, to read this book. I even bought this book as a Christmas present for my sister---and, yes, she was happy to receive it! For intermediate users looking to skill-up, I would recommend the [_The Art of R Programming: A Tour of Statistical Software Design_ by Norman Matloff](http://shop.oreilly.com/product/9781593273842.do) and [_Advanced R_ by Hadley Wickham](https://adv-r.hadley.nz/). Finally, if you wish to learn more about using R as a geospatial information system (GIS), I would recommend [_Geocomputation with R_ by Robin Lovelace, Jakub Nowosad, and Jannes Muenchow](https://geocompr.robinlovelace.net/) which is also freely available online. I also recommend [_Applied Spatial Data Analysis_ by Roger S. Bivand, Edzer Pebesma, and Virgilio Gómez-Rubio](https://www.springer.com/gp/book/9781461476177) too.

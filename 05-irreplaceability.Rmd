@@ -1,0 +1,79 @@
+# Importance {#importance}
+
+## Introduction
+
+Systematic conservation planning involves identifying priority areas for conservation actions [@r13]. As we saw in the previous section, we can generate a spatial prioritization that optimizes a particular objective, given a set of constraints, to identify a set of priority areas for management. This information is very useful because it provides a complete and cost-effective plan for achieving our conservation goals. However, when we just look at the priority areas in a spatial prioritization, we don't necessarily know which priority areas -- among all the priority areas in the spatial prioritization -- are more or less important for conservation. For example, if we generated a spatial prioritization based on threatened and non-threatened species, it would be useful to know which priority areas are necessary to protect because they contain species that are not found anywhere else in the study area. To obtain this information, we can calculate [importance scores](https://prioritizr.net/reference/importance.html) for the planning units selected in the prioritization. This information can be useful for scheduling implementation of conservation plans and finding compromises for stakeholder discussions [@r5].
+
+## Quantifying irreplaceability
+
+To keep things simple, let's start by creating a new conservation planning problem and solving it to generate a spatial prioritization. This will be very similar to one of the prioritizations that we generated in the previous section. Specifically, we will use the minium set objective, 30% representation targets, locked in, locked out constraints, and binary decisions.
+
+\clearpage
+
+```{r "irrep-problem", out.width = "65%"}
+# create prioritization problem
+p8 <-
+  problem(pu_data, veg_data, cost_column = "cost") %>%
+  add_min_set_objective() %>%
+  add_boundary_penalties(penalty = 0.001) %>%
+  add_relative_targets(0.3) %>%
+  add_locked_in_constraints("locked_in") %>%
+  add_locked_out_constraints("locked_out") %>%
+  add_binary_decisions() %>%
+  add_highs_solver(verbose = FALSE)
+
+# print problem
+print(p8)
+
+# solve problem,
+s8 <- solve(p8)
+
+# print solution
+## note we use head() to show only show the first 6 rows
+head(s8)
+
+# plot solution
+plot(
+  s8[, "solution_1"], main = "Prioritization",
+  pal = c("grey90", "darkgreen")
+)
+```
+
+Now, we will calculate importance scores. Specifically, we will calculate importance scores based on [irreplaceability metric](https://prioritizr.net/reference/eval_ferrier_importance.html) developed by Ferrier _et al._ [-@r4]. These scores describe how important each planning unit is for meeting the representation targets. Briefly, the metric calculates a score for each feature separately -- so we can tell which planning units are more important for particular features -- and a total score describing the overall importance each planning unit has meeting all the targets. Although the disadvantage of this method is that it does not account for planning unit costs [c.f., [the replacement cost metric](https://prioritizr.net/reference/eval_replacement_importance.html), @r14], it is useful because it accounts for the representation targets and can be calculated relatively quickly for problems with many planning units and features.
+
+```{r "irrep-maps", out.width = "65%"}
+# calculate Ferrier scores
+i8 <- eval_ferrier_importance(p8, s8[, "solution_1"])
+
+# set NA values for planning units not selected in solution
+i8 <-
+  i8 %>%
+  mutate_at(
+    c("total", names(veg_data)),
+    function(x) x * if_else(s8$solution_1 > 0.5, 1, NA_real_)
+  )
+
+
+# print scores
+## note we use head() to show only show the first 6 rows
+head(i8)
+
+# plot total scores across all features
+plot(i8[, "total"])
+
+# plot scores for first feature
+plot(i8[, names(veg_data)[1]])
+
+# plot scores for second feature
+plot(i8[, names(veg_data)[1]])
+```
+
+\clearpage
+
+Here we can see that some planning units in the prioritization have much higher importance scores than other planning units. If you're familiar with Marxan, the importance scores here convey a similar concept to the selection frequency. However, the advantage with this approach is that you don't need to generate tens of thousands of solutions in order to evaluate the relative importance of different planning units. Additionally, you can see which planning units are more, or less, important for particular features. This can be useful to help understand why certain planning units were selected by the prioritization.
+
+```{block2, type="rmdquestion"}
+1. Which parts of the study area have the highest importance values?
+2. How do the total importance values change when you decrease the targets from 30% to 10%?
+
+```

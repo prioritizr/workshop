@@ -1,0 +1,10 @@
+# Acknowledgements
+
+Many thanks to [Icons8](https://icons8.com) for providing the icons used in this manual and to Yihui Xie for developing the [bookdown R package](http://bookdown.org) that underpins this manual. We also thank Garrett Grolemund and Hadley Wickham for creating one of the Rstudio screenshots used in this manual that was originally a part of their _R for Data Science_ book.
+
+# Session information
+
+```{r "session-info"}
+# print session information
+sessionInfo()
+```

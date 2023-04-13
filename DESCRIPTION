@@ -1,0 +1,20 @@
+Package: placeholder
+Type: Book
+Title: Prioritizr Workshop Manual
+Version: 0.0.1
+biocViews:
+Imports:
+  bookdown,
+  tidyverse,
+  terra,
+  dplyr,
+  sf,
+  highs,
+  prioritizr,
+  prioritizrdata,
+  mapview,
+  units,
+  gridExtra
+Remotes:
+  rstudio/bookdown,
+  prioritizr/prioritizr

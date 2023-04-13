@@ -1,0 +1,45 @@
+---
+title: "PRIORITIZR WORKSHOP MANUAL"
+author: "Jeffrey Hanson and Richard Schuster"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: references.bib
+csl: reference-style.csl
+url: 'https\://prioritizr.github.io/workshop'
+link-citations: yes
+cover-image: images/cover.png
+favicon: favicon.ico
+github-repo: prioritizr/workshop
+fontsize: 12pt
+urlcolor: blue
+geometry: "left=2.54cm, right=2.54cm, top=2.54cm, bottom=2.54cm"
+description: "Manual for the prioritizr workshop."
+---
+
+# Welcome!
+
+```{r, echo=FALSE, results="asis", include = knitr:::is_html_output()}
+# add logo to website
+cat("<img src=\"images/cover.png\" width=\"200\" height=\"200\" alt=\"Cover image\" align=\"right\" style=\"margin: 0 1em 0 1em\" />\n")
+```
+
+```{r, include = FALSE}
+# set up print method
+print <- function(x, ...) {
+  if (inherits(x, "ConservationProblem")) {
+    prioritizr::knit_print.ConservationProblem(x)
+  } else if (inherits(x, "OptimizationProblem")) {
+    prioritizr::knit_print.OptimizationProblem(x)
+  } else {
+    base::print(x)
+  }
+}
+```
+
+```{r, include = FALSE}
+# set knitr options
+knitr::opts_chunk$set(fig.align = "center")
+```
+
+Here you will find the manual for the [prioritizr workshop](https://prioritizr.github.io/workshop/). **Before you arrive at the workshop, you should make sure that you have correctly [set up your computer for the workshop][Setting up your computer] and you have [downloaded the data from here](https://github.com/prioritizr/workshop/raw/main/data.zip).** Additionally, you can download a copy of the workshop slides [for first day (from here)](https://github.com/prioritizr/workshop/raw/main/slides-day-1.pptx) and the [second day (from here)](https://github.com/prioritizr/workshop/raw/main/slides-day-2.pptx).

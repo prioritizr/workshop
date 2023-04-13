@@ -1,0 +1,126 @@
+# Answers
+
+This chapter contains the answers to the questions presented in the earlier chapters. The answers are provided here so you can check if your answers are correct.
+
+## Data
+
+### Planning unit data
+
+```{block2, type="rmdanswer"}
+1. `nrow(pu_data)`
+2. `max(pu_data$cost)`
+3. `sum(pu_data$locked_in)`
+4. `mean(pu_data$locked_in)`
+5. `sum(pu_data$locked_out)`
+6. `mean(pu_data$locked_out)`
+7. `assert_that(min(c(pu_data$locked_in, pu_data$locked_out)) == 0)`
+      `assert_that(max(c(pu_data$locked_in, pu_data$locked_out)) == 1)`
+8. `all(is.finite(pu_data$cost))`
+9. `assert_that(sum(duplicated(pu_data$id)) == 0)`
+10. Yes, the eastern side of Tasmania is generally much cheaper than the western side.
+11. Yes, most planning units covered by protected areas are located in the south-western side of Tasmania.
+
+```
+
+### Vegetation data
+
+```{block2, type="rmdanswer"}
+1. North-eastern quarter of Tasmania
+2. `cellStats(veg_data[["Heathland"]], "mean")`
+3. `names(veg_data)[which.max(global(veg_data, "sum", na.rm = TRUE)[[1]])]`
+4. Yes, they are the same.
+
+```
+
+## Gap analysis
+
+### Feature abundance
+
+```{block2, type="rmdanswer"}
+1. `median(abundance_data$absolute_abundance_km2)`
+2. `min(abundance_data$absolute_abundance_km2)`
+3. `abundance_data$feature[which.min(abundance_data$absolute_abundance_km2)]`
+4. `sum(abundance_data$absolute_abundance_km2)`
+5. `sum(abundance_data$absolute_abundance_km2 > set_units(100, km^2))`
+
+```
+
+### Feature representation by protected areas
+
+```{block2, type="rmdanswer"}
+1. `mean(repr_data$relative_held, na.rm = TRUE)`
+2. `mean(repr_data$absolute_held_km2, na.rm = TRUE)`
+3. `repr_data$feature[which.max(repr_data$relative_held)]`
+4. `repr_data$feature[which.max(repr_data$absolute_held)]`
+5. No, just because a vegetation class is widespread does not necessarily mean that it has the greatest overlap with protected areas. In fact, due to biases in the establishment of protected areas this can often be the case.
+6. Yes, the largest protected areas tend to have the great representation (broadly speaking).\
+    `plot(abundance_data$absolute_abundance, repr_data$relative_held)`
+7. `sum(repr_data$absolute_held == 0)`
+8. `sum(repr_data$relative_held > 0.1, na.rm = TRUE)`
+9. `sum(repr_data$relative_held > 0.3, na.rm = TRUE)`
+
+```
+
+## Spatial prioritizations
+
+### Starting out simple
+
+```{block2, type="rmdanswer"}
+1. `sum(s1$solution_1)`
+2. `mean(s1$solution_1)`
+3. Yes, the planning units are generally spread out across most of the study area and they are not biased towards specific areas.
+4. `all(feature_representation(p1, s1[, "solution_1"])$relative_held >= 0.3)`
+
+```
+
+### Adding complexity
+
+```{block2, type="rmdanswer"}
+1. `sum(s2$cost * s2$solution_1)`,\
+   `sum(s3$cost * s3$solution_1)`,\
+   `sum(s4$cost * s4$solution_1)`\
+2. `sum(s2$solution_1)`,\
+   `sum(s3$solution_1)`,\
+   `sum(s4$solution_1)`
+3. No, just because a solution a solution has more planning units does not mean that it will cost less.
+4. This is because the planning units covered by existing protected areas have a non-zero cost and locking in these planning units introduces inefficiencies into the solution. This is very common in real-world conservation prioritizations because existing protected areas are often in places that do little to benefit biodiversity [@r3].
+5. This is because some of the planning units that are highly degraded -- based on just the planning unit costs and vegetation data -- provide cost-efficient opportunities for meeting the targets and excluding them from the reserve selection process means that other more costly planning units are needed to meet the targets.
+6. `sum(s4$cost * s4$solution_1) - sum(s4$cost * s4$locked_in)`
+7. We get an error message stating the the problem is infeasible because there is no valid solution---even if we selected all the planning units the study area we would still not meet the targets.
+
+```
+
+### Penalizing fragmentation
+
+```{block2, type="rmdanswer"}
+1. The cost of the fourth solution is `sum(s4$solution_1 * s4$cost)` and the cost of the fifth solution is `sum(s5$solution_1 * s5$cost)`. The fifth solution (`s5`) costs more than the fourth solution (`s4`) because we have added penalties to the conservation planning problem to indicate that we are willing to accept a slightly more costly solution if it means that we can reduce fragmentation.
+2. The solution is now nearly identical to the fourth solution (`s4`) and so has nearly the same cost. This penalty value is too low and is not useful because it does not reduce the fragmentation in our solution.
+3. The solution now contains a lot of extra planning units that are not needed to meet our targets. In fact, nearly every planning unit in the study is now selected. This penalty value is too high and is not useful.
+
+```
+
+### Budget limited prioritizations
+
+```{block2, type="rmdanswer"}
+1. `names(veg_data)[which.min(wts)]`
+2. `sum(s6$cost * s6$solution_1)`,\
+   `sum(s7$cost * s7$solution_1)`
+3. No, the sixth (`s6`) and seventh (`s7`) solutions both share many of the same selected planning units and there does not appear to be an obvious difference in the spatial location of the planning units which they do not share.
+4. Yes. Both solutions contain adequately represent these features:\
+    `r6$feature[r6$relative_held > 0.3 & r7$relative_held > 0.3]`.\
+    The sixth (`s6`) adequately represents these features too:\
+    `r6$feature[r6$relative_held > 0.3 & !r7$relative_held > 0.3]`.\
+    The seventh (`s7`) adequately represents these features too:\
+    `r7$feature[r7$relative_held > 0.3 & !r6$relative_held > 0.3]`
+
+```
+
+## Importance
+
+### Quantifying irreplaceability
+
+```{block2, type="rmdanswer"}
+1. There are 3 planning units with much higher irreplaceability values than the other planning units. These are found in the north-west, north-east, and south-east parts of Tasmania.
+2. There are fewer planning units with high irreplaceability values, because the targets are lower, there are less irreplaceable planning units. In other words, there are more possible combinations of planning units available for meeting the targets.
+
+```

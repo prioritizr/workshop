@@ -1,0 +1,86 @@
+# For help debugging build failures open an issue on the RStudio community with the 'github-actions' tag.
+# https://community.rstudio.com/new-topic?category=Package%20development&tags=github-actions
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+name: website
+
+jobs:
+  website:
+    name: website
+
+    runs-on: ubuntu-20.04
+
+    strategy:
+      fail-fast: false
+
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: r-lib/actions/setup-pandoc@v2
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - name: Query dependencies
+        run: |
+          install.packages('remotes')
+          saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
+          writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
+        shell: Rscript {0}
+
+      - name: Cache R packages
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
+          restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get -y install libcurl4-openssl-dev coinor-libsymphony-dev coinor-libcbc-dev coinor-libclp-dev ghostscript texlive-extra-utils
+          while read -r cmd
+          do
+            eval sudo $cmd
+          done < <(Rscript -e 'writeLines(remotes::system_requirements("ubuntu", "20.04"))')
+
+      - name: Install dependencies
+        run: |
+          remotes::install_deps(dependencies = TRUE)
+          remotes::install_bioc("lpsymphony")
+          tinytex::install_tinytex(force = TRUE)
+        shell: Rscript {0}
+
+      - name: Cache bookdown results
+        uses: actions/cache@v3
+        with:
+          path: _bookdown_files
+          key: bookdown-${{ hashFiles('**/*Rmd') }}
+          restore-keys: bookdown-
+
+      - name: Build site
+        run: bookdown::render_book("index.Rmd", 'bookdown::gitbook', quiet = TRUE)
+        shell: Rscript {0}
+
+      - name: Build manual
+        run: bookdown::render_book("index.Rmd", 'bookdown::pdf_book', quiet = TRUE)
+        shell: Rscript {0}
+
+      - name: Copy files
+        run:
+          cp *.pptx _book
+
+      - name: Deploy to GitHub pages
+        if: github.event_name != 'pull_request'
+        uses: JamesIves/github-pages-deploy-action@v4.4.1
+        with:
+          branch: gh-pages
+          folder: _book
