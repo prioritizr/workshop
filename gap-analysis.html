@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Gap analysis | PRIORITIZR WORKSHOP MANUAL</title>
+  <meta name="description" content="Manual for the prioritizr workshop." />
+  <meta name="generator" content="bookdown 0.33.2 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Gap analysis | PRIORITIZR WORKSHOP MANUAL" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://prioritizr.github.io/workshop/images/cover.png" />
+  <meta property="og:description" content="Manual for the prioritizr workshop." />
+  <meta name="github-repo" content="prioritizr/workshop" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Gap analysis | PRIORITIZR WORKSHOP MANUAL" />
+  
+  <meta name="twitter:description" content="Manual for the prioritizr workshop." />
+  <meta name="twitter:image" content="https://prioritizr.github.io/workshop/images/cover.png" />
+
+<meta name="author" content="Jeffrey Hanson and Richard Schuster" />
+
+
+<meta name="date" content="2023-04-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link rel="prev" href="data.html"/>
+<link rel="next" href="spatial-prioritizations.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.1.2/leaflet.js"></script>
+<script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
+<script src="libs/leaflet-providers-plugin-2.1.2/leaflet-providers-plugin.js"></script>
+<link href="libs/HomeButton-0.0.1/home-button.css" rel="stylesheet" />
+<script src="libs/HomeButton-0.0.1/home-button.js"></script>
+<script src="libs/HomeButton-0.0.1/easy-button-src.min.js"></script>
+<script src="libs/clipboard-0.0.1/setClipboardText.js"></script>
+<link href="libs/mapviewCSS-0.0.1/mapview-popup.css" rel="stylesheet" />
+<link href="libs/mapviewCSS-0.0.1/mapview.css" rel="stylesheet" />
+<script src="libs/raster::raster(veg_data[[30]])_9b50e4-1/data_stars_rasterrasterveg_data30d284fa.txt"></script>
+<script src="libs/joda-0.0.1/joda.js"></script>
+<script src="libs/joda-0.0.1/addImageQuery-bindings.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PRIORITIZR WORKSHOP MANUAL</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome!</a></li>
+<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introduction.html"><a href="introduction.html#overview"><i class="fa fa-check"></i><b>2.1</b> Overview</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction.html"><a href="introduction.html#setup"><i class="fa fa-check"></i><b>2.2</b> Setting up your computer</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="introduction.html"><a href="introduction.html#r"><i class="fa fa-check"></i><b>2.2.1</b> R</a></li>
+<li class="chapter" data-level="2.2.2" data-path="introduction.html"><a href="introduction.html#rstudio"><i class="fa fa-check"></i><b>2.2.2</b> RStudio</a></li>
+<li class="chapter" data-level="2.2.3" data-path="introduction.html"><a href="introduction.html#r-packages"><i class="fa fa-check"></i><b>2.2.3</b> R packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="introduction.html"><a href="introduction.html#further-reading"><i class="fa fa-check"></i><b>2.3</b> Further reading</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>3</b> Data</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data.html"><a href="data.html#starting-out"><i class="fa fa-check"></i><b>3.1</b> Starting out</a></li>
+<li class="chapter" data-level="3.2" data-path="data.html"><a href="data.html#setting-up-the-r-session"><i class="fa fa-check"></i><b>3.2</b> Setting up the R session</a></li>
+<li class="chapter" data-level="3.3" data-path="data.html"><a href="data.html#data-import"><i class="fa fa-check"></i><b>3.3</b> Data import</a></li>
+<li class="chapter" data-level="3.4" data-path="data.html"><a href="data.html#planning-unit-data"><i class="fa fa-check"></i><b>3.4</b> Planning unit data</a></li>
+<li class="chapter" data-level="3.5" data-path="data.html"><a href="data.html#vegetation-data"><i class="fa fa-check"></i><b>3.5</b> Vegetation data</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="gap-analysis.html"><a href="gap-analysis.html"><i class="fa fa-check"></i><b>4</b> Gap analysis</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="gap-analysis.html"><a href="gap-analysis.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="gap-analysis.html"><a href="gap-analysis.html#feature-abundance"><i class="fa fa-check"></i><b>4.2</b> Feature abundance</a></li>
+<li class="chapter" data-level="4.3" data-path="gap-analysis.html"><a href="gap-analysis.html#feature-representation-by-protected-areas"><i class="fa fa-check"></i><b>4.3</b> Feature representation by protected areas</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="spatial-prioritizations.html"><a href="spatial-prioritizations.html"><i class="fa fa-check"></i><b>5</b> Spatial prioritizations</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="spatial-prioritizations.html"><a href="spatial-prioritizations.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="spatial-prioritizations.html"><a href="spatial-prioritizations.html#starting-out-simple"><i class="fa fa-check"></i><b>5.2</b> Starting out simple</a></li>
+<li class="chapter" data-level="5.3" data-path="spatial-prioritizations.html"><a href="spatial-prioritizations.html#adding-complexity"><i class="fa fa-check"></i><b>5.3</b> Adding complexity</a></li>
+<li class="chapter" data-level="5.4" data-path="spatial-prioritizations.html"><a href="spatial-prioritizations.html#penalizing-fragmentation"><i class="fa fa-check"></i><b>5.4</b> Penalizing fragmentation</a></li>
+<li class="chapter" data-level="5.5" data-path="spatial-prioritizations.html"><a href="spatial-prioritizations.html#budget-limited-prioritizations"><i class="fa fa-check"></i><b>5.5</b> Budget limited prioritizations</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="importance.html"><a href="importance.html"><i class="fa fa-check"></i><b>6</b> Importance</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="importance.html"><a href="importance.html#introduction-3"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="importance.html"><a href="importance.html#quantifying-irreplaceability"><i class="fa fa-check"></i><b>6.2</b> Quantifying irreplaceability</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i><b>7</b> Answers</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="answers.html"><a href="answers.html#data-1"><i class="fa fa-check"></i><b>7.1</b> Data</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="answers.html"><a href="answers.html#planning-unit-data-1"><i class="fa fa-check"></i><b>7.1.1</b> Planning unit data</a></li>
+<li class="chapter" data-level="7.1.2" data-path="answers.html"><a href="answers.html#vegetation-data-1"><i class="fa fa-check"></i><b>7.1.2</b> Vegetation data</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="answers.html"><a href="answers.html#gap-analysis-1"><i class="fa fa-check"></i><b>7.2</b> Gap analysis</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="answers.html"><a href="answers.html#feature-abundance-1"><i class="fa fa-check"></i><b>7.2.1</b> Feature abundance</a></li>
+<li class="chapter" data-level="7.2.2" data-path="answers.html"><a href="answers.html#feature-representation-by-protected-areas-1"><i class="fa fa-check"></i><b>7.2.2</b> Feature representation by protected areas</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="answers.html"><a href="answers.html#spatial-prioritizations-1"><i class="fa fa-check"></i><b>7.3</b> Spatial prioritizations</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="answers.html"><a href="answers.html#starting-out-simple-1"><i class="fa fa-check"></i><b>7.3.1</b> Starting out simple</a></li>
+<li class="chapter" data-level="7.3.2" data-path="answers.html"><a href="answers.html#adding-complexity-1"><i class="fa fa-check"></i><b>7.3.2</b> Adding complexity</a></li>
+<li class="chapter" data-level="7.3.3" data-path="answers.html"><a href="answers.html#penalizing-fragmentation-1"><i class="fa fa-check"></i><b>7.3.3</b> Penalizing fragmentation</a></li>
+<li class="chapter" data-level="7.3.4" data-path="answers.html"><a href="answers.html#budget-limited-prioritizations-1"><i class="fa fa-check"></i><b>7.3.4</b> Budget limited prioritizations</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="answers.html"><a href="answers.html#importance-1"><i class="fa fa-check"></i><b>7.4</b> Importance</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="answers.html"><a href="answers.html#quantifying-irreplaceability-1"><i class="fa fa-check"></i><b>7.4.1</b> Quantifying irreplaceability</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="acknowledgements.html"><a href="acknowledgements.html"><i class="fa fa-check"></i><b>8</b> Acknowledgements</a></li>
+<li class="chapter" data-level="9" data-path="session-information.html"><a href="session-information.html"><i class="fa fa-check"></i><b>9</b> Session information</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PRIORITIZR WORKSHOP MANUAL</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="gap-analysis" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Gap analysis<a href="gap-analysis.html#gap-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introduction-1" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Introduction<a href="gap-analysis.html#introduction-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Before we begin to prioritize areas for protected area establishment, we should first understand how well existing protected areas are conserving our biodiversity features (i.e., native vegetation classes in Tasmania, Australia). This step is critical: we cannot develop plans to improve conservation of biodiversity if we don’t understand how well existing policies are currently conserving biodiversity! To achieve this, we can perform a “gap analysis”. A gap analysis involves calculating how well each of our biodiversity features (i.e., vegetation classes in this exercise) are represented (covered) by protected areas. Next, we compare current representation by protected areas of each feature (e.g., 5% of their spatial distribution covered by protected areas) to a target threshold (e.g., 20% of their spatial distribution covered by protected areas). This target threshold denotes the minimum amount (e.g., minimum proportion of spatial distribution) that we need of each feature to be represented in the protected area system. Ideally, targets should be based on an estimate of how much area or habitat is needed for ecosystem function or species persistence <span class="citation">(<a href="#ref-r7" role="doc-biblioref">Taylor <em>et al.</em> 2017</a>)</span>. In practice, targets are generally set using simple rules of thumb (e.g., 10% or 20%), policy <span class="citation">(<a href="#ref-r6" role="doc-biblioref">Friedrichs <em>et al.</em> 2018</a>)</span>, or species’ geographic range size <span class="citation">(<a href="#ref-r1" role="doc-biblioref">Butchart <em>et al.</em> 2015</a>; <a href="#ref-r2" role="doc-biblioref">Rodrigues <em>et al.</em> 2004</a>; <a href="#ref-r8" role="doc-biblioref">Jung <em>et al.</em> 2021</a>)</span>.</p>
+</div>
+<div id="feature-abundance" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Feature abundance<a href="gap-analysis.html#feature-abundance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now we will perform some preliminary calculations to explore the data. First, we will calculate how much of each vegetation feature occurs inside each planning unit (i.e., the abundance of the features). To achieve this, we will use the <code>problem</code> function to create an empty conservation planning problem that only contains the planning unit and biodiversity data. We will then use the <code>feature_abundances</code> function to calculate the total amount of each feature in each planning unit.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="gap-analysis.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create prioritizr problem with only the data</span></span>
+<span id="cb49-2"><a href="gap-analysis.html#cb49-2" aria-hidden="true" tabindex="-1"></a>p0 <span class="ot">&lt;-</span> <span class="fu">problem</span>(pu_data, veg_data, <span class="at">cost_column =</span> <span class="st">&quot;cost&quot;</span>)</span>
+<span id="cb49-3"><a href="gap-analysis.html#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-4"><a href="gap-analysis.html#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print empty problem,</span></span>
+<span id="cb49-5"><a href="gap-analysis.html#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="do">## we can see that only the cost and feature data are defined</span></span>
+<span id="cb49-6"><a href="gap-analysis.html#cb49-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p0)</span></code></pre></div>
+<pre><code>## A conservation problem (&lt;ConservationProblem&gt;)
+## ├•data
+## │├•features:    &quot;Banksia woodlands&quot; , … (33 total)
+## │└•planning units:
+## │ ├•data:       &lt;sftbl_dftbldata.frame&gt; (1130 total)
+## │ ├•costs:      continuous values (between 0.1925 and 61.9273)
+## │ ├•extent:     298809.5764, 5167774.5993, 613818.7743, 5502543.7119 (xmin, ymin, xmax, ymax)
+## │ └•CRS:        WGS 84 / UTM zone 55S (projected)
+## ├•formulation
+## │├•objective:   none specified
+## │├•penalties:   none specified
+## │├•targets:     none specified
+## │├•constraints: none specified
+## │└•decisions:   binary decision
+## └•optimization
+##  ├•portfolio:   shuffle portfolio (`number_solutions` = 1, …)
+##  └•solver:      highs solver (`gap` = 0.1, `time_limit` = 2147483647, …)
+## # ℹ Use `summary(...)` to see complete formulation.</code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="gap-analysis.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate amount of each feature in each planning unit</span></span>
+<span id="cb51-2"><a href="gap-analysis.html#cb51-2" aria-hidden="true" tabindex="-1"></a>abundance_data <span class="ot">&lt;-</span> <span class="fu">feature_abundances</span>(p0)</span>
+<span id="cb51-3"><a href="gap-analysis.html#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-4"><a href="gap-analysis.html#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print abundance data</span></span>
+<span id="cb51-5"><a href="gap-analysis.html#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(abundance_data)</span></code></pre></div>
+<pre><code>## # A tibble: 33 × 3
+##    feature                                 absolute_abundance relative_abundance
+##    &lt;chr&gt;                                                &lt;dbl&gt;              &lt;dbl&gt;
+##  1 Banksia woodlands                                     2.00                  1
+##  2 Boulders/rock with algae, lichen or sc…             140.                    1
+##  3 Callitris forests and woodlands                       6.00                  1
+##  4 Cool temperate rainforest                          7257.                    1
+##  5 Eucalyptus (+/- tall) open forest with…            5699.                    1
+##  6 Eucalyptus open forests with a shrubby…            9180.                    1
+##  7 Eucalyptus open woodlands with shrubby…              38.0                   1
+##  8 Eucalyptus tall open forest with a fin…            1908.                    1
+##  9 Eucalyptus tall open forests and open …             388.                    1
+## 10 Eucalyptus woodlands with a shrubby un…            6145.                    1
+## 11 Eucalyptus woodlands with a tussock gr…            1050.                    1
+## 12 Eucalyptus woodlands with ferns, herbs…            1933.                    1
+## 13 Freshwater, dams, lakes, lagoons or aq…            1883.                    1
+## 14 Heathlands                                         2687.                    1
+## 15 Leptospermum forests and woodlands                  717.                    1
+## 16 Low closed forest or tall closed shrub…            3397.                    1
+## 17 Mallee with a tussock grass understorey               1                     1
+## 18 Melaleuca open forests and woodlands                144.                    1
+## 19 Melaleuca shrublands and open shrublan…              23.9                   1
+## 20 Mixed chenopod, samphire +/- forbs                   63.3                   1
+## 21 Naturally bare, sand, rock, claypan, m…             115.                    1
+## 22 Other Acacia tall open shrublands and …              23.0                   1
+## 23 Other forests and woodlands                         235.                    1
+## 24 Other open woodlands                                167.                    1
+## 25 Other shrublands                                    234.                    1
+## 26 Other tussock grasslands                             23.2                   1
+## 27 Regrowth or modified forests and woodl…             568.                    1
+## 28 Saline or brackish sedgelands or grass…              24.1                   1
+## 29 Salt lakes and lagoons                               11.0                   1
+## 30 Sedgelands, rushs or reeds                         5047.                    1
+## 31 Temperate tussock grasslands                        781.                    1
+## 32 Unclassified native vegetation                      118.                    1
+## 33 Wet tussock grassland with herbs, sedg…             463.                    1</code></pre>
+<p>The <code>abundance_data</code> object contains three columns. The <code>feature</code> column contains the name of each feature (derived from <code>names(veg_data</code>)), the <code>absolute_abundance</code> column contains the total amount of each feature in all the planning units, and the <code>relative_abundance</code> column contains the total amount of each feature in the planning units expressed as a proportion of the total amount in the underlying raster data. Since all the raster cells containing vegetation overlap with the planning units, all of the values in the <code>relative_abundance</code> column are equal to one (meaning 100%). Now let’s add a new column with the feature abundances expressed in area units (i.e., km<sup>2</sup>).</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="gap-analysis.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add new column with feature abundances in km^2</span></span>
+<span id="cb53-2"><a href="gap-analysis.html#cb53-2" aria-hidden="true" tabindex="-1"></a>abundance_data<span class="sc">$</span>absolute_abundance_km2 <span class="ot">&lt;-</span></span>
+<span id="cb53-3"><a href="gap-analysis.html#cb53-3" aria-hidden="true" tabindex="-1"></a>  (abundance_data<span class="sc">$</span>absolute_abundance <span class="sc">*</span> <span class="fu">prod</span>(<span class="fu">res</span>(veg_data))) <span class="sc">%&gt;%</span></span>
+<span id="cb53-4"><a href="gap-analysis.html#cb53-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_units</span>(m<span class="sc">^</span><span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb53-5"><a href="gap-analysis.html#cb53-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_units</span>(km<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb53-6"><a href="gap-analysis.html#cb53-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-7"><a href="gap-analysis.html#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="co"># print abundance data</span></span>
+<span id="cb53-8"><a href="gap-analysis.html#cb53-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(abundance_data)</span></code></pre></div>
+<pre><code>## # A tibble: 33 × 4
+##    feature          absolute_abundance relative_abundance absolute_abundance_km2
+##    &lt;chr&gt;                         &lt;dbl&gt;              &lt;dbl&gt;                 [km^2]
+##  1 Banksia woodlan…               2.00                  1                   2.00
+##  2 Boulders/rock w…             140.                    1                 140.  
+##  3 Callitris fores…               6.00                  1                   6.00
+##  4 Cool temperate …            7257.                    1                7257.  
+##  5 Eucalyptus (+/-…            5699.                    1                5699.  
+##  6 Eucalyptus open…            9180.                    1                9180.  
+##  7 Eucalyptus open…              38.0                   1                  38.0 
+##  8 Eucalyptus tall…            1908.                    1                1908.  
+##  9 Eucalyptus tall…             388.                    1                 388.  
+## 10 Eucalyptus wood…            6145.                    1                6145.  
+## 11 Eucalyptus wood…            1050.                    1                1050.  
+## 12 Eucalyptus wood…            1933.                    1                1933.  
+## 13 Freshwater, dam…            1883.                    1                1883.  
+## 14 Heathlands                  2687.                    1                2687.  
+## 15 Leptospermum fo…             717.                    1                 717.  
+## 16 Low closed fore…            3397.                    1                3397.  
+## 17 Mallee with a t…               1                     1                   1   
+## 18 Melaleuca open …             144.                    1                 144.  
+## 19 Melaleuca shrub…              23.9                   1                  23.9 
+## 20 Mixed chenopod,…              63.3                   1                  63.3 
+## 21 Naturally bare,…             115.                    1                 115.  
+## 22 Other Acacia ta…              23.0                   1                  23.0 
+## 23 Other forests a…             235.                    1                 235.  
+## 24 Other open wood…             167.                    1                 167.  
+## 25 Other shrublands             234.                    1                 234.  
+## 26 Other tussock g…              23.2                   1                  23.2 
+## 27 Regrowth or mod…             568.                    1                 568.  
+## 28 Saline or brack…              24.1                   1                  24.1 
+## 29 Salt lakes and …              11.0                   1                  11.0 
+## 30 Sedgelands, rus…            5047.                    1                5047.  
+## 31 Temperate tusso…             781.                    1                 781.  
+## 32 Unclassified na…             118.                    1                 118.  
+## 33 Wet tussock gra…             463.                    1                 463.</code></pre>
+<p>Now let’s explore the abundance data.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="gap-analysis.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the average abundance of the features</span></span>
+<span id="cb55-2"><a href="gap-analysis.html#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(abundance_data<span class="sc">$</span>absolute_abundance_km2)</span></code></pre></div>
+<pre><code>## 1529.413 [km^2]</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="gap-analysis.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot histogram of the features&#39; abundances</span></span>
+<span id="cb57-2"><a href="gap-analysis.html#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(abundance_data<span class="sc">$</span>absolute_abundance_km2, <span class="at">xlab =</span> <span class="st">&quot;Absolute abundance&quot;</span>)</span></code></pre></div>
+<p><img src="prioritizr-workshop-manual_files/figure-html/vis-abundance-data-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="gap-analysis.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># find the abundance of the feature with the largest abundance</span></span>
+<span id="cb58-2"><a href="gap-analysis.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(abundance_data<span class="sc">$</span>absolute_abundance_km2)</span></code></pre></div>
+<pre><code>## 9179.876 [km^2]</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="gap-analysis.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># find the name of the feature with the largest abundance</span></span>
+<span id="cb60-2"><a href="gap-analysis.html#cb60-2" aria-hidden="true" tabindex="-1"></a>abundance_data<span class="sc">$</span>feature[<span class="fu">which.max</span>(abundance_data<span class="sc">$</span>absolute_abundance_km2)]</span></code></pre></div>
+<pre><code>## [1] &quot;Eucalyptus open forests with a shrubby understorey&quot;</code></pre>
+<p>Now, try to answer the following questions.</p>
+
+<div class="rmdquestion">
+<ol style="list-style-type: decimal">
+<li>What is the median abundance of the features (hint: <code>median</code>)?</li>
+<li>What is the abundance of the feature with smallest abundance?</li>
+<li>What is the name of the feature with smallest abundance?</li>
+<li>What is the total abundance of all features in the planning units summed together?</li>
+<li>How many features have a total abundance greater than 100 km^2 (hint: <code>sum(abundance_values &gt; set_units(threshold_value, km^2)</code>)?</li>
+</ol>
+</div>
+</div>
+<div id="feature-representation-by-protected-areas" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Feature representation by protected areas<a href="gap-analysis.html#feature-representation-by-protected-areas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>After calculating the total amount of each feature in the planning units (i.e., the features’ abundances), we will now calculate the amount of each feature in the planning units that are covered by protected areas (i.e., feature representation by protected areas). We can complete this task using the <code>feature_representation</code> function. This function requires (i) a conservation problem object with the planning unit and biodiversity data and also (ii) an object representing a solution to the problem (i.e an object in the same format as the planning unit data with values indicating if the planning units are selected or not).</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="gap-analysis.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create column in planning unit data with binary values (zeros and ones)</span></span>
+<span id="cb62-2"><a href="gap-analysis.html#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="co"># indicating if a planning unit is covered by protected areas or not</span></span>
+<span id="cb62-3"><a href="gap-analysis.html#cb62-3" aria-hidden="true" tabindex="-1"></a>pu_data<span class="sc">$</span>pa_status <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(pu_data<span class="sc">$</span>locked_in)</span>
+<span id="cb62-4"><a href="gap-analysis.html#cb62-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-5"><a href="gap-analysis.html#cb62-5" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate feature representation by protected areas</span></span>
+<span id="cb62-6"><a href="gap-analysis.html#cb62-6" aria-hidden="true" tabindex="-1"></a>repr_data <span class="ot">&lt;-</span> <span class="fu">eval_feature_representation_summary</span>(p0, pu_data[, <span class="st">&quot;pa_status&quot;</span>])</span>
+<span id="cb62-7"><a href="gap-analysis.html#cb62-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-8"><a href="gap-analysis.html#cb62-8" aria-hidden="true" tabindex="-1"></a><span class="co"># print feature representation data</span></span>
+<span id="cb62-9"><a href="gap-analysis.html#cb62-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(repr_data)</span></code></pre></div>
+<pre><code>## # A tibble: 33 × 5
+##    summary feature                      total_amount absolute_held relative_held
+##    &lt;chr&gt;   &lt;chr&gt;                               &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;
+##  1 overall Banksia woodlands                    2.00        0.367        0.184  
+##  2 overall Boulders/rock with algae, l…       140.         65.5          0.466  
+##  3 overall Callitris forests and woodl…         6.00        0.487        0.0812 
+##  4 overall Cool temperate rainforest         7257.       2992.           0.412  
+##  5 overall Eucalyptus (+/- tall) open …      5699.       1398.           0.245  
+##  6 overall Eucalyptus open forests wit…      9180.       1030.           0.112  
+##  7 overall Eucalyptus open woodlands w…        38.0        15.1          0.396  
+##  8 overall Eucalyptus tall open forest…      1908.        189.           0.0992 
+##  9 overall Eucalyptus tall open forest…       388.         27.4          0.0705 
+## 10 overall Eucalyptus woodlands with a…      6145.       1449.           0.236  
+## 11 overall Eucalyptus woodlands with a…      1050.         11.3          0.0107 
+## 12 overall Eucalyptus woodlands with f…      1933.        497.           0.257  
+## 13 overall Freshwater, dams, lakes, la…      1883.        585.           0.311  
+## 14 overall Heathlands                        2687.       1567.           0.583  
+## 15 overall Leptospermum forests and wo…       717.        454.           0.633  
+## 16 overall Low closed forest or tall c…      3397.       1141.           0.336  
+## 17 overall Mallee with a tussock grass…         1           0            0      
+## 18 overall Melaleuca open forests and …       144.         27.4          0.191  
+## 19 overall Melaleuca shrublands and op…        23.9        22.2          0.930  
+## 20 overall Mixed chenopod, samphire +/…        63.3        30.0          0.473  
+## 21 overall Naturally bare, sand, rock,…       115.          3.63         0.0316 
+## 22 overall Other Acacia tall open shru…        23.0         4.00         0.174  
+## 23 overall Other forests and woodlands        235.          0.271        0.00115
+## 24 overall Other open woodlands               167.         97.4          0.583  
+## 25 overall Other shrublands                   234.         92.6          0.395  
+## 26 overall Other tussock grasslands            23.2         0.0677       0.00292
+## 27 overall Regrowth or modified forest…       568.          4.92         0.00866
+## 28 overall Saline or brackish sedgelan…        24.1         0            0      
+## 29 overall Salt lakes and lagoons              11.0         0            0      
+## 30 overall Sedgelands, rushs or reeds        5047.       2505.           0.496  
+## 31 overall Temperate tussock grasslands       781.          6            0.00768
+## 32 overall Unclassified native vegetat…       118.          4.93         0.0419 
+## 33 overall Wet tussock grassland with …       463.         43.0          0.0928</code></pre>
+<p>Similar to the abundance data before, the <code>repr_data</code> object contains three columns. The <code>feature</code> column contains the name of each feature, the <code>absolute_held</code> column shows the total amount of each feature held in the solution (i.e., the planning units covered by protected areas), and the <code>relative_held</code> column shows the proportion of each feature held in the solution (i.e., the proportion of each feature’s spatial distribution held in protected areas). Since the <code>absolute_held</code> values correspond to the number of grid cells in the <code>veg_data</code> object with overlap with protected areas, let’s convert them to area units (i.e., km<sup>2</sup>) so we can report them.</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="gap-analysis.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add new column with the areas represented in km^2</span></span>
+<span id="cb64-2"><a href="gap-analysis.html#cb64-2" aria-hidden="true" tabindex="-1"></a>repr_data<span class="sc">$</span>absolute_held_km2 <span class="ot">&lt;-</span></span>
+<span id="cb64-3"><a href="gap-analysis.html#cb64-3" aria-hidden="true" tabindex="-1"></a>  (repr_data<span class="sc">$</span>absolute_held <span class="sc">*</span> <span class="fu">prod</span>(<span class="fu">res</span>(veg_data))) <span class="sc">%&gt;%</span></span>
+<span id="cb64-4"><a href="gap-analysis.html#cb64-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_units</span>(m<span class="sc">^</span><span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb64-5"><a href="gap-analysis.html#cb64-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_units</span>(km<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb64-6"><a href="gap-analysis.html#cb64-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-7"><a href="gap-analysis.html#cb64-7" aria-hidden="true" tabindex="-1"></a><span class="co"># print representation data</span></span>
+<span id="cb64-8"><a href="gap-analysis.html#cb64-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(repr_data)</span></code></pre></div>
+<pre><code>## # A tibble: 33 × 6
+##    summary feature    total_amount absolute_held relative_held absolute_held_km2
+##    &lt;chr&gt;   &lt;chr&gt;             &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;            [km^2]
+##  1 overall Banksia w…         2.00        0.367        0.184              0.367 
+##  2 overall Boulders/…       140.         65.5          0.466             65.5   
+##  3 overall Callitris…         6.00        0.487        0.0812             0.487 
+##  4 overall Cool temp…      7257.       2992.           0.412           2992.    
+##  5 overall Eucalyptu…      5699.       1398.           0.245           1398.    
+##  6 overall Eucalyptu…      9180.       1030.           0.112           1030.    
+##  7 overall Eucalyptu…        38.0        15.1          0.396             15.1   
+##  8 overall Eucalyptu…      1908.        189.           0.0992           189.    
+##  9 overall Eucalyptu…       388.         27.4          0.0705            27.4   
+## 10 overall Eucalyptu…      6145.       1449.           0.236           1449.    
+## 11 overall Eucalyptu…      1050.         11.3          0.0107            11.3   
+## 12 overall Eucalyptu…      1933.        497.           0.257            497.    
+## 13 overall Freshwate…      1883.        585.           0.311            585.    
+## 14 overall Heathlands      2687.       1567.           0.583           1567.    
+## 15 overall Leptosper…       717.        454.           0.633            454.    
+## 16 overall Low close…      3397.       1141.           0.336           1141.    
+## 17 overall Mallee wi…         1           0            0                  0     
+## 18 overall Melaleuca…       144.         27.4          0.191             27.4   
+## 19 overall Melaleuca…        23.9        22.2          0.930             22.2   
+## 20 overall Mixed che…        63.3        30.0          0.473             30.0   
+## 21 overall Naturally…       115.          3.63         0.0316             3.63  
+## 22 overall Other Aca…        23.0         4.00         0.174              4.00  
+## 23 overall Other for…       235.          0.271        0.00115            0.271 
+## 24 overall Other ope…       167.         97.4          0.583             97.4   
+## 25 overall Other shr…       234.         92.6          0.395             92.6   
+## 26 overall Other tus…        23.2         0.0677       0.00292            0.0677
+## 27 overall Regrowth …       568.          4.92         0.00866            4.92  
+## 28 overall Saline or…        24.1         0            0                  0     
+## 29 overall Salt lake…        11.0         0            0                  0     
+## 30 overall Sedgeland…      5047.       2505.           0.496           2505.    
+## 31 overall Temperate…       781.          6            0.00768            6     
+## 32 overall Unclassif…       118.          4.93         0.0419             4.93  
+## 33 overall Wet tusso…       463.         43.0          0.0928            43.0</code></pre>
+<p>Now let’s investigate how well the species are represented.</p>
+
+<div class="rmdquestion">
+<ol style="list-style-type: decimal">
+<li>What is the average proportion of the features held in protected areas (hint: <code>mean(x, na.rm = TRUE)</code>?</li>
+<li>What is the average amount of land in km<sup>2</sup> that features are represented by protected areas?</li>
+<li>What is the name of the feature with the greatest proportionate coverage by protected areas?</li>
+<li>What is the name of the feature with the greatest area coverage by protected areas?</li>
+<li>Do questions two and three have the same answer? Why could this be?</li>
+<li>Is there a relationship between the total abundance of a feature and how well it is represented by protected areas (hint: <code>plot(abundance_data$absolute_abundance, repr_data$relative_held)</code>)?</li>
+<li>Are any features entirely missing from protected areas (hint: <code>sum(x == 0)</code>)?</li>
+<li>If we set a target of 10% coverage by protected areas, how many features fail to meet this target (hint: <code>sum(relative_held &gt;= target, na.rm = TRUE)</code>)?</li>
+<li>If we set a target of 30% coverage by protected areas, how many features fail to meet this target?</li>
+</ol>
+</div>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-r1" class="csl-entry">
+Butchart, S.H.M., Clarke, M., Smith, R.J., Sykes, R.E., Scharlemann, J.P.W., Harfoot, M., Buchanan, G.M., Angulo, A., Balmford, A., Bertzky, B., Brooks, T.M., Carpenter, K.E., Comeros-Raynal, M.T., Cornell, J., Ficetola, G.F., Fishpool, L.D.C., Fuller, R.A., Geldmann, J., Harwell, H., Hilton-Taylor, C., Hoffmann, M., Joolia, A., Joppa, L., Kingston, N., May, I., Milam, A., Polidoro, B., Ralph, G., Richman, N., Rondinini, C., Segan, D.B., Skolnik, B., Spalding, M.D., Stuart, S.N., Symes, A., Taylor, J., Visconti, P., Watson, J.E.M., Wood, L. &amp; Burgess, N.D. (2015). Shortfalls and solutions for meeting national and global conservation area targets. <em>Conservation Letters</em>, <em>8</em>, 329–337.
+</div>
+<div id="ref-r6" class="csl-entry">
+Friedrichs, M., Hermoso, V., Bremerich, V. &amp; Langhans, S.D. (2018). Evaluation of habitat protection under the european natura 2000 conservation network <span></span> the example for germany (B.-S. Yue, Ed.). <em><span>PLOS</span> <span>ONE</span></em>, <em>13</em>, e0208264.
+</div>
+<div id="ref-r8" class="csl-entry">
+Jung, M., Arnell, A., Lamo, X. de, Garcı́a-Rangel, S., Lewis, M., Mark, J., Merow, C., Miles, L., Ondo, I., Pironon, S., Ravilious, C., Rivers, M., Schepaschenko, D., Tallowin, O., Soesbergen, A. van, Govaerts, R., Boyle, B.L., Enquist, B.J., Feng, X., Gallagher, R., Maitner, B., Meiri, S., Mulligan, M., Ofer, G., Roll, U., Hanson, J.O., Jetz, W., Marco, M.D., McGowan, J., Rinnan, D.S., Sachs, J.D., Lesiv, M., Adams, V.M., Andrew, S.C., Burger, J.R., Hannah, L., Marquet, P.A., McCarthy, J.K., Morueta-Holme, N., Newman, E.A., Park, D.S., Roehrdanz, P.R., Svenning, J.-C., Violle, C., Wieringa, J.J., Wynne, G., Fritz, S., Strassburg, B.B.N., Obersteiner, M., Kapos, V., Burgess, N., Schmidt-Traub, G. &amp; Visconti, P. (2021). Areas of global importance for conserving terrestrial biodiversity, carbon and water. <em>Nature Ecology and Evolution</em>, <em>5</em>, 1499–1509.
+</div>
+<div id="ref-r2" class="csl-entry">
+Rodrigues, A.S.L., Akçakaya, H.R., Andelman, S.J., Bakarr, M.I., Boitani, L., Brooks, T.M., Chanson, J.S., Fishpool, L.D.C., Da Fonseca, G.A.B., Gaston, K.J., Hoffmann, M., Marquet, P.A., Pilgrim, J.D., Pressey, R.L., Schipper, J., Sechrest, W., Stuart, S.N., Underhill, L.G., Waller, R.W., Watts, M.E.J. &amp; Yan, X. (2004). Global gap analysis: Priority regions for expanding the global protected-area network. <em>BioScience</em>, <em>54</em>, 1092–1100.
+</div>
+<div id="ref-r7" class="csl-entry">
+Taylor, C., Cadenhead, N., Lindenmayer, D.B. &amp; Wintle, B.A. (2017). Improving the design of a conservation reserve for a critically endangered species (D. Russo, Ed.). <em><span>PLOS</span> <span>ONE</span></em>, <em>12</em>, e0169629.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="spatial-prioritizations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/prioritizr/workshop/edit/master/03-gap-analysis.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["prioritizr-workshop-manual.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

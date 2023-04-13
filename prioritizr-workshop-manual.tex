@@ -1,0 +1,2350 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  12pt,
+]{book}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[left=2.54cm, right=2.54cm, top=2.54cm, bottom=2.54cm]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% load packages
+\usepackage{caption}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{longtable}
+
+% default bookdown preamble
+\usepackage{booktabs}
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+
+% remove figure labelling
+\captionsetup[figure]{labelformat=empty,textfont=it}
+
+% make figures static
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+  \expandafter\origfigure\expandafter[H]
+} {
+  \endorigfigure
+}
+
+% text boxes
+\ifxetex
+  \usepackage{letltxmacro}
+  \setlength{\XeTeXLinkMargin}{1pt}
+  \LetLtxMacro\SavedIncludeGraphics\includegraphics
+  \def\includegraphics#1#{% #1 catches optional stuff (star/opt. arg.)
+    \IncludeGraphicsAux{#1}%
+  }%
+  \newcommand*{\IncludeGraphicsAux}[2]{%
+    \XeTeXLinkBox{%
+      \SavedIncludeGraphics#1{#2}%
+    }%
+  }%
+\fi
+
+\makeatletter
+\newenvironment{kframe}{%
+\medskip{}
+\setlength{\fboxsep}{.8em}
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\makeatletter
+\@ifundefined{Shaded}{
+}{\renewenvironment{Shaded}{\begin{kframe}}{\end{kframe}}}
+\makeatother
+
+\newenvironment{rmdblock}[1]
+  {
+  \begin{itemize}
+  \renewcommand{\labelitemi}{
+    \raisebox{-.7\height}[0pt][0pt]{
+      {\setkeys{Gin}{width=3em,keepaspectratio}\includegraphics{images/#1}}
+    }
+  }
+  \setlength{\fboxsep}{1em}
+  \begin{kframe}
+  \item
+  }
+  {
+  \end{kframe}
+  \end{itemize}
+  }
+\newenvironment{rmdnote}
+  {\begin{rmdblock}{note}}
+  {\end{rmdblock}}
+\newenvironment{rmdcaution}
+  {\begin{rmdblock}{caution}}
+  {\end{rmdblock}}
+\newenvironment{rmdquestion}
+  {\begin{rmdblock}{question}}
+  {\end{rmdblock}}
+\newenvironment{rmdanswer}
+  {\begin{rmdblock}{answer}}
+  {\end{rmdblock}}
+\newenvironment{rmdimportant}
+  {\begin{rmdblock}{important}}
+  {\end{rmdblock}}
+\newenvironment{rmdtip}
+  {\begin{rmdblock}{tip}}
+  {\end{rmdblock}}
+\newenvironment{rmdwarning}
+  {\begin{rmdblock}{warning}}
+  {\end{rmdblock}}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{plainnat}
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={PRIORITIZR WORKSHOP MANUAL},
+  pdfauthor={Jeffrey Hanson and Richard Schuster},
+  colorlinks=true,
+  linkcolor={Maroon},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{PRIORITIZR WORKSHOP MANUAL}
+\author{Jeffrey Hanson and Richard Schuster}
+\date{2023-04-13}
+
+\begin{document}
+\maketitle
+
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{0}
+\tableofcontents
+}
+\hypertarget{welcome}{%
+\chapter{Welcome!}\label{welcome}}
+
+Here you will find the manual for the \href{https://prioritizr.github.io/workshop/}{prioritizr workshop}. \textbf{Before you arrive at the workshop, you should make sure that you have correctly \protect\hyperlink{setup}{set up your computer for the workshop} and you have \href{https://github.com/prioritizr/workshop/raw/main/data.zip}{downloaded the data from here}.} Additionally, you can download a copy of the workshop slides \href{https://github.com/prioritizr/workshop/raw/main/slides-day-1.pptx}{for first day (from here)} and the \href{https://github.com/prioritizr/workshop/raw/main/slides-day-2.pptx}{second day (from here)}.
+
+\hypertarget{introduction}{%
+\chapter{Introduction}\label{introduction}}
+
+\hypertarget{overview}{%
+\section{Overview}\label{overview}}
+
+The aim of this workshop is to help you get started with using the prioritizr R package for systematic conservation planning. It is not designed to give you a comprehensive overview and you will not become an expert after completing this workshop. Instead, we want to help you understand the core principles of conservation planning and guide you through some of the common tasks involved with generating prioritizations. In other words, we want to give you the knowledge base and confidence needed to start applying systematic conservation planning to your own work.
+
+You are not alone in this workshop. If you are having trouble, please put your hand up and one of the instructors will help you as soon as they can. You can also ask the people sitting next to you for help too. \textbf{Most importantly, the code needed to answer the questions in this workshop are almost always located in the same section as the question. So if you are stuck, try rereading the example code and see if you can modify it to answer the question.} Please note that the first thing an instructor will ask you will be ``what have you tried so far?''. We can't help you if you haven't tried anything.
+
+\hypertarget{setup}{%
+\section{Setting up your computer}\label{setup}}
+
+You will need to have both \href{https://www.r-project.org}{R} and \href{https://www.rstudio.com/}{RStudio} installed on your computer to complete this workshop. Although it is not imperative that you have the latest version of RStudio installed, \textbf{you will need the latest version of R installed (i.e., version 4.2.3)}. Please note that you might need administrative permissions to install these programs. After installing them, you will also need to install some R packages too.
+
+\clearpage
+
+\hypertarget{r}{%
+\subsection{R}\label{r}}
+
+The \href{https://www.r-project.org}{R statistical computing environment} can be downloaded from the Comprehensive R Archive Network (CRAN). Specifically, you can download the latest version of R (version 4.2.3) from here: \url{https://cloud.r-project.org}. Please note that you will need to download the correct file for your operating system (i.e., Linux, macOS, Windows).
+
+\hypertarget{rstudio}{%
+\subsection{RStudio}\label{rstudio}}
+
+\href{https://www.rstudio.com}{RStudio} is an integrated development environment (IDE). In other words, it is a program that is designed to make your R programming experience more enjoyable. During this workshop, you will interact with R through RStudio---meaning that you will open RStudio to code in R. You can download the latest version of RStudio here: \url{http://www.rstudio.com/download}. When you start RStudio, you will see two main parts of the interface: the \emph{Console} and the \emph{Output} (see below). You can type R code into the \emph{Console} and press the enter key to run code. When you create maps or plots, they will appear in the \emph{Output}.
+
+\begin{center}\includegraphics[width=1\linewidth]{images/rstudio-console} \end{center}
+
+\hypertarget{r-packages}{%
+\subsection{R packages}\label{r-packages}}
+
+An R package is a collection of R code and documentation that can be installed to enhance the standard R environment with additional functionality. Currently, there are over fifteen thousand R packages available on CRAN. Each of these R packages are developed to perform a specific task, such as \href{https://cran.r-project.org/web/packages/readxl/index.html}{reading Excel spreadsheets}, \href{https://cran.r-project.org/web/packages/MODIStsp/index.html}{downloading satellite imagery data}, \href{https://cran.r-project.org/web/packages/wdpar/index.html}{downloading and cleaning protected area data}, or \href{https://cran.r-project.org/web/packages/ENMeval/index.html}{fitting environmental niche models}. In fact, R has such a diverse ecosystem of R packages, that the question is almost always not ``can I use R to \ldots?'' but ``what R package can I use to \ldots?''. During this workshop, we will use several R packages. To install these R packages, please enter the code below in the \emph{Console} part of the RStudio interface and press enter. Note that you will require an Internet connection and the installation process may take some time to complete.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"remotes"}\NormalTok{)}
+\NormalTok{remotes}\SpecialCharTok{::}\FunctionTok{install\_cran}\NormalTok{(}
+  \FunctionTok{c}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{, }\StringTok{"mapview"}\NormalTok{, }\StringTok{"highs"}\NormalTok{, }\StringTok{"prioritizr"}\NormalTok{),}
+  \AttributeTok{upgrade =} \StringTok{"always"}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{further-reading}{%
+\section{Further reading}\label{further-reading}}
+
+There is a wealth of resources available for learning how to use R. Although not required for this workshop, I would highly recommend that you read \href{https://r4ds.had.co.nz/}{\emph{R for Data Science} by Garrett Grolemund and Hadley Wickham}. \textbf{This veritable trove of R goodness is freely available online.} If you spend a week going through this book then you will save months debugging and rerunning incorrect code. I would urge any and all ecologists, especially those working on Masters or PhD degrees, to read this book. I even bought this book as a Christmas present for my sister---and, yes, she was happy to receive it! For intermediate users looking to skill-up, I would recommend the \href{http://shop.oreilly.com/product/9781593273842.do}{\emph{The Art of R Programming: A Tour of Statistical Software Design} by Norman Matloff} and \href{https://adv-r.hadley.nz/}{\emph{Advanced R} by Hadley Wickham}. Finally, if you wish to learn more about using R as a geospatial information system (GIS), I would recommend \href{https://geocompr.robinlovelace.net/}{\emph{Geocomputation with R} by Robin Lovelace, Jakub Nowosad, and Jannes Muenchow} which is also freely available online. I also recommend \href{https://www.springer.com/gp/book/9781461476177}{\emph{Applied Spatial Data Analysis} by Roger S. Bivand, Edzer Pebesma, and Virgilio Gómez-Rubio} too.
+
+\hypertarget{data}{%
+\chapter{Data}\label{data}}
+
+\hypertarget{starting-out}{%
+\section{Starting out}\label{starting-out}}
+
+We will start by opening RStudio. Ideally, you will have already installed both R and Rstudio before the workshop. If you have not done this already, then please see the \protect\hyperlink{setup}{Setting up your computer} section. \textbf{During this workshop, please do not copy and paste code from the workshop manual into RStudio. Instead, please write it out yourself in an R script.} When programming, you will spend a lot of time fixing coding mistakes---that is, debugging your code---so it is best to get used to making mistakes now when you have people here to help you. You can create a new R script by clicking on \emph{File} in the RStudio menu bar, then \emph{New File}, and then \emph{R Script}.
+
+\begin{center}\includegraphics[width=0.65\linewidth]{images/rstudio-new-script} \end{center}
+
+\clearpage
+
+After creating a new script, you will notice that a new \emph{Source} panel has appeared. In the \emph{Source} panel, you can type and edit code before you run it. You can run code in the \emph{Source} panel by placing the cursor (i.e., the blinking line) on the desired line of code and pressing \texttt{Control\ +\ Enter} on your keyboard (or \texttt{CMD\ +\ Enter} if you are using an Apple computer). You can save the code in the \emph{Source} panel by pressing \texttt{Control\ +\ s} on your keyboard (or \texttt{CMD\ +\ s} if you are using an Apple computer).
+
+\begin{center}\includegraphics[width=0.65\linewidth]{images/rstudio-source} \end{center}
+
+You can also make notes and write your answers to the workshop questions inside the R script. When writing notes and answers, add a \texttt{\#} symbol so that the text following the \texttt{\#} symbol is treated as a comment and not code. This means that you don't have to worry about highlighting specific parts of the script to avoid errors.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# this is a comment and R will ignore this text if you run it}
+\CommentTok{\# R will run the code below because it does not start with a \# symbol}
+\FunctionTok{print}\NormalTok{(}\StringTok{"this is not a comment"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "this is not a comment"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# you can also add comments to the same line of R code too}
+\FunctionTok{print}\NormalTok{(}\StringTok{"this is also not a comment"}\NormalTok{) }\CommentTok{\# but this is a comment}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "this is also not a comment"
+\end{verbatim}
+
+\textbf{Remember to save your script regularly to ensure that you don't lose anything in the event that RStudio crashes (e.g., using \texttt{Control\ +\ s} or \texttt{CMD\ +\ s})!}
+
+\hypertarget{setting-up-the-r-session}{%
+\section{Setting up the R session}\label{setting-up-the-r-session}}
+
+Now we will set up our R session for the workshop. Specifically, enter the following R code to attach the R packages used in this workshop.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# load packages}
+\FunctionTok{library}\NormalTok{(prioritizr) }\CommentTok{\# package for conservation planning}
+\FunctionTok{library}\NormalTok{(tidyverse)  }\CommentTok{\# package for data wrangling}
+\FunctionTok{library}\NormalTok{(terra)      }\CommentTok{\# package for working with raster data}
+\FunctionTok{library}\NormalTok{(sf)         }\CommentTok{\# package for working with vector data}
+\FunctionTok{library}\NormalTok{(highs)      }\CommentTok{\# package provides HiGHS solver}
+\FunctionTok{library}\NormalTok{(mapview)    }\CommentTok{\# package for creating interactive maps}
+\FunctionTok{library}\NormalTok{(units)      }\CommentTok{\# package for unit conversions}
+\FunctionTok{library}\NormalTok{(scales)     }\CommentTok{\# package for rescaling numbers}
+
+\CommentTok{\# setup printing for tables}
+\DocumentationTok{\#\# show all rows in tables}
+\FunctionTok{options}\NormalTok{(}\AttributeTok{pillar.print\_max =} \ConstantTok{Inf}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+You should have already downloaded the data for the prioritizr workshop. If you have not already done so, you can download it from here: \url{https://github.com/prioritizr/workshop/raw/master/data.zip}. After downloading the data, you can unzip the data into a new folder. Next, you will need to set the working directory to this new folder. To achieve this, click on the \emph{Session} button on the RStudio menu bar, then click \emph{Set Working Directory}, and then \emph{Choose Directory}.
+
+\begin{center}\includegraphics[width=0.65\linewidth]{images/rstudio-wd} \end{center}
+
+\clearpage
+
+Now navigate to the folder where you unzipped the data and select \emph{Open}. You can verify that you have correctly set the working directory using the following R code. You should see the output \texttt{TRUE} in the \emph{Console} panel.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{file.exists}\NormalTok{(}\StringTok{"data/pu.gpkg"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\hypertarget{data-import}{%
+\section{Data import}\label{data-import}}
+
+Now that we have downloaded the dataset, we will need to import it into our R session. Specifically, this data was obtained from the ``Introduction to Marxan'' course and the Australian Government's National Vegetation Information System. It contains vector-based planning unit data (\texttt{pu.gpkg}) and the raster-based data describing the spatial distributions of 33 vegetation classes (\texttt{vegetation.tif}) in Tasmania, Australia. Please note this dataset is only provided for teaching purposes and should not be used for any real-world conservation planning. We can import the data into our R session using the following code.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# import planning unit data}
+\DocumentationTok{\#\# note that read\_sf is from the sf package}
+\NormalTok{pu\_data }\OtherTok{\textless{}{-}} \FunctionTok{read\_sf}\NormalTok{(}\StringTok{"data/pu.gpkg"}\NormalTok{)}
+
+\CommentTok{\# import vegetation data}
+\DocumentationTok{\#\# note that rast() is from the terra package}
+\NormalTok{veg\_data }\OtherTok{\textless{}{-}} \FunctionTok{rast}\NormalTok{(}\StringTok{"data/vegetation.tif"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{planning-unit-data}{%
+\section{Planning unit data}\label{planning-unit-data}}
+
+The planning unit data contains spatial data describing the geometry for each planning unit and attribute data with information about each planning unit (e.g., cost values). Let's investigate the \texttt{pu\_data} object. The planning unit data contains 5 columns with the following information:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{id}: unique identifiers for each planning unit
+\item
+  \texttt{cost}: acquisition cost values for each planning unit (millions of Australian dollars).
+\item
+  \texttt{locked\_in}: logical values (i.e., \texttt{TRUE}/\texttt{FALSE}) indicating if planning units are covered by protected areas or not.
+\item
+  \texttt{locked\_out}: logical values (i.e., \texttt{TRUE}/\texttt{FALSE}) indicating if planning units cannot be managed as a protected area because they contain are too degraded.
+\item
+  \texttt{geom}: spatial geometries for the planning units.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# print the first six rows of the planning unit data}
+\FunctionTok{head}\NormalTok{(pu\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Simple feature collection with 6 features and 4 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: 303910.1 ymin: 5485840 xmax: 335610.4 ymax: 5502544
+## Projected CRS: WGS 84 / UTM zone 55S
+## # A tibble: 6 x 5
+##      id  cost locked_in locked_out                                          geom
+##   <int> <dbl> <lgl>     <lgl>                                 <MULTIPOLYGON [m]>
+## 1     1  60.2 FALSE     TRUE       (((328497 5497704, 326783.8 5500050, 326775.~
+## 2     2  19.9 FALSE     FALSE      (((307121.6 5490487, 305344.4 5492917, 30538~
+## 3     3  59.7 FALSE     TRUE       (((321726.1 5492382, 320111 5494593, 320127 ~
+## 4     4  32.4 FALSE     FALSE      (((304314.5 5494324, 304342.2 5494287, 30432~
+## 5     5  26.2 FALSE     FALSE      (((314958.5 5487057, 312336 5490646, 312339.~
+## 6     6  51.3 FALSE     TRUE       (((327904.3 5491218, 326594.6 5493012, 32849~
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# plot maps of the planning unit data, showing each of the columns}
+\FunctionTok{plot}\NormalTok{(pu\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.9\linewidth]{prioritizr-workshop-manual_files/figure-latex/pu-data-1} \end{center}
+
+\clearpage
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# print number of planning units (geometries) in the data}
+\FunctionTok{nrow}\NormalTok{(pu\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1130
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# print the highest cost value}
+\FunctionTok{max}\NormalTok{(pu\_data}\SpecialCharTok{$}\NormalTok{cost)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 61.92727
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# print the smallest cost value}
+\FunctionTok{min}\NormalTok{(pu\_data}\SpecialCharTok{$}\NormalTok{cost)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.1924883
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# print average cost value}
+\FunctionTok{mean}\NormalTok{(pu\_data}\SpecialCharTok{$}\NormalTok{cost)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 25.13536
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# plot a map of the planning unit cost data}
+\FunctionTok{plot}\NormalTok{(pu\_data[, }\StringTok{"cost"}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.65\linewidth]{prioritizr-workshop-manual_files/figure-latex/pu-data-2-1} \end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# plot an interactive map of the planning unit cost data}
+\FunctionTok{mapview}\NormalTok{(pu\_data, }\AttributeTok{zcol =} \StringTok{"cost"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Now, you can try and answer some questions about the planning unit data.
+
+\begin{rmdquestion}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  How many planning units are in the planning unit data?
+\item
+  What is the highest cost value?
+\item
+  How many planning units are covered by the protected areas (hint: \texttt{sum(x)})?
+\item
+  What is the proportion of the planning units that are covered by the protected areas (hint: \texttt{mean(x)})?
+\item
+  How many planning units are highly degraded (hint: \texttt{sum(x)})?
+\item
+  What is the proportion of planning units are highly degraded (hint: \texttt{mean(x)})?
+\item
+  Can you verify that all values in the \texttt{locked\_in} and \texttt{locked\_out} columns are zero or one (hint: \texttt{min(x)} and \texttt{max(x)})?.
+\item
+  Can you verify that none of the planning units are missing cost values (hint: \texttt{all(is.finite(x))})?.
+\item
+  Can you very that none of the planning units have duplicated identifiers? (hint: \texttt{sum(duplicated(x))})?
+\item
+  Is there a spatial pattern in the planning unit cost values (hint: use \texttt{plot(x)} to make a map).
+\item
+  Is there a spatial pattern in where most planning units are covered by protected areas (hint: use \texttt{plot(x)} to make a map).
+\end{enumerate}
+\end{rmdquestion}
+
+\hypertarget{vegetation-data}{%
+\section{Vegetation data}\label{vegetation-data}}
+
+The vegetation data describes the spatial distribution of 33 vegetation classes in the study area. This data is in a raster format and so the data are organized using a square grid comprising square grid cells that are each the same size. In our case, the raster data contains multiple layers (also called ``bands'') and each layer has corresponds to a spatial grid with exactly the same area and has exactly the same dimensionality (i.e., number of rows, columns, and cells). In this dataset, there are 33 different regular spatial grids layered on top of each other -- with each layer corresponding to a different vegetation class -- and each of these layers contains a grid with 398 rows, 359 columns, and 142882 cells. Within each layer, each cell corresponds to a 1 by 1 km square. The values associated with each grid cell indicate the (one) presence or (zero) absence of a given vegetation class in the cell.
+
+\begin{center}\includegraphics[width=0.55\linewidth]{images/rasterbands} \end{center}
+
+Let's explore the vegetation data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# print a short summary of the data}
+\FunctionTok{print}\NormalTok{(veg\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## class       : SpatRaster 
+## dimensions  : 398, 359, 33  (nrow, ncol, nlyr)
+## resolution  : 1000, 1000  (x, y)
+## extent      : 288801.7, 647801.7, 5142976, 5540976  (xmin, xmax, ymin, ymax)
+## coord. ref. : WGS 84 / UTM zone 55S (EPSG:32755) 
+## source      : vegetation.tif 
+## names       : Banks~lands, Bould~marks, Calli~lands, Cool ~orest, Eucal~hyll), Eucal~torey, ... 
+## min values  :           0,           0,           0,           0,           0,           0, ... 
+## max values  :           1,           1,           1,           1,           1,           1, ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# print number of layers in the data}
+\FunctionTok{nlyr}\NormalTok{(veg\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 33
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# print the name of each layer}
+\FunctionTok{names}\NormalTok{(veg\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "Banksia woodlands"                                                                                         
+##  [2] "Boulders/rock with algae, lichen or scattered plants, or alpine fjaeldmarks"                               
+##  [3] "Callitris forests and woodlands"                                                                           
+##  [4] "Cool temperate rainforest"                                                                                 
+##  [5] "Eucalyptus (+/- tall) open forest with a dense broad-leaved and/or tree-fern understorey (wet sclerophyll)"
+##  [6] "Eucalyptus open forests with a shrubby understorey"                                                        
+##  [7] "Eucalyptus open woodlands with shrubby understorey"                                                        
+##  [8] "Eucalyptus tall open forest with a fine-leaved shrubby understorey"                                        
+##  [9] "Eucalyptus tall open forests and open forests with ferns, herbs, sedges, rushes or wet tussock grasses"    
+## [10] "Eucalyptus woodlands with a shrubby understorey"                                                           
+## [11] "Eucalyptus woodlands with a tussock grass understorey"                                                     
+## [12] "Eucalyptus woodlands with ferns, herbs, sedges, rushes or wet tussock grassland"                           
+## [13] "Freshwater, dams, lakes, lagoons or aquatic plants"                                                        
+## [14] "Heathlands"                                                                                                
+## [15] "Leptospermum forests and woodlands"                                                                        
+## [16] "Low closed forest or tall closed shrublands (including Acacia, Melaleuca and Banksia)"                     
+## [17] "Mallee with a tussock grass understorey"                                                                   
+## [18] "Melaleuca open forests and woodlands"                                                                      
+## [19] "Melaleuca shrublands and open shrublands"                                                                  
+## [20] "Mixed chenopod, samphire +/- forbs"                                                                        
+## [21] "Naturally bare, sand, rock, claypan, mudflat"                                                              
+## [22] "Other Acacia tall open shrublands and shrublands"                                                          
+## [23] "Other forests and woodlands"                                                                               
+## [24] "Other open woodlands"                                                                                      
+## [25] "Other shrublands"                                                                                          
+## [26] "Other tussock grasslands"                                                                                  
+## [27] "Regrowth or modified forests and woodlands"                                                                
+## [28] "Saline or brackish sedgelands or grasslands"                                                               
+## [29] "Salt lakes and lagoons"                                                                                    
+## [30] "Sedgelands, rushs or reeds"                                                                                
+## [31] "Temperate tussock grasslands"                                                                              
+## [32] "Unclassified native vegetation"                                                                            
+## [33] "Wet tussock grassland with herbs, sedges or rushes, herblands or ferns"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# layers can be accessed using indices or names,}
+\DocumentationTok{\#\# for example the 30th class is "Sedgelands, rushs or reeds"}
+\DocumentationTok{\#\# and we can make a map of it using the index or the name}
+
+\CommentTok{\# plot a map of the 30th class using the index}
+\FunctionTok{plot}\NormalTok{(veg\_data[[}\DecValTok{30}\NormalTok{]])}
+
+\CommentTok{\# plot a map of the 30th class using its layer name}
+\FunctionTok{plot}\NormalTok{(veg\_data[[}\StringTok{"Sedgelands, rushs or reeds"}\NormalTok{]])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.65\linewidth]{prioritizr-workshop-manual_files/figure-latex/veg_data-1-1} \end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# plot an interactive map of the 30th class}
+\DocumentationTok{\#\# note that we use method = "ngb" because the data are not continuous}
+\FunctionTok{mapview}\NormalTok{(raster}\SpecialCharTok{::}\FunctionTok{raster}\NormalTok{(veg\_data[[}\DecValTok{30}\NormalTok{]]), }\AttributeTok{method =} \StringTok{"ngb"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# print resolution on the x{-}axis}
+\FunctionTok{xres}\NormalTok{(veg\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# print resolution on the y{-}axis}
+\FunctionTok{yres}\NormalTok{(veg\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# print spatial extent of the grid, i.e., coordinates for corners}
+\FunctionTok{ext}\NormalTok{(veg\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## SpatExtent : 288801.732237428, 647801.732237428, 5142975.76801917, 5540975.76801917 (xmin, xmax, ymin, ymax)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# print a summary of the first layer}
+\FunctionTok{print}\NormalTok{(veg\_data[[}\DecValTok{1}\NormalTok{]])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## class       : SpatRaster 
+## dimensions  : 398, 359, 1  (nrow, ncol, nlyr)
+## resolution  : 1000, 1000  (x, y)
+## extent      : 288801.7, 647801.7, 5142976, 5540976  (xmin, xmax, ymin, ymax)
+## coord. ref. : WGS 84 / UTM zone 55S (EPSG:32755) 
+## source      : vegetation.tif 
+## name        : Banksia woodlands 
+## min value   :                 0 
+## max value   :                 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# calculate the sum of all the cell values in the first layer}
+\FunctionTok{global}\NormalTok{(veg\_data[[}\DecValTok{1}\NormalTok{]], }\StringTok{"sum"}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                   sum
+## Banksia woodlands   2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# calculate the maximum value of all the cell values in the first layer}
+\FunctionTok{global}\NormalTok{(veg\_data[[}\DecValTok{1}\NormalTok{]], }\StringTok{"max"}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                   max
+## Banksia woodlands   1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# calculate the minimum value of all the cell values in the first layer}
+\FunctionTok{global}\NormalTok{(veg\_data[[}\DecValTok{1}\NormalTok{]], }\StringTok{"min"}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                   min
+## Banksia woodlands   0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# calculate the mean value of all the cell values in the first layer}
+\FunctionTok{global}\NormalTok{(veg\_data[[}\DecValTok{1}\NormalTok{]], }\StringTok{"mean"}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                           mean
+## Banksia woodlands 3.021559e-05
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# calculate the maximum value in each layer}
+\FunctionTok{as\_tibble}\NormalTok{(}\FunctionTok{global}\NormalTok{(veg\_data, }\StringTok{"max"}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{), }\AttributeTok{rownames =} \StringTok{"feature"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 33 x 2
+##    feature                                                                   max
+##    <chr>                                                                   <dbl>
+##  1 Banksia woodlands                                                           1
+##  2 Boulders/rock with algae, lichen or scattered plants, or alpine fjaeld~     1
+##  3 Callitris forests and woodlands                                             1
+##  4 Cool temperate rainforest                                                   1
+##  5 Eucalyptus (+/- tall) open forest with a dense broad-leaved and/or tre~     1
+##  6 Eucalyptus open forests with a shrubby understorey                          1
+##  7 Eucalyptus open woodlands with shrubby understorey                          1
+##  8 Eucalyptus tall open forest with a fine-leaved shrubby understorey          1
+##  9 Eucalyptus tall open forests and open forests with ferns, herbs, sedge~     1
+## 10 Eucalyptus woodlands with a shrubby understorey                             1
+## 11 Eucalyptus woodlands with a tussock grass understorey                       1
+## 12 Eucalyptus woodlands with ferns, herbs, sedges, rushes or wet tussock ~     1
+## 13 Freshwater, dams, lakes, lagoons or aquatic plants                          1
+## 14 Heathlands                                                                  1
+## 15 Leptospermum forests and woodlands                                          1
+## 16 Low closed forest or tall closed shrublands (including Acacia, Melaleu~     1
+## 17 Mallee with a tussock grass understorey                                     1
+## 18 Melaleuca open forests and woodlands                                        1
+## 19 Melaleuca shrublands and open shrublands                                    1
+## 20 Mixed chenopod, samphire +/- forbs                                          1
+## 21 Naturally bare, sand, rock, claypan, mudflat                                1
+## 22 Other Acacia tall open shrublands and shrublands                            1
+## 23 Other forests and woodlands                                                 1
+## 24 Other open woodlands                                                        1
+## 25 Other shrublands                                                            1
+## 26 Other tussock grasslands                                                    1
+## 27 Regrowth or modified forests and woodlands                                  1
+## 28 Saline or brackish sedgelands or grasslands                                 1
+## 29 Salt lakes and lagoons                                                      1
+## 30 Sedgelands, rushs or reeds                                                  1
+## 31 Temperate tussock grasslands                                                1
+## 32 Unclassified native vegetation                                              1
+## 33 Wet tussock grassland with herbs, sedges or rushes, herblands or ferns      1
+\end{verbatim}
+
+Now, you can try and answer some questions about the vegetation data.
+
+\begin{rmdquestion}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  What part of the study area is the ``Temperate tussock grasslands'' vegetation class found in (hint: make a map)?
+\item
+  What proportion of cells contain the ``Heathland'' vegetation class (hint: calculate the mean value of the cells)?
+\item
+  Which vegetation class is present in the greatest number of cells?
+\item
+  The planning unit data and the vegetation data should have the same coordinate reference system. Can you check if they are the same?
+\end{enumerate}
+\end{rmdquestion}
+
+\hypertarget{gap-analysis}{%
+\chapter{Gap analysis}\label{gap-analysis}}
+
+\hypertarget{introduction-1}{%
+\section{Introduction}\label{introduction-1}}
+
+Before we begin to prioritize areas for protected area establishment, we should first understand how well existing protected areas are conserving our biodiversity features (i.e., native vegetation classes in Tasmania, Australia). This step is critical: we cannot develop plans to improve conservation of biodiversity if we don't understand how well existing policies are currently conserving biodiversity! To achieve this, we can perform a ``gap analysis''. A gap analysis involves calculating how well each of our biodiversity features (i.e., vegetation classes in this exercise) are represented (covered) by protected areas. Next, we compare current representation by protected areas of each feature (e.g., 5\% of their spatial distribution covered by protected areas) to a target threshold (e.g., 20\% of their spatial distribution covered by protected areas). This target threshold denotes the minimum amount (e.g., minimum proportion of spatial distribution) that we need of each feature to be represented in the protected area system. Ideally, targets should be based on an estimate of how much area or habitat is needed for ecosystem function or species persistence \citep{r7}. In practice, targets are generally set using simple rules of thumb (e.g., 10\% or 20\%), policy \citep{r6}, or species' geographic range size \citep{r1, r2, r8}.
+
+\hypertarget{feature-abundance}{%
+\section{Feature abundance}\label{feature-abundance}}
+
+Now we will perform some preliminary calculations to explore the data. First, we will calculate how much of each vegetation feature occurs inside each planning unit (i.e., the abundance of the features). To achieve this, we will use the \texttt{problem} function to create an empty conservation planning problem that only contains the planning unit and biodiversity data. We will then use the \texttt{feature\_abundances} function to calculate the total amount of each feature in each planning unit.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# create prioritizr problem with only the data}
+\NormalTok{p0 }\OtherTok{\textless{}{-}} \FunctionTok{problem}\NormalTok{(pu\_data, veg\_data, }\AttributeTok{cost\_column =} \StringTok{"cost"}\NormalTok{)}
+
+\CommentTok{\# print empty problem,}
+\DocumentationTok{\#\# we can see that only the cost and feature data are defined}
+\FunctionTok{print}\NormalTok{(p0)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## A conservation problem (<ConservationProblem>)
+## +@data
+## |+@features:    "Banksia woodlands" , ... (33 total)
+## |\@planning units:
+## | +@data:       <sftbl_dftbldata.frame> (1130 total)
+## | +@costs:      continuous values (between 0.1925 and 61.9273)
+## | +@extent:     298809.5764, 5167774.5993, 613818.7743, 5502543.7119 (xmin, ymin, xmax, ymax)
+## | \@CRS:        WGS 84 / UTM zone 55S (projected)
+## +@formulation
+## |+@objective:   none specified
+## |+@penalties:   none specified
+## |+@targets:     none specified
+## |+@constraints: none specified
+## |\@decisions:   binary decision
+## \@optimization
+##  +@portfolio:   shuffle portfolio (`number_solutions` = 1, ...)
+##  \@solver:      highs solver (`gap` = 0.1, `time_limit` = 2147483647, ...)
+## # i Use `summary(...)` to see complete formulation.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# calculate amount of each feature in each planning unit}
+\NormalTok{abundance\_data }\OtherTok{\textless{}{-}} \FunctionTok{feature\_abundances}\NormalTok{(p0)}
+
+\CommentTok{\# print abundance data}
+\FunctionTok{print}\NormalTok{(abundance\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 33 x 3
+##    feature                                 absolute_abundance relative_abundance
+##    <chr>                                                <dbl>              <dbl>
+##  1 Banksia woodlands                                     2.00                  1
+##  2 Boulders/rock with algae, lichen or sc~             140.                    1
+##  3 Callitris forests and woodlands                       6.00                  1
+##  4 Cool temperate rainforest                          7257.                    1
+##  5 Eucalyptus (+/- tall) open forest with~            5699.                    1
+##  6 Eucalyptus open forests with a shrubby~            9180.                    1
+##  7 Eucalyptus open woodlands with shrubby~              38.0                   1
+##  8 Eucalyptus tall open forest with a fin~            1908.                    1
+##  9 Eucalyptus tall open forests and open ~             388.                    1
+## 10 Eucalyptus woodlands with a shrubby un~            6145.                    1
+## 11 Eucalyptus woodlands with a tussock gr~            1050.                    1
+## 12 Eucalyptus woodlands with ferns, herbs~            1933.                    1
+## 13 Freshwater, dams, lakes, lagoons or aq~            1883.                    1
+## 14 Heathlands                                         2687.                    1
+## 15 Leptospermum forests and woodlands                  717.                    1
+## 16 Low closed forest or tall closed shrub~            3397.                    1
+## 17 Mallee with a tussock grass understorey               1                     1
+## 18 Melaleuca open forests and woodlands                144.                    1
+## 19 Melaleuca shrublands and open shrublan~              23.9                   1
+## 20 Mixed chenopod, samphire +/- forbs                   63.3                   1
+## 21 Naturally bare, sand, rock, claypan, m~             115.                    1
+## 22 Other Acacia tall open shrublands and ~              23.0                   1
+## 23 Other forests and woodlands                         235.                    1
+## 24 Other open woodlands                                167.                    1
+## 25 Other shrublands                                    234.                    1
+## 26 Other tussock grasslands                             23.2                   1
+## 27 Regrowth or modified forests and woodl~             568.                    1
+## 28 Saline or brackish sedgelands or grass~              24.1                   1
+## 29 Salt lakes and lagoons                               11.0                   1
+## 30 Sedgelands, rushs or reeds                         5047.                    1
+## 31 Temperate tussock grasslands                        781.                    1
+## 32 Unclassified native vegetation                      118.                    1
+## 33 Wet tussock grassland with herbs, sedg~             463.                    1
+\end{verbatim}
+
+The \texttt{abundance\_data} object contains three columns. The \texttt{feature} column contains the name of each feature (derived from \texttt{names(veg\_data})), the \texttt{absolute\_abundance} column contains the total amount of each feature in all the planning units, and the \texttt{relative\_abundance} column contains the total amount of each feature in the planning units expressed as a proportion of the total amount in the underlying raster data. Since all the raster cells containing vegetation overlap with the planning units, all of the values in the \texttt{relative\_abundance} column are equal to one (meaning 100\%). Now let's add a new column with the feature abundances expressed in area units (i.e., km\textsuperscript{2}).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# add new column with feature abundances in km\^{}2}
+\NormalTok{abundance\_data}\SpecialCharTok{$}\NormalTok{absolute\_abundance\_km2 }\OtherTok{\textless{}{-}}
+\NormalTok{  (abundance\_data}\SpecialCharTok{$}\NormalTok{absolute\_abundance }\SpecialCharTok{*} \FunctionTok{prod}\NormalTok{(}\FunctionTok{res}\NormalTok{(veg\_data))) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{set\_units}\NormalTok{(m}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{set\_units}\NormalTok{(km}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+
+\CommentTok{\# print abundance data}
+\FunctionTok{print}\NormalTok{(abundance\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 33 x 4
+##    feature          absolute_abundance relative_abundance absolute_abundance_km2
+##    <chr>                         <dbl>              <dbl>                 [km^2]
+##  1 Banksia woodlan~               2.00                  1                   2.00
+##  2 Boulders/rock w~             140.                    1                 140.  
+##  3 Callitris fores~               6.00                  1                   6.00
+##  4 Cool temperate ~            7257.                    1                7257.  
+##  5 Eucalyptus (+/-~            5699.                    1                5699.  
+##  6 Eucalyptus open~            9180.                    1                9180.  
+##  7 Eucalyptus open~              38.0                   1                  38.0 
+##  8 Eucalyptus tall~            1908.                    1                1908.  
+##  9 Eucalyptus tall~             388.                    1                 388.  
+## 10 Eucalyptus wood~            6145.                    1                6145.  
+## 11 Eucalyptus wood~            1050.                    1                1050.  
+## 12 Eucalyptus wood~            1933.                    1                1933.  
+## 13 Freshwater, dam~            1883.                    1                1883.  
+## 14 Heathlands                  2687.                    1                2687.  
+## 15 Leptospermum fo~             717.                    1                 717.  
+## 16 Low closed fore~            3397.                    1                3397.  
+## 17 Mallee with a t~               1                     1                   1   
+## 18 Melaleuca open ~             144.                    1                 144.  
+## 19 Melaleuca shrub~              23.9                   1                  23.9 
+## 20 Mixed chenopod,~              63.3                   1                  63.3 
+## 21 Naturally bare,~             115.                    1                 115.  
+## 22 Other Acacia ta~              23.0                   1                  23.0 
+## 23 Other forests a~             235.                    1                 235.  
+## 24 Other open wood~             167.                    1                 167.  
+## 25 Other shrublands             234.                    1                 234.  
+## 26 Other tussock g~              23.2                   1                  23.2 
+## 27 Regrowth or mod~             568.                    1                 568.  
+## 28 Saline or brack~              24.1                   1                  24.1 
+## 29 Salt lakes and ~              11.0                   1                  11.0 
+## 30 Sedgelands, rus~            5047.                    1                5047.  
+## 31 Temperate tusso~             781.                    1                 781.  
+## 32 Unclassified na~             118.                    1                 118.  
+## 33 Wet tussock gra~             463.                    1                 463.
+\end{verbatim}
+
+Now let's explore the abundance data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# calculate the average abundance of the features}
+\FunctionTok{mean}\NormalTok{(abundance\_data}\SpecialCharTok{$}\NormalTok{absolute\_abundance\_km2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 1529.413 [km^2]
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# plot histogram of the features\textquotesingle{} abundances}
+\FunctionTok{hist}\NormalTok{(abundance\_data}\SpecialCharTok{$}\NormalTok{absolute\_abundance\_km2, }\AttributeTok{xlab =} \StringTok{"Absolute abundance"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.75\linewidth]{prioritizr-workshop-manual_files/figure-latex/vis-abundance-data-1} \end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# find the abundance of the feature with the largest abundance}
+\FunctionTok{max}\NormalTok{(abundance\_data}\SpecialCharTok{$}\NormalTok{absolute\_abundance\_km2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 9179.876 [km^2]
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# find the name of the feature with the largest abundance}
+\NormalTok{abundance\_data}\SpecialCharTok{$}\NormalTok{feature[}\FunctionTok{which.max}\NormalTok{(abundance\_data}\SpecialCharTok{$}\NormalTok{absolute\_abundance\_km2)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Eucalyptus open forests with a shrubby understorey"
+\end{verbatim}
+
+Now, try to answer the following questions.
+
+\begin{rmdquestion}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  What is the median abundance of the features (hint: \texttt{median})?
+\item
+  What is the abundance of the feature with smallest abundance?
+\item
+  What is the name of the feature with smallest abundance?
+\item
+  What is the total abundance of all features in the planning units summed together?
+\item
+  How many features have a total abundance greater than 100 km\^{}2 (hint: \texttt{sum(abundance\_values\ \textgreater{}\ set\_units(threshold\_value,\ km\^{}2)})?
+\end{enumerate}
+\end{rmdquestion}
+
+\hypertarget{feature-representation-by-protected-areas}{%
+\section{Feature representation by protected areas}\label{feature-representation-by-protected-areas}}
+
+After calculating the total amount of each feature in the planning units (i.e., the features' abundances), we will now calculate the amount of each feature in the planning units that are covered by protected areas (i.e., feature representation by protected areas). We can complete this task using the \texttt{feature\_representation} function. This function requires (i) a conservation problem object with the planning unit and biodiversity data and also (ii) an object representing a solution to the problem (i.e an object in the same format as the planning unit data with values indicating if the planning units are selected or not).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# create column in planning unit data with binary values (zeros and ones)}
+\CommentTok{\# indicating if a planning unit is covered by protected areas or not}
+\NormalTok{pu\_data}\SpecialCharTok{$}\NormalTok{pa\_status }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(pu\_data}\SpecialCharTok{$}\NormalTok{locked\_in)}
+
+\CommentTok{\# calculate feature representation by protected areas}
+\NormalTok{repr\_data }\OtherTok{\textless{}{-}} \FunctionTok{eval\_feature\_representation\_summary}\NormalTok{(p0, pu\_data[, }\StringTok{"pa\_status"}\NormalTok{])}
+
+\CommentTok{\# print feature representation data}
+\FunctionTok{print}\NormalTok{(repr\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 33 x 5
+##    summary feature                      total_amount absolute_held relative_held
+##    <chr>   <chr>                               <dbl>         <dbl>         <dbl>
+##  1 overall Banksia woodlands                    2.00        0.367        0.184  
+##  2 overall Boulders/rock with algae, l~       140.         65.5          0.466  
+##  3 overall Callitris forests and woodl~         6.00        0.487        0.0812 
+##  4 overall Cool temperate rainforest         7257.       2992.           0.412  
+##  5 overall Eucalyptus (+/- tall) open ~      5699.       1398.           0.245  
+##  6 overall Eucalyptus open forests wit~      9180.       1030.           0.112  
+##  7 overall Eucalyptus open woodlands w~        38.0        15.1          0.396  
+##  8 overall Eucalyptus tall open forest~      1908.        189.           0.0992 
+##  9 overall Eucalyptus tall open forest~       388.         27.4          0.0705 
+## 10 overall Eucalyptus woodlands with a~      6145.       1449.           0.236  
+## 11 overall Eucalyptus woodlands with a~      1050.         11.3          0.0107 
+## 12 overall Eucalyptus woodlands with f~      1933.        497.           0.257  
+## 13 overall Freshwater, dams, lakes, la~      1883.        585.           0.311  
+## 14 overall Heathlands                        2687.       1567.           0.583  
+## 15 overall Leptospermum forests and wo~       717.        454.           0.633  
+## 16 overall Low closed forest or tall c~      3397.       1141.           0.336  
+## 17 overall Mallee with a tussock grass~         1           0            0      
+## 18 overall Melaleuca open forests and ~       144.         27.4          0.191  
+## 19 overall Melaleuca shrublands and op~        23.9        22.2          0.930  
+## 20 overall Mixed chenopod, samphire +/~        63.3        30.0          0.473  
+## 21 overall Naturally bare, sand, rock,~       115.          3.63         0.0316 
+## 22 overall Other Acacia tall open shru~        23.0         4.00         0.174  
+## 23 overall Other forests and woodlands        235.          0.271        0.00115
+## 24 overall Other open woodlands               167.         97.4          0.583  
+## 25 overall Other shrublands                   234.         92.6          0.395  
+## 26 overall Other tussock grasslands            23.2         0.0677       0.00292
+## 27 overall Regrowth or modified forest~       568.          4.92         0.00866
+## 28 overall Saline or brackish sedgelan~        24.1         0            0      
+## 29 overall Salt lakes and lagoons              11.0         0            0      
+## 30 overall Sedgelands, rushs or reeds        5047.       2505.           0.496  
+## 31 overall Temperate tussock grasslands       781.          6            0.00768
+## 32 overall Unclassified native vegetat~       118.          4.93         0.0419 
+## 33 overall Wet tussock grassland with ~       463.         43.0          0.0928
+\end{verbatim}
+
+Similar to the abundance data before, the \texttt{repr\_data} object contains three columns. The \texttt{feature} column contains the name of each feature, the \texttt{absolute\_held} column shows the total amount of each feature held in the solution (i.e., the planning units covered by protected areas), and the \texttt{relative\_held} column shows the proportion of each feature held in the solution (i.e., the proportion of each feature's spatial distribution held in protected areas). Since the \texttt{absolute\_held} values correspond to the number of grid cells in the \texttt{veg\_data} object with overlap with protected areas, let's convert them to area units (i.e., km\textsuperscript{2}) so we can report them.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# add new column with the areas represented in km\^{}2}
+\NormalTok{repr\_data}\SpecialCharTok{$}\NormalTok{absolute\_held\_km2 }\OtherTok{\textless{}{-}}
+\NormalTok{  (repr\_data}\SpecialCharTok{$}\NormalTok{absolute\_held }\SpecialCharTok{*} \FunctionTok{prod}\NormalTok{(}\FunctionTok{res}\NormalTok{(veg\_data))) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{set\_units}\NormalTok{(m}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{set\_units}\NormalTok{(km}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+
+\CommentTok{\# print representation data}
+\FunctionTok{print}\NormalTok{(repr\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 33 x 6
+##    summary feature    total_amount absolute_held relative_held absolute_held_km2
+##    <chr>   <chr>             <dbl>         <dbl>         <dbl>            [km^2]
+##  1 overall Banksia w~         2.00        0.367        0.184              0.367 
+##  2 overall Boulders/~       140.         65.5          0.466             65.5   
+##  3 overall Callitris~         6.00        0.487        0.0812             0.487 
+##  4 overall Cool temp~      7257.       2992.           0.412           2992.    
+##  5 overall Eucalyptu~      5699.       1398.           0.245           1398.    
+##  6 overall Eucalyptu~      9180.       1030.           0.112           1030.    
+##  7 overall Eucalyptu~        38.0        15.1          0.396             15.1   
+##  8 overall Eucalyptu~      1908.        189.           0.0992           189.    
+##  9 overall Eucalyptu~       388.         27.4          0.0705            27.4   
+## 10 overall Eucalyptu~      6145.       1449.           0.236           1449.    
+## 11 overall Eucalyptu~      1050.         11.3          0.0107            11.3   
+## 12 overall Eucalyptu~      1933.        497.           0.257            497.    
+## 13 overall Freshwate~      1883.        585.           0.311            585.    
+## 14 overall Heathlands      2687.       1567.           0.583           1567.    
+## 15 overall Leptosper~       717.        454.           0.633            454.    
+## 16 overall Low close~      3397.       1141.           0.336           1141.    
+## 17 overall Mallee wi~         1           0            0                  0     
+## 18 overall Melaleuca~       144.         27.4          0.191             27.4   
+## 19 overall Melaleuca~        23.9        22.2          0.930             22.2   
+## 20 overall Mixed che~        63.3        30.0          0.473             30.0   
+## 21 overall Naturally~       115.          3.63         0.0316             3.63  
+## 22 overall Other Aca~        23.0         4.00         0.174              4.00  
+## 23 overall Other for~       235.          0.271        0.00115            0.271 
+## 24 overall Other ope~       167.         97.4          0.583             97.4   
+## 25 overall Other shr~       234.         92.6          0.395             92.6   
+## 26 overall Other tus~        23.2         0.0677       0.00292            0.0677
+## 27 overall Regrowth ~       568.          4.92         0.00866            4.92  
+## 28 overall Saline or~        24.1         0            0                  0     
+## 29 overall Salt lake~        11.0         0            0                  0     
+## 30 overall Sedgeland~      5047.       2505.           0.496           2505.    
+## 31 overall Temperate~       781.          6            0.00768            6     
+## 32 overall Unclassif~       118.          4.93         0.0419             4.93  
+## 33 overall Wet tusso~       463.         43.0          0.0928            43.0
+\end{verbatim}
+
+Now let's investigate how well the species are represented.
+
+\begin{rmdquestion}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  What is the average proportion of the features held in protected areas (hint: \texttt{mean(x,\ na.rm\ =\ TRUE)}?
+\item
+  What is the average amount of land in km\textsuperscript{2} that features are represented by protected areas?
+\item
+  What is the name of the feature with the greatest proportionate coverage by protected areas?
+\item
+  What is the name of the feature with the greatest area coverage by protected areas?
+\item
+  Do questions two and three have the same answer? Why could this be?
+\item
+  Is there a relationship between the total abundance of a feature and how well it is represented by protected areas (hint: \texttt{plot(abundance\_data\$absolute\_abundance,\ repr\_data\$relative\_held)})?
+\item
+  Are any features entirely missing from protected areas (hint: \texttt{sum(x\ ==\ 0)})?
+\item
+  If we set a target of 10\% coverage by protected areas, how many features fail to meet this target (hint: \texttt{sum(relative\_held\ \textgreater{}=\ target,\ na.rm\ =\ TRUE)})?
+\item
+  If we set a target of 30\% coverage by protected areas, how many features fail to meet this target?
+\end{enumerate}
+\end{rmdquestion}
+
+\hypertarget{spatial-prioritizations}{%
+\chapter{Spatial prioritizations}\label{spatial-prioritizations}}
+
+\hypertarget{introduction-2}{%
+\section{Introduction}\label{introduction-2}}
+
+Here we will develop prioritizations to identify priority areas for protected area establishment. Specifically, we will be using the \href{https://prioritizr.net/}{prioritizr R package} to generate prioritizations. Although other tools are also available for generating prioritizations -- such as \href{http://marxan.org/}{Marxan} \citep{r9}, and \href{https://www.helsinki.fi/en/researchgroups/digital-geography-lab/software-developed-in-cbig\#section-52992}{Zonation} \citep{r10} -- it is beyond the scope of this workshop to examine them. Additionally, it is important to understand that software for generating prioritizations are decision support tools. This means that the software is designed to help you make decisions---it can't make decisions for you.
+
+\hypertarget{starting-out-simple}{%
+\section{Starting out simple}\label{starting-out-simple}}
+
+To start things off, let's keep things simple. Let's create a prioritization using the \href{https://prioritizr.net/reference/add_min_set_objective.html}{minimum set formulation of the reserve selection problem} \citep{r15}. This formulation means that we want a solution that will meet the targets for our biodiversity features for minimum cost. Here, we will set 5\% targets for each vegetation class and use the data in the \texttt{cost} column to specify acquisition costs. One advantage of prioritizr is that, unlike the Marxan decision support tool, we do not have calibrate (SPFs) to ensure the solution meets the targets. This is because -- when using this formulation --- prioritizr should always return solutions that meet the targets. Although we strongly recommend using \href{https://www.gurobi.com/}{Gurobi} to solve problems (via \href{https://prioritizr.net/reference/add_gurobi_solver.html}{\texttt{add\_gurobi\_solver}}), we will use the \href{https://prioritizr.net/reference/add_highs_solver.html}{HiGHS solver} (via \href{https://prioritizr.net/reference/add_highs_solver.html}{\texttt{add\_highs\_solver}}) in this workshop since it is easier to install. This is because the Gurobi solver is much faster than the HiGHS solver (\href{https://prioritizr.net/articles/gurobi_installation.html}{see here for installation instructions}).
+
+\clearpage
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# print planning unit data}
+\DocumentationTok{\#\# note we use head() to show only show the first 6 rows}
+\FunctionTok{head}\NormalTok{(pu\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Simple feature collection with 6 features and 5 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: 303910.1 ymin: 5485840 xmax: 335610.4 ymax: 5502544
+## Projected CRS: WGS 84 / UTM zone 55S
+## # A tibble: 6 x 6
+##      id  cost locked_in locked_out                                geom pa_status
+##   <int> <dbl> <lgl>     <lgl>                       <MULTIPOLYGON [m]>     <dbl>
+## 1     1  60.2 FALSE     TRUE       (((328497 5497704, 326783.8 550005~         0
+## 2     2  19.9 FALSE     FALSE      (((307121.6 5490487, 305344.4 5492~         0
+## 3     3  59.7 FALSE     TRUE       (((321726.1 5492382, 320111 549459~         0
+## 4     4  32.4 FALSE     FALSE      (((304314.5 5494324, 304342.2 5494~         0
+## 5     5  26.2 FALSE     FALSE      (((314958.5 5487057, 312336 549064~         0
+## 6     6  51.3 FALSE     TRUE       (((327904.3 5491218, 326594.6 5493~         0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# create prioritization problem}
+\NormalTok{p1 }\OtherTok{\textless{}{-}}
+  \FunctionTok{problem}\NormalTok{(pu\_data, veg\_data, }\AttributeTok{cost\_column =} \StringTok{"cost"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_min\_set\_objective}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_relative\_targets}\NormalTok{(}\FloatTok{0.05}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# 5\% representation targets}
+  \FunctionTok{add\_binary\_decisions}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_highs\_solver}\NormalTok{(}\AttributeTok{verbose =} \ConstantTok{FALSE}\NormalTok{)}
+
+\CommentTok{\# print problem}
+\FunctionTok{print}\NormalTok{(p1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## A conservation problem (<ConservationProblem>)
+## +@data
+## |+@features:    "Banksia woodlands" , ... (33 total)
+## |\@planning units:
+## | +@data:       <sftbl_dftbldata.frame> (1130 total)
+## | +@costs:      continuous values (between 0.1925 and 61.9273)
+## | +@extent:     298809.5764, 5167774.5993, 613818.7743, 5502543.7119 (xmin, ymin, xmax, ymax)
+## | \@CRS:        WGS 84 / UTM zone 55S (projected)
+## +@formulation
+## |+@objective:   minimum set objective
+## |+@penalties:   none specified
+## |+@targets:     relative targets (between 0.05 and 0.05)
+## |+@constraints: none specified
+## |\@decisions:   binary decision
+## \@optimization
+##  +@portfolio:   shuffle portfolio (`number_solutions` = 1, ...)
+##  \@solver:      highs solver (`gap` = 0.1, `time_limit` = 2147483647, ...)
+## # i Use `summary(...)` to see complete formulation.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# solve problem}
+\NormalTok{s1 }\OtherTok{\textless{}{-}} \FunctionTok{solve}\NormalTok{(p1)}
+
+\CommentTok{\# print solution, the solution\_1 column contains the solution values}
+\CommentTok{\# indicating if a planning unit is (1) selected or (0) not}
+\DocumentationTok{\#\# note we use head() to show only show the first 6 rows}
+\FunctionTok{head}\NormalTok{(s1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Simple feature collection with 6 features and 6 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: 303910.1 ymin: 5485840 xmax: 335610.4 ymax: 5502544
+## Projected CRS: WGS 84 / UTM zone 55S
+## # A tibble: 6 x 7
+##      id  cost locked_in locked_out pa_status solution_1
+##   <int> <dbl> <lgl>     <lgl>          <dbl>      <dbl>
+## 1     1  60.2 FALSE     TRUE               0          0
+## 2     2  19.9 FALSE     FALSE              0          0
+## 3     3  59.7 FALSE     TRUE               0          0
+## 4     4  32.4 FALSE     FALSE              0          0
+## 5     5  26.2 FALSE     FALSE              0          0
+## 6     6  51.3 FALSE     TRUE               0          0
+## # i 1 more variable: geom <MULTIPOLYGON [m]>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# calculate number of planning units selected in the prioritization}
+\FunctionTok{sum}\NormalTok{(s1}\SpecialCharTok{$}\NormalTok{solution\_1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 72
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# calculate total cost of the prioritization}
+\FunctionTok{sum}\NormalTok{(s1}\SpecialCharTok{$}\NormalTok{solution\_1 }\SpecialCharTok{*}\NormalTok{ s1}\SpecialCharTok{$}\NormalTok{cost)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 626.5873
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# plot solution}
+\FunctionTok{plot}\NormalTok{(s1[, }\StringTok{"solution\_1"}\NormalTok{], }\AttributeTok{pal =} \FunctionTok{c}\NormalTok{(}\StringTok{"grey90"}\NormalTok{, }\StringTok{"darkgreen"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.65\linewidth]{prioritizr-workshop-manual_files/figure-latex/init-problem-1} \end{center}
+
+Now let's examine the solution.
+
+\begin{rmdquestion}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  How many planing units were selected in the prioritization?
+\item
+  What proportion of planning units were selected in the prioritization?
+\item
+  Is there a pattern in the spatial distribution of the priority areas?
+\item
+  Can you verify that all of the targets were met in the prioritization (hint: \texttt{feature\_representation(p1,\ s1{[},\ "solution\_1"{]})})?
+\end{enumerate}
+\end{rmdquestion}
+
+\clearpage
+
+\hypertarget{adding-complexity}{%
+\section{Adding complexity}\label{adding-complexity}}
+
+Our first prioritization suffers many limitations, so let's add additional constraints to the problem to make it more useful. First, let's lock in planing units that are already by covered protected areas. If some vegetation communities are already secured inside existing protected areas, then we might not need to add as many new protected areas to the existing protected area system to meet their targets. Since our planning unit data (\texttt{pu\_data}) already contains this information in the \texttt{locked\_in} column, we can use this column name to specify which planning units should be locked in.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# create prioritization problem}
+\NormalTok{p2 }\OtherTok{\textless{}{-}}
+  \FunctionTok{problem}\NormalTok{(pu\_data, veg\_data, }\AttributeTok{cost\_column =} \StringTok{"cost"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_min\_set\_objective}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_relative\_targets}\NormalTok{(}\FloatTok{0.05}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_locked\_in\_constraints}\NormalTok{(}\StringTok{"locked\_in"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_binary\_decisions}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_highs\_solver}\NormalTok{(}\AttributeTok{verbose =} \ConstantTok{FALSE}\NormalTok{)}
+
+\CommentTok{\# print problem}
+\FunctionTok{print}\NormalTok{(p2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## A conservation problem (<ConservationProblem>)
+## +@data
+## |+@features:    "Banksia woodlands" , ... (33 total)
+## |\@planning units:
+## | +@data:       <sftbl_dftbldata.frame> (1130 total)
+## | +@costs:      continuous values (between 0.1925 and 61.9273)
+## | +@extent:     298809.5764, 5167774.5993, 613818.7743, 5502543.7119 (xmin, ymin, xmax, ymax)
+## | \@CRS:        WGS 84 / UTM zone 55S (projected)
+## +@formulation
+## |+@objective:   minimum set objective
+## |+@penalties:   none specified
+## |+@targets:     relative targets (between 0.05 and 0.05)
+## |+@constraints:
+## ||\@1:          locked in constraints (257 planning units)
+## |\@decisions:   binary decision
+## \@optimization
+##  +@portfolio:   shuffle portfolio (`number_solutions` = 1, ...)
+##  \@solver:      highs solver (`gap` = 0.1, `time_limit` = 2147483647, ...)
+## # i Use `summary(...)` to see complete formulation.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# solve problem}
+\NormalTok{s2 }\OtherTok{\textless{}{-}} \FunctionTok{solve}\NormalTok{(p2)}
+
+\CommentTok{\# plot solution}
+\FunctionTok{plot}\NormalTok{(s2[, }\StringTok{"solution\_1"}\NormalTok{], }\AttributeTok{pal =} \FunctionTok{c}\NormalTok{(}\StringTok{"grey90"}\NormalTok{, }\StringTok{"darkgreen"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.65\linewidth]{prioritizr-workshop-manual_files/figure-latex/locked-in-problem-1} \end{center}
+
+Let's pretend that we talked to an expert on the vegetation communities in our study system and they recommended that a 30\% target was needed for each vegetation class. So, equipped with this information, let's set the targets to 20\%.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# create prioritization problem}
+\NormalTok{p3 }\OtherTok{\textless{}{-}}
+  \FunctionTok{problem}\NormalTok{(pu\_data, veg\_data, }\AttributeTok{cost\_column =} \StringTok{"cost"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_min\_set\_objective}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_relative\_targets}\NormalTok{(}\FloatTok{0.3}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_locked\_in\_constraints}\NormalTok{(}\StringTok{"locked\_in"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_binary\_decisions}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_highs\_solver}\NormalTok{(}\AttributeTok{verbose =} \ConstantTok{FALSE}\NormalTok{)}
+
+\CommentTok{\# print problem}
+\FunctionTok{print}\NormalTok{(p3)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## A conservation problem (<ConservationProblem>)
+## +@data
+## |+@features:    "Banksia woodlands" , ... (33 total)
+## |\@planning units:
+## | +@data:       <sftbl_dftbldata.frame> (1130 total)
+## | +@costs:      continuous values (between 0.1925 and 61.9273)
+## | +@extent:     298809.5764, 5167774.5993, 613818.7743, 5502543.7119 (xmin, ymin, xmax, ymax)
+## | \@CRS:        WGS 84 / UTM zone 55S (projected)
+## +@formulation
+## |+@objective:   minimum set objective
+## |+@penalties:   none specified
+## |+@targets:     relative targets (between 0.3 and 0.3)
+## |+@constraints:
+## ||\@1:          locked in constraints (257 planning units)
+## |\@decisions:   binary decision
+## \@optimization
+##  +@portfolio:   shuffle portfolio (`number_solutions` = 1, ...)
+##  \@solver:      highs solver (`gap` = 0.1, `time_limit` = 2147483647, ...)
+## # i Use `summary(...)` to see complete formulation.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# solve problem}
+\NormalTok{s3 }\OtherTok{\textless{}{-}} \FunctionTok{solve}\NormalTok{(p3)}
+
+\CommentTok{\# plot solution}
+\FunctionTok{plot}\NormalTok{(s3[, }\StringTok{"solution\_1"}\NormalTok{], }\AttributeTok{pal =} \FunctionTok{c}\NormalTok{(}\StringTok{"grey90"}\NormalTok{, }\StringTok{"darkgreen"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.65\linewidth]{prioritizr-workshop-manual_files/figure-latex/update-targets-problem-1} \end{center}
+
+\clearpage
+
+Next, let's lock out highly degraded areas. Similar to before, this data is present in our planning unit data so we can use the \texttt{locked\_out} column name to achieve this.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# create prioritization problem}
+\NormalTok{p4 }\OtherTok{\textless{}{-}}
+  \FunctionTok{problem}\NormalTok{(pu\_data, veg\_data, }\AttributeTok{cost\_column =} \StringTok{"cost"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_min\_set\_objective}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_relative\_targets}\NormalTok{(}\FloatTok{0.3}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_locked\_in\_constraints}\NormalTok{(}\StringTok{"locked\_in"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_locked\_out\_constraints}\NormalTok{(}\StringTok{"locked\_out"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_binary\_decisions}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_highs\_solver}\NormalTok{(}\AttributeTok{verbose =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# print problem}
+\FunctionTok{print}\NormalTok{(p4)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## A conservation problem (<ConservationProblem>)
+## +@data
+## |+@features:    "Banksia woodlands" , ... (33 total)
+## |\@planning units:
+## | +@data:       <sftbl_dftbldata.frame> (1130 total)
+## | +@costs:      continuous values (between 0.1925 and 61.9273)
+## | +@extent:     298809.5764, 5167774.5993, 613818.7743, 5502543.7119 (xmin, ymin, xmax, ymax)
+## | \@CRS:        WGS 84 / UTM zone 55S (projected)
+## +@formulation
+## |+@objective:   minimum set objective
+## |+@penalties:   none specified
+## |+@targets:     relative targets (between 0.3 and 0.3)
+## |+@constraints:
+## ||+@1:          locked in constraints (257 planning units)
+## ||\@2:          locked out constraints (165 planning units)
+## |\@decisions:   binary decision
+## \@optimization
+##  +@portfolio:   shuffle portfolio (`number_solutions` = 1, ...)
+##  \@solver:      highs solver (`gap` = 0.1, `time_limit` = 2147483647, ...)
+## # i Use `summary(...)` to see complete formulation.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# solve problem}
+\NormalTok{s4 }\OtherTok{\textless{}{-}} \FunctionTok{solve}\NormalTok{(p4)}
+
+\CommentTok{\# plot solution}
+\FunctionTok{plot}\NormalTok{(s4[, }\StringTok{"solution\_1"}\NormalTok{],  }\AttributeTok{pal =} \FunctionTok{c}\NormalTok{(}\StringTok{"grey90"}\NormalTok{, }\StringTok{"darkgreen"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.65\linewidth]{prioritizr-workshop-manual_files/figure-latex/unnamed-chunk-16-1} \end{center}
+
+Now, let's compare the solutions.
+
+\begin{rmdquestion}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  What is the cost of the planning units selected in \texttt{s2}, \texttt{s3}, and \texttt{s4}?
+\item
+  How many planning units are in \texttt{s2}, \texttt{s3}, and \texttt{s4}?
+\item
+  Do the solutions with more planning units have a greater cost? Why or why not?
+\item
+  Why does the first solution (\texttt{s1}) cost less than the second solution with protected areas locked into the solution (\texttt{s2})?
+\item
+  Why does the third solution (\texttt{s3}) cost less than the fourth solution solution with highly degraded areas locked out (\texttt{s4})?
+\item
+  Since planning units covered by existing protected areas have already been purchased, what is the cost for expanding the protected area system based on on the fourth prioritization (\texttt{s4}) (hint: total cost minus the cost of locked in planning units)?
+\item
+  What happens if you specify targets that exceed the total amount of vegetation in the study area and try to solve the problem? You can do this by modifying the code to make \texttt{p4} with \texttt{add\_absolute\_targets(1000)} instead of \texttt{add\_relative\_targets(0.3)} and generating a new solution.
+\end{enumerate}
+\end{rmdquestion}
+
+\hypertarget{penalizing-fragmentation}{%
+\section{Penalizing fragmentation}\label{penalizing-fragmentation}}
+
+Plans for protected area systems should facilitate gene flow and dispersal between individual reserves in the system \citep{r11, r12}. However, the prioritizations we have made so far have been highly fragmented. Similar to the Marxan decision support tool, we can add penalties to our conservation planning problem to penalize fragmentation (i.e.~total exposed boundary length) and we also need to set a useful penalty value when adding such penalties (akin to Marxan's boundary length multiplier value; BLM) \citep{r16}. If we set our penalty value too low, then we will end up with a solution that is identical to the solution with no added penalties. If we set our penalty value too high, then prioritizr will take a long time to solve the problem and we will end up with a solution that contains lots of extra planning units that are not needed (since the penalty value is so high that minimizing fragmentation is more important than cost). As a rule of thumb, we generally want penalty values between 0.00001 and 0.01 but finding a useful penalty value requires calibration. The ``correct'' penalty value depends on the size of the planning units, the main objective values (e.g., cost values), and the effect of fragmentation on biodiversity persistence. Let's create a new problem that is similar to our previous problem (\texttt{p4}) -- except that it contains boundary length penalties and a slightly higher optimality gap to reduce runtime (default is 0.1) -- and solve it. Since our planning unit data is in a spatial format (i.e., vector or raster data), prioritizr can automatically calculate the boundary data for us.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# create prioritization problem}
+\NormalTok{p5 }\OtherTok{\textless{}{-}}
+  \FunctionTok{problem}\NormalTok{(pu\_data, veg\_data, }\AttributeTok{cost\_column =} \StringTok{"cost"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_min\_set\_objective}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_boundary\_penalties}\NormalTok{(}\AttributeTok{penalty =} \FloatTok{0.001}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_relative\_targets}\NormalTok{(}\FloatTok{0.3}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_locked\_in\_constraints}\NormalTok{(}\StringTok{"locked\_in"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_locked\_out\_constraints}\NormalTok{(}\StringTok{"locked\_out"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_binary\_decisions}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_highs\_solver}\NormalTok{(}\AttributeTok{verbose =} \ConstantTok{FALSE}\NormalTok{)}
+
+\CommentTok{\# print problem}
+\FunctionTok{print}\NormalTok{(p5)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## A conservation problem (<ConservationProblem>)
+## +@data
+## |+@features:    "Banksia woodlands" , ... (33 total)
+## |\@planning units:
+## | +@data:       <sftbl_dftbldata.frame> (1130 total)
+## | +@costs:      continuous values (between 0.1925 and 61.9273)
+## | +@extent:     298809.5764, 5167774.5993, 613818.7743, 5502543.7119 (xmin, ymin, xmax, ymax)
+## | \@CRS:        WGS 84 / UTM zone 55S (projected)
+## +@formulation
+## |+@objective:   minimum set objective
+## |+@penalties:
+## ||\@1:          boundary penalties (`penalty` = 0.001, `edge_factor` = 0.5, ...)
+## |+@targets:     relative targets (between 0.3 and 0.3)
+## |+@constraints:
+## ||+@1:          locked in constraints (257 planning units)
+## ||\@2:          locked out constraints (165 planning units)
+## |\@decisions:   binary decision
+## \@optimization
+##  +@portfolio:   shuffle portfolio (`number_solutions` = 1, ...)
+##  \@solver:      highs solver (`gap` = 0.1, `time_limit` = 2147483647, ...)
+## # i Use `summary(...)` to see complete formulation.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# solve problem,}
+\NormalTok{s5 }\OtherTok{\textless{}{-}} \FunctionTok{solve}\NormalTok{(p5)}
+
+\CommentTok{\# print solution}
+\DocumentationTok{\#\# note we use head() to show only show the first 6 rows}
+\FunctionTok{head}\NormalTok{(s5)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Simple feature collection with 6 features and 6 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: 303910.1 ymin: 5485840 xmax: 335610.4 ymax: 5502544
+## Projected CRS: WGS 84 / UTM zone 55S
+## # A tibble: 6 x 7
+##      id  cost locked_in locked_out pa_status solution_1
+##   <int> <dbl> <lgl>     <lgl>          <dbl>      <dbl>
+## 1     1  60.2 FALSE     TRUE               0          0
+## 2     2  19.9 FALSE     FALSE              0          0
+## 3     3  59.7 FALSE     TRUE               0          0
+## 4     4  32.4 FALSE     FALSE              0          0
+## 5     5  26.2 FALSE     FALSE              0          0
+## 6     6  51.3 FALSE     TRUE               0          0
+## # i 1 more variable: geom <MULTIPOLYGON [m]>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# plot solution}
+\FunctionTok{plot}\NormalTok{(s5[, }\StringTok{"solution\_1"}\NormalTok{], }\AttributeTok{pal =} \FunctionTok{c}\NormalTok{(}\StringTok{"grey90"}\NormalTok{, }\StringTok{"darkgreen"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.65\linewidth]{prioritizr-workshop-manual_files/figure-latex/boundary-problem-1} \end{center}
+
+Now let's compare the solutions to the problems with (\texttt{s5}) and without (\texttt{s4}) the boundary length penalties.
+
+\begin{rmdquestion}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  What is the cost the fourth (\texttt{s4}) and fifth (\texttt{s5}) solutions? Why does the fifth solution (\texttt{s5}) cost more than the fourth (\texttt{s4}) solution?
+\item
+  Try setting the penalty value to 0.000000001 (i.e.~\texttt{1e-9}) instead of 0.0005. What is the cost of the solution now? Is it different from the fourth solution (\texttt{s4}) (hint: try plotting the solutions to visualize them)? Is this is a useful penalty value? Why?
+\item
+  Try setting the penalty value to 0.5. What is the cost of the solution now? Is it different from the fourth solution (\texttt{s4}) (hint: try plotting the solutions to visualize them)? Is this a useful penalty value? Why?
+\end{enumerate}
+\end{rmdquestion}
+
+\hypertarget{budget-limited-prioritizations}{%
+\section{Budget limited prioritizations}\label{budget-limited-prioritizations}}
+
+In the real-world, the funding available for conservation is often very limited. As a consequence, decision makers often need prioritizations where the total cost of priority areas does not exceed a budget. In our fourth prioritization (\texttt{s4}), we found that we would need to spend an additional \$1334 million AUD to ensure that each vegetation community is adequately represented in the protected area system. But what if the funds available for establishing new protected areas were limited to \$100 million AUD? In this case, we need a ``budget limited prioritization''. Budget limited prioritizations aim to maximize some measure of conservation benefit subject to a budget (e.g., \href{https://prioritizr.net/reference/add_max_cover_objective.html}{number of species with at least one occurrence in the protected area system}, or \href{https://prioritizr.net/reference/add_max_phylo_div_objective.html}{phylogenetic diversity}). Let's create a prioritization that aims to minimize the target shortfalls as much as possible across all features whilst keeping within a pre-specified budget \citep[following][]{r8}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# funds for additional land acquisition (same units as cost data)}
+\NormalTok{funds }\OtherTok{\textless{}{-}} \DecValTok{100}
+
+\CommentTok{\# calculate the total budget for the prioritization}
+\NormalTok{budget }\OtherTok{\textless{}{-}}\NormalTok{ funds }\SpecialCharTok{+} \FunctionTok{sum}\NormalTok{(s4}\SpecialCharTok{$}\NormalTok{cost }\SpecialCharTok{*}\NormalTok{ s4}\SpecialCharTok{$}\NormalTok{locked\_in)}
+\FunctionTok{print}\NormalTok{(budget)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 8575.56
+\end{verbatim}
+
+\clearpage
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# create prioritization problem}
+\NormalTok{p6 }\OtherTok{\textless{}{-}}
+  \FunctionTok{problem}\NormalTok{(pu\_data, veg\_data, }\AttributeTok{cost\_column =} \StringTok{"cost"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_min\_shortfall\_objective}\NormalTok{(budget) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_relative\_targets}\NormalTok{(}\FloatTok{0.3}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_locked\_in\_constraints}\NormalTok{(}\StringTok{"locked\_in"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_locked\_out\_constraints}\NormalTok{(}\StringTok{"locked\_out"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_binary\_decisions}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_highs\_solver}\NormalTok{(}\AttributeTok{verbose =} \ConstantTok{FALSE}\NormalTok{)}
+
+\CommentTok{\# print problem}
+\FunctionTok{print}\NormalTok{(p6)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## A conservation problem (<ConservationProblem>)
+## +@data
+## |+@features:    "Banksia woodlands" , ... (33 total)
+## |\@planning units:
+## | +@data:       <sftbl_dftbldata.frame> (1130 total)
+## | +@costs:      continuous values (between 0.1925 and 61.9273)
+## | +@extent:     298809.5764, 5167774.5993, 613818.7743, 5502543.7119 (xmin, ymin, xmax, ymax)
+## | \@CRS:        WGS 84 / UTM zone 55S (projected)
+## +@formulation
+## |+@objective:   minimum shortfall objective (`budget` = 8575.5601)
+## |+@penalties:   none specified
+## |+@targets:     relative targets (between 0.3 and 0.3)
+## |+@constraints:
+## ||+@1:          locked in constraints (257 planning units)
+## ||\@2:          locked out constraints (165 planning units)
+## |\@decisions:   binary decision
+## \@optimization
+##  +@portfolio:   shuffle portfolio (`number_solutions` = 1, ...)
+##  \@solver:      highs solver (`gap` = 0.1, `time_limit` = 2147483647, ...)
+## # i Use `summary(...)` to see complete formulation.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# solve problem}
+\NormalTok{s6 }\OtherTok{\textless{}{-}} \FunctionTok{solve}\NormalTok{(p6)}
+
+\CommentTok{\# plot solution}
+\FunctionTok{plot}\NormalTok{(s6[, }\StringTok{"solution\_1"}\NormalTok{], }\AttributeTok{pal =} \FunctionTok{c}\NormalTok{(}\StringTok{"grey90"}\NormalTok{, }\StringTok{"darkgreen"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.65\linewidth]{prioritizr-workshop-manual_files/figure-latex/budget-problem-1} \end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# calculate feature representation}
+\NormalTok{r6 }\OtherTok{\textless{}{-}} \FunctionTok{eval\_feature\_representation\_summary}\NormalTok{(p6, s6[, }\StringTok{"solution\_1"}\NormalTok{])}
+
+\CommentTok{\# calculate number of features with targets met}
+\FunctionTok{sum}\NormalTok{(r6}\SpecialCharTok{$}\NormalTok{relative\_held }\SpecialCharTok{\textgreater{}=} \FloatTok{0.3}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 15
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# calculate average proportion of each feature represented by solution}
+\FunctionTok{mean}\NormalTok{(r6}\SpecialCharTok{$}\NormalTok{relative\_held, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.3238168
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# find out which features have their targets met}
+\FunctionTok{print}\NormalTok{(r6}\SpecialCharTok{$}\NormalTok{feature[r6}\SpecialCharTok{$}\NormalTok{relative\_held }\SpecialCharTok{\textgreater{}=} \FloatTok{0.3}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "Boulders/rock with algae, lichen or scattered plants, or alpine fjaeldmarks"                           
+##  [2] "Cool temperate rainforest"                                                                             
+##  [3] "Eucalyptus open woodlands with shrubby understorey"                                                    
+##  [4] "Eucalyptus tall open forests and open forests with ferns, herbs, sedges, rushes or wet tussock grasses"
+##  [5] "Freshwater, dams, lakes, lagoons or aquatic plants"                                                    
+##  [6] "Heathlands"                                                                                            
+##  [7] "Leptospermum forests and woodlands"                                                                    
+##  [8] "Low closed forest or tall closed shrublands (including Acacia, Melaleuca and Banksia)"                 
+##  [9] "Mallee with a tussock grass understorey"                                                               
+## [10] "Melaleuca shrublands and open shrublands"                                                              
+## [11] "Mixed chenopod, samphire +/- forbs"                                                                    
+## [12] "Other Acacia tall open shrublands and shrublands"                                                      
+## [13] "Other open woodlands"                                                                                  
+## [14] "Other shrublands"                                                                                      
+## [15] "Sedgelands, rushs or reeds"
+\end{verbatim}
+
+We can also add weights to specify that it is more important to meet the targets for certain features and less important for other features. A common approach for weighting features is to assign a greater importance to features with smaller spatial distributions. The rationale behind this weighting method is that features with smaller spatial distributions are at greater risk of extinction. So, let's calculate some weights for our vegetation communities and see how weighting the features changes our prioritization.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# calculate weights as the log inverse number of grid cells that each vegetation}
+\CommentTok{\# class occupies, rescaled between 1 and 100}
+\NormalTok{wts }\OtherTok{\textless{}{-}} \DecValTok{1} \SpecialCharTok{/} \FunctionTok{global}\NormalTok{(veg\_data, }\StringTok{"sum"}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)[[}\DecValTok{1}\NormalTok{]]}
+\NormalTok{wts }\OtherTok{\textless{}{-}}\NormalTok{ scales}\SpecialCharTok{::}\FunctionTok{rescale}\NormalTok{(wts, }\AttributeTok{to =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{10}\NormalTok{))}
+
+\CommentTok{\# print the name of the feature with smallest weight}
+\FunctionTok{names}\NormalTok{(veg\_data)[}\FunctionTok{which.min}\NormalTok{(wts)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Eucalyptus open forests with a shrubby understorey"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# print the name of the feature with greatest weight}
+\FunctionTok{names}\NormalTok{(veg\_data)[}\FunctionTok{which.max}\NormalTok{(wts)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Mallee with a tussock grass understorey"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# plot histogram of weights}
+\FunctionTok{hist}\NormalTok{(wts, }\AttributeTok{xlab =} \StringTok{"Feature weights"}\NormalTok{)}
+
+\CommentTok{\# create prioritization problem with weights}
+\NormalTok{p7 }\OtherTok{\textless{}{-}}
+  \FunctionTok{problem}\NormalTok{(pu\_data, veg\_data, }\AttributeTok{cost\_column =} \StringTok{"cost"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_min\_shortfall\_objective}\NormalTok{(budget) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_relative\_targets}\NormalTok{(}\FloatTok{0.3}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_feature\_weights}\NormalTok{(wts) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_locked\_in\_constraints}\NormalTok{(}\StringTok{"locked\_in"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_locked\_out\_constraints}\NormalTok{(}\StringTok{"locked\_out"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_binary\_decisions}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_highs\_solver}\NormalTok{(}\AttributeTok{verbose =} \ConstantTok{FALSE}\NormalTok{)}
+
+\CommentTok{\# print problem}
+\FunctionTok{print}\NormalTok{(p7)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.65\linewidth]{prioritizr-workshop-manual_files/figure-latex/weights-problem-1} \end{center}
+
+\begin{verbatim}
+## A conservation problem (<ConservationProblem>)
+## +@data
+## |+@features:    "Banksia woodlands" , ... (33 total)
+## |\@planning units:
+## | +@data:       <sftbl_dftbldata.frame> (1130 total)
+## | +@costs:      continuous values (between 0.1925 and 61.9273)
+## | +@extent:     298809.5764, 5167774.5993, 613818.7743, 5502543.7119 (xmin, ymin, xmax, ymax)
+## | \@CRS:        WGS 84 / UTM zone 55S (projected)
+## +@formulation
+## |+@objective:   minimum shortfall objective (`budget` = 8575.5601)
+## |+@penalties:
+## ||\@1:          feature weights (`weights` = asymmetric continuous values (non-zero values between 1 and 10))
+## |+@targets:     relative targets (between 0.3 and 0.3)
+## |+@constraints:
+## ||+@1:          locked in constraints (257 planning units)
+## ||\@2:          locked out constraints (165 planning units)
+## |\@decisions:   binary decision
+## \@optimization
+##  +@portfolio:   shuffle portfolio (`number_solutions` = 1, ...)
+##  \@solver:      highs solver (`gap` = 0.1, `time_limit` = 2147483647, ...)
+## # i Use `summary(...)` to see complete formulation.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# solve problem}
+\NormalTok{s7 }\OtherTok{\textless{}{-}} \FunctionTok{solve}\NormalTok{(p7)}
+
+\CommentTok{\# plot solution}
+\FunctionTok{plot}\NormalTok{(s7[, }\StringTok{"solution\_1"}\NormalTok{], }\AttributeTok{pal =} \FunctionTok{c}\NormalTok{(}\StringTok{"grey90"}\NormalTok{, }\StringTok{"darkgreen"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.65\linewidth]{prioritizr-workshop-manual_files/figure-latex/weights-problem-2} \end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# calculate feature representation}
+\NormalTok{r7 }\OtherTok{\textless{}{-}} \FunctionTok{eval\_feature\_representation\_summary}\NormalTok{(p7, s7[, }\StringTok{"solution\_1"}\NormalTok{])}
+
+\CommentTok{\# calculate number of features with targets met}
+\FunctionTok{sum}\NormalTok{(r7}\SpecialCharTok{$}\NormalTok{relative\_held }\SpecialCharTok{\textgreater{}=} \FloatTok{0.3}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 15
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# calculate average proportion of each feature represented by solution}
+\FunctionTok{mean}\NormalTok{(r6}\SpecialCharTok{$}\NormalTok{relative\_held, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.3238168
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# find out which features have their targets met when we add weights}
+\FunctionTok{print}\NormalTok{(r7}\SpecialCharTok{$}\NormalTok{feature[r7}\SpecialCharTok{$}\NormalTok{relative\_held }\SpecialCharTok{\textgreater{}=} \FloatTok{0.3}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "Banksia woodlands"                                                                    
+##  [2] "Boulders/rock with algae, lichen or scattered plants, or alpine fjaeldmarks"          
+##  [3] "Cool temperate rainforest"                                                            
+##  [4] "Eucalyptus open woodlands with shrubby understorey"                                   
+##  [5] "Freshwater, dams, lakes, lagoons or aquatic plants"                                   
+##  [6] "Heathlands"                                                                           
+##  [7] "Leptospermum forests and woodlands"                                                   
+##  [8] "Low closed forest or tall closed shrublands (including Acacia, Melaleuca and Banksia)"
+##  [9] "Mallee with a tussock grass understorey"                                              
+## [10] "Melaleuca shrublands and open shrublands"                                             
+## [11] "Mixed chenopod, samphire +/- forbs"                                                   
+## [12] "Other Acacia tall open shrublands and shrublands"                                     
+## [13] "Other open woodlands"                                                                 
+## [14] "Other shrublands"                                                                     
+## [15] "Sedgelands, rushs or reeds"
+\end{verbatim}
+
+\begin{rmdquestion}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  What is the name of the feature with the smallest weight?
+\item
+  What is the cost of the sixth (\texttt{s6}) and seventh (\texttt{s7}) solutions?
+\item
+  Does there seem to be a big difference in which planning units were selected in the sixth (\texttt{s6}) and seventh (\texttt{s7}) solutions?
+\item
+  Is there a difference between which features are adequately represented in the sixth (\texttt{s6}) and seventh (\texttt{s7}) solutions? If so, what is the difference?
+\end{enumerate}
+\end{rmdquestion}
+
+\hypertarget{importance}{%
+\chapter{Importance}\label{importance}}
+
+\hypertarget{introduction-3}{%
+\section{Introduction}\label{introduction-3}}
+
+Systematic conservation planning involves identifying priority areas for conservation actions \citep{r13}. As we saw in the previous section, we can generate a spatial prioritization that optimizes a particular objective, given a set of constraints, to identify a set of priority areas for management. This information is very useful because it provides a complete and cost-effective plan for achieving our conservation goals. However, when we just look at the priority areas in a spatial prioritization, we don't necessarily know which priority areas -- among all the priority areas in the spatial prioritization -- are more or less important for conservation. For example, if we generated a spatial prioritization based on threatened and non-threatened species, it would be useful to know which priority areas are necessary to protect because they contain species that are not found anywhere else in the study area. To obtain this information, we can calculate \href{https://prioritizr.net/reference/importance.html}{importance scores} for the planning units selected in the prioritization. This information can be useful for scheduling implementation of conservation plans and finding compromises for stakeholder discussions \citep{r5}.
+
+\hypertarget{quantifying-irreplaceability}{%
+\section{Quantifying irreplaceability}\label{quantifying-irreplaceability}}
+
+To keep things simple, let's start by creating a new conservation planning problem and solving it to generate a spatial prioritization. This will be very similar to one of the prioritizations that we generated in the previous section. Specifically, we will use the minium set objective, 30\% representation targets, locked in, locked out constraints, and binary decisions.
+
+\clearpage
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# create prioritization problem}
+\NormalTok{p8 }\OtherTok{\textless{}{-}}
+  \FunctionTok{problem}\NormalTok{(pu\_data, veg\_data, }\AttributeTok{cost\_column =} \StringTok{"cost"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_min\_set\_objective}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_boundary\_penalties}\NormalTok{(}\AttributeTok{penalty =} \FloatTok{0.001}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_relative\_targets}\NormalTok{(}\FloatTok{0.3}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_locked\_in\_constraints}\NormalTok{(}\StringTok{"locked\_in"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_locked\_out\_constraints}\NormalTok{(}\StringTok{"locked\_out"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_binary\_decisions}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_highs\_solver}\NormalTok{(}\AttributeTok{verbose =} \ConstantTok{FALSE}\NormalTok{)}
+
+\CommentTok{\# print problem}
+\FunctionTok{print}\NormalTok{(p8)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## A conservation problem (<ConservationProblem>)
+## +@data
+## |+@features:    "Banksia woodlands" , ... (33 total)
+## |\@planning units:
+## | +@data:       <sftbl_dftbldata.frame> (1130 total)
+## | +@costs:      continuous values (between 0.1925 and 61.9273)
+## | +@extent:     298809.5764, 5167774.5993, 613818.7743, 5502543.7119 (xmin, ymin, xmax, ymax)
+## | \@CRS:        WGS 84 / UTM zone 55S (projected)
+## +@formulation
+## |+@objective:   minimum set objective
+## |+@penalties:
+## ||\@1:          boundary penalties (`penalty` = 0.001, `edge_factor` = 0.5, ...)
+## |+@targets:     relative targets (between 0.3 and 0.3)
+## |+@constraints:
+## ||+@1:          locked in constraints (257 planning units)
+## ||\@2:          locked out constraints (165 planning units)
+## |\@decisions:   binary decision
+## \@optimization
+##  +@portfolio:   shuffle portfolio (`number_solutions` = 1, ...)
+##  \@solver:      highs solver (`gap` = 0.1, `time_limit` = 2147483647, ...)
+## # i Use `summary(...)` to see complete formulation.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# solve problem,}
+\NormalTok{s8 }\OtherTok{\textless{}{-}} \FunctionTok{solve}\NormalTok{(p8)}
+
+\CommentTok{\# print solution}
+\DocumentationTok{\#\# note we use head() to show only show the first 6 rows}
+\FunctionTok{head}\NormalTok{(s8)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Simple feature collection with 6 features and 6 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: 303910.1 ymin: 5485840 xmax: 335610.4 ymax: 5502544
+## Projected CRS: WGS 84 / UTM zone 55S
+## # A tibble: 6 x 7
+##      id  cost locked_in locked_out pa_status solution_1
+##   <int> <dbl> <lgl>     <lgl>          <dbl>      <dbl>
+## 1     1  60.2 FALSE     TRUE               0          0
+## 2     2  19.9 FALSE     FALSE              0          0
+## 3     3  59.7 FALSE     TRUE               0          0
+## 4     4  32.4 FALSE     FALSE              0          0
+## 5     5  26.2 FALSE     FALSE              0          0
+## 6     6  51.3 FALSE     TRUE               0          0
+## # i 1 more variable: geom <MULTIPOLYGON [m]>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# plot solution}
+\FunctionTok{plot}\NormalTok{(}
+\NormalTok{  s8[, }\StringTok{"solution\_1"}\NormalTok{], }\AttributeTok{main =} \StringTok{"Prioritization"}\NormalTok{,}
+  \AttributeTok{pal =} \FunctionTok{c}\NormalTok{(}\StringTok{"grey90"}\NormalTok{, }\StringTok{"darkgreen"}\NormalTok{)}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.65\linewidth]{prioritizr-workshop-manual_files/figure-latex/irrep-problem-1} \end{center}
+
+Now, we will calculate importance scores. Specifically, we will calculate importance scores based on \href{https://prioritizr.net/reference/eval_ferrier_importance.html}{irreplaceability metric} developed by Ferrier \emph{et al.} \citeyearpar{r4}. These scores describe how important each planning unit is for meeting the representation targets. Briefly, the metric calculates a score for each feature separately -- so we can tell which planning units are more important for particular features -- and a total score describing the overall importance each planning unit has meeting all the targets. Although the disadvantage of this method is that it does not account for planning unit costs \citep[c.f., \href{https://prioritizr.net/reference/eval_replacement_importance.html}{the replacement cost metric},][]{r14}, it is useful because it accounts for the representation targets and can be calculated relatively quickly for problems with many planning units and features.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# calculate Ferrier scores}
+\NormalTok{i8 }\OtherTok{\textless{}{-}} \FunctionTok{eval\_ferrier\_importance}\NormalTok{(p8, s8[, }\StringTok{"solution\_1"}\NormalTok{])}
+
+\CommentTok{\# set NA values for planning units not selected in solution}
+\NormalTok{i8 }\OtherTok{\textless{}{-}}
+\NormalTok{  i8 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate\_at}\NormalTok{(}
+    \FunctionTok{c}\NormalTok{(}\StringTok{"total"}\NormalTok{, }\FunctionTok{names}\NormalTok{(veg\_data)),}
+    \ControlFlowTok{function}\NormalTok{(x) x }\SpecialCharTok{*} \FunctionTok{if\_else}\NormalTok{(s8}\SpecialCharTok{$}\NormalTok{solution\_1 }\SpecialCharTok{\textgreater{}} \FloatTok{0.5}\NormalTok{, }\DecValTok{1}\NormalTok{, }\ConstantTok{NA\_real\_}\NormalTok{)}
+\NormalTok{  )}
+
+
+\CommentTok{\# print scores}
+\DocumentationTok{\#\# note we use head() to show only show the first 6 rows}
+\FunctionTok{head}\NormalTok{(i8)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Simple feature collection with 6 features and 34 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: 303910.1 ymin: 5485840 xmax: 335610.4 ymax: 5502544
+## Projected CRS: WGS 84 / UTM zone 55S
+## # A tibble: 6 x 35
+##   `Banksia woodlands` Boulders/rock with algae, lichen ~1 Callitris forests an~2
+##                 <dbl>                               <dbl>                  <dbl>
+## 1                  NA                                  NA                     NA
+## 2                  NA                                  NA                     NA
+## 3                  NA                                  NA                     NA
+## 4                  NA                                  NA                     NA
+## 5                  NA                                  NA                     NA
+## 6                  NA                                  NA                     NA
+## # i abbreviated names:
+## #   1: `Boulders/rock with algae, lichen or scattered plants, or alpine fjaeldmarks`,
+## #   2: `Callitris forests and woodlands`
+## # i 32 more variables: `Cool temperate rainforest` <dbl>,
+## #   `Eucalyptus (+/- tall) open forest with a dense broad-leaved and/or tree-fern understorey (wet sclerophyll)` <dbl>,
+## #   `Eucalyptus open forests with a shrubby understorey` <dbl>,
+## #   `Eucalyptus open woodlands with shrubby understorey` <dbl>, ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# plot total scores across all features}
+\FunctionTok{plot}\NormalTok{(i8[, }\StringTok{"total"}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.65\linewidth]{prioritizr-workshop-manual_files/figure-latex/irrep-maps-1} \end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# plot scores for first feature}
+\FunctionTok{plot}\NormalTok{(i8[, }\FunctionTok{names}\NormalTok{(veg\_data)[}\DecValTok{1}\NormalTok{]])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.65\linewidth]{prioritizr-workshop-manual_files/figure-latex/irrep-maps-2} \end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# plot scores for second feature}
+\FunctionTok{plot}\NormalTok{(i8[, }\FunctionTok{names}\NormalTok{(veg\_data)[}\DecValTok{1}\NormalTok{]])}
+\end{Highlighting}
+\end{Shaded}
+
+\clearpage
+
+Here we can see that some planning units in the prioritization have much higher importance scores than other planning units. If you're familiar with Marxan, the importance scores here convey a similar concept to the selection frequency. However, the advantage with this approach is that you don't need to generate tens of thousands of solutions in order to evaluate the relative importance of different planning units. Additionally, you can see which planning units are more, or less, important for particular features. This can be useful to help understand why certain planning units were selected by the prioritization.
+
+\begin{rmdquestion}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Which parts of the study area have the highest importance values?
+\item
+  How do the total importance values change when you decrease the targets from 30\% to 10\%?
+\end{enumerate}
+\end{rmdquestion}
+
+\hypertarget{answers}{%
+\chapter{Answers}\label{answers}}
+
+This chapter contains the answers to the questions presented in the earlier chapters. The answers are provided here so you can check if your answers are correct.
+
+\hypertarget{data-1}{%
+\section{Data}\label{data-1}}
+
+\hypertarget{planning-unit-data-1}{%
+\subsection{Planning unit data}\label{planning-unit-data-1}}
+
+\begin{rmdanswer}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \texttt{nrow(pu\_data)}
+\item
+  \texttt{max(pu\_data\$cost)}
+\item
+  \texttt{sum(pu\_data\$locked\_in)}
+\item
+  \texttt{mean(pu\_data\$locked\_in)}
+\item
+  \texttt{sum(pu\_data\$locked\_out)}
+\item
+  \texttt{mean(pu\_data\$locked\_out)}
+\item
+  \texttt{assert\_that(min(c(pu\_data\$locked\_in,\ pu\_data\$locked\_out))\ ==\ 0)}
+  \texttt{assert\_that(max(c(pu\_data\$locked\_in,\ pu\_data\$locked\_out))\ ==\ 1)}
+\item
+  \texttt{all(is.finite(pu\_data\$cost))}
+\item
+  \texttt{assert\_that(sum(duplicated(pu\_data\$id))\ ==\ 0)}
+\item
+  Yes, the eastern side of Tasmania is generally much cheaper than the western side.
+\item
+  Yes, most planning units covered by protected areas are located in the south-western side of Tasmania.
+\end{enumerate}
+\end{rmdanswer}
+
+\hypertarget{vegetation-data-1}{%
+\subsection{Vegetation data}\label{vegetation-data-1}}
+
+\begin{rmdanswer}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  North-eastern quarter of Tasmania
+\item
+  \texttt{cellStats(veg\_data{[}{[}"Heathland"{]}{]},\ "mean")}
+\item
+  \texttt{names(veg\_data){[}which.max(global(veg\_data,\ "sum",\ na.rm\ =\ TRUE){[}{[}1{]}{]}){]}}
+\item
+  Yes, they are the same.
+\end{enumerate}
+\end{rmdanswer}
+
+\hypertarget{gap-analysis-1}{%
+\section{Gap analysis}\label{gap-analysis-1}}
+
+\hypertarget{feature-abundance-1}{%
+\subsection{Feature abundance}\label{feature-abundance-1}}
+
+\begin{rmdanswer}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \texttt{median(abundance\_data\$absolute\_abundance\_km2)}
+\item
+  \texttt{min(abundance\_data\$absolute\_abundance\_km2)}
+\item
+  \texttt{abundance\_data\$feature{[}which.min(abundance\_data\$absolute\_abundance\_km2){]}}
+\item
+  \texttt{sum(abundance\_data\$absolute\_abundance\_km2)}
+\item
+  \texttt{sum(abundance\_data\$absolute\_abundance\_km2\ \textgreater{}\ set\_units(100,\ km\^{}2))}
+\end{enumerate}
+\end{rmdanswer}
+
+\hypertarget{feature-representation-by-protected-areas-1}{%
+\subsection{Feature representation by protected areas}\label{feature-representation-by-protected-areas-1}}
+
+\begin{rmdanswer}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \texttt{mean(repr\_data\$relative\_held,\ na.rm\ =\ TRUE)}
+\item
+  \texttt{mean(repr\_data\$absolute\_held\_km2,\ na.rm\ =\ TRUE)}
+\item
+  \texttt{repr\_data\$feature{[}which.max(repr\_data\$relative\_held){]}}
+\item
+  \texttt{repr\_data\$feature{[}which.max(repr\_data\$absolute\_held){]}}
+\item
+  No, just because a vegetation class is widespread does not necessarily mean that it has the greatest overlap with protected areas. In fact, due to biases in the establishment of protected areas this can often be the case.
+\item
+  Yes, the largest protected areas tend to have the great representation (broadly speaking).\\
+  \texttt{plot(abundance\_data\$absolute\_abundance,\ repr\_data\$relative\_held)}
+\item
+  \texttt{sum(repr\_data\$absolute\_held\ ==\ 0)}
+\item
+  \texttt{sum(repr\_data\$relative\_held\ \textgreater{}\ 0.1,\ na.rm\ =\ TRUE)}
+\item
+  \texttt{sum(repr\_data\$relative\_held\ \textgreater{}\ 0.3,\ na.rm\ =\ TRUE)}
+\end{enumerate}
+\end{rmdanswer}
+
+\hypertarget{spatial-prioritizations-1}{%
+\section{Spatial prioritizations}\label{spatial-prioritizations-1}}
+
+\hypertarget{starting-out-simple-1}{%
+\subsection{Starting out simple}\label{starting-out-simple-1}}
+
+\begin{rmdanswer}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \texttt{sum(s1\$solution\_1)}
+\item
+  \texttt{mean(s1\$solution\_1)}
+\item
+  Yes, the planning units are generally spread out across most of the study area and they are not biased towards specific areas.
+\item
+  \texttt{all(feature\_representation(p1,\ s1{[},\ "solution\_1"{]})\$relative\_held\ \textgreater{}=\ 0.3)}
+\end{enumerate}
+\end{rmdanswer}
+
+\hypertarget{adding-complexity-1}{%
+\subsection{Adding complexity}\label{adding-complexity-1}}
+
+\begin{rmdanswer}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \texttt{sum(s2\$cost\ *\ s2\$solution\_1)},\\
+  \texttt{sum(s3\$cost\ *\ s3\$solution\_1)},\\
+  \texttt{sum(s4\$cost\ *\ s4\$solution\_1)}\strut \\
+\item
+  \texttt{sum(s2\$solution\_1)},\\
+  \texttt{sum(s3\$solution\_1)},\\
+  \texttt{sum(s4\$solution\_1)}
+\item
+  No, just because a solution a solution has more planning units does not mean that it will cost less.
+\item
+  This is because the planning units covered by existing protected areas have a non-zero cost and locking in these planning units introduces inefficiencies into the solution. This is very common in real-world conservation prioritizations because existing protected areas are often in places that do little to benefit biodiversity \citep{r3}.
+\item
+  This is because some of the planning units that are highly degraded -- based on just the planning unit costs and vegetation data -- provide cost-efficient opportunities for meeting the targets and excluding them from the reserve selection process means that other more costly planning units are needed to meet the targets.
+\item
+  \texttt{sum(s4\$cost\ *\ s4\$solution\_1)\ -\ sum(s4\$cost\ *\ s4\$locked\_in)}
+\item
+  We get an error message stating the the problem is infeasible because there is no valid solution---even if we selected all the planning units the study area we would still not meet the targets.
+\end{enumerate}
+\end{rmdanswer}
+
+\hypertarget{penalizing-fragmentation-1}{%
+\subsection{Penalizing fragmentation}\label{penalizing-fragmentation-1}}
+
+\begin{rmdanswer}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The cost of the fourth solution is \texttt{sum(s4\$solution\_1\ *\ s4\$cost)} and the cost of the fifth solution is \texttt{sum(s5\$solution\_1\ *\ s5\$cost)}. The fifth solution (\texttt{s5}) costs more than the fourth solution (\texttt{s4}) because we have added penalties to the conservation planning problem to indicate that we are willing to accept a slightly more costly solution if it means that we can reduce fragmentation.
+\item
+  The solution is now nearly identical to the fourth solution (\texttt{s4}) and so has nearly the same cost. This penalty value is too low and is not useful because it does not reduce the fragmentation in our solution.
+\item
+  The solution now contains a lot of extra planning units that are not needed to meet our targets. In fact, nearly every planning unit in the study is now selected. This penalty value is too high and is not useful.
+\end{enumerate}
+\end{rmdanswer}
+
+\hypertarget{budget-limited-prioritizations-1}{%
+\subsection{Budget limited prioritizations}\label{budget-limited-prioritizations-1}}
+
+\begin{rmdanswer}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \texttt{names(veg\_data){[}which.min(wts){]}}
+\item
+  \texttt{sum(s6\$cost\ *\ s6\$solution\_1)},\\
+  \texttt{sum(s7\$cost\ *\ s7\$solution\_1)}
+\item
+  No, the sixth (\texttt{s6}) and seventh (\texttt{s7}) solutions both share many of the same selected planning units and there does not appear to be an obvious difference in the spatial location of the planning units which they do not share.
+\item
+  Yes. Both solutions contain adequately represent these features:\\
+  \texttt{r6\$feature{[}r6\$relative\_held\ \textgreater{}\ 0.3\ \&\ r7\$relative\_held\ \textgreater{}\ 0.3{]}}.\\
+  The sixth (\texttt{s6}) adequately represents these features too:\\
+  \texttt{r6\$feature{[}r6\$relative\_held\ \textgreater{}\ 0.3\ \&\ !r7\$relative\_held\ \textgreater{}\ 0.3{]}}.\\
+  The seventh (\texttt{s7}) adequately represents these features too:\\
+  \texttt{r7\$feature{[}r7\$relative\_held\ \textgreater{}\ 0.3\ \&\ !r6\$relative\_held\ \textgreater{}\ 0.3{]}}
+\end{enumerate}
+\end{rmdanswer}
+
+\hypertarget{importance-1}{%
+\section{Importance}\label{importance-1}}
+
+\hypertarget{quantifying-irreplaceability-1}{%
+\subsection{Quantifying irreplaceability}\label{quantifying-irreplaceability-1}}
+
+\begin{rmdanswer}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  There are 3 planning units with much higher irreplaceability values than the other planning units. These are found in the north-west, north-east, and south-east parts of Tasmania.
+\item
+  There are fewer planning units with high irreplaceability values, because the targets are lower, there are less irreplaceable planning units. In other words, there are more possible combinations of planning units available for meeting the targets.
+\end{enumerate}
+\end{rmdanswer}
+
+\hypertarget{acknowledgements}{%
+\chapter{Acknowledgements}\label{acknowledgements}}
+
+Many thanks to \href{https://icons8.com}{Icons8} for providing the icons used in this manual and to Yihui Xie for developing the \href{http://bookdown.org}{bookdown R package} that underpins this manual. We also thank Garrett Grolemund and Hadley Wickham for creating one of the Rstudio screenshots used in this manual that was originally a part of their \emph{R for Data Science} book.
+
+\hypertarget{session-information}{%
+\chapter{Session information}\label{session-information}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# print session information}
+\FunctionTok{sessionInfo}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## R version 4.2.3 (2023-03-15)
+## Platform: x86_64-pc-linux-gnu (64-bit)
+## Running under: Ubuntu 20.04.6 LTS
+## 
+## Matrix products: default
+## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0
+## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
+## 
+## locale:
+##  [1] LC_CTYPE=C.UTF-8       LC_NUMERIC=C           LC_TIME=C.UTF-8       
+##  [4] LC_COLLATE=C.UTF-8     LC_MONETARY=C.UTF-8    LC_MESSAGES=C.UTF-8   
+##  [7] LC_PAPER=C.UTF-8       LC_NAME=C              LC_ADDRESS=C          
+## [10] LC_TELEPHONE=C         LC_MEASUREMENT=C.UTF-8 LC_IDENTIFICATION=C   
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+##  [1] scales_1.2.1     units_0.8-1      mapview_2.11.0   highs_0.1-6     
+##  [5] sf_1.0-12        terra_1.7-23     lubridate_1.9.2  forcats_1.0.0   
+##  [9] stringr_1.5.0    dplyr_1.1.1      purrr_1.0.1      readr_2.1.4     
+## [13] tidyr_1.3.0      tibble_3.2.1     ggplot2_3.4.2    tidyverse_2.0.0 
+## [17] prioritizr_8.0.1
+## 
+## loaded via a namespace (and not attached):
+##  [1] Rcpp_1.0.10         ape_5.7-1           lattice_0.20-45    
+##  [4] png_0.1-8           class_7.3-21        assertthat_0.2.1   
+##  [7] digest_0.6.31       utf8_1.2.3          R6_2.5.1           
+## [10] backports_1.4.1     stats4_4.2.3        evaluate_0.20      
+## [13] e1071_1.7-13        pillar_1.9.0        rlang_1.1.0        
+## [16] rstudioapi_0.14     raster_3.6-20       Matrix_1.5-3       
+## [19] checkmate_2.1.0     rmarkdown_2.21      exactextractr_0.9.1
+## [22] webshot_0.5.4       htmlwidgets_1.6.2   munsell_0.5.0      
+## [25] proxy_0.4-27        compiler_4.2.3      xfun_0.38          
+## [28] pkgconfig_2.0.3     base64enc_0.1-3     htmltools_0.5.5    
+## [31] tidyselect_1.2.0    bookdown_0.33.2     codetools_0.2-19   
+## [34] fansi_1.0.4         tzdb_0.3.0          withr_2.5.0        
+## [37] grid_4.2.3          satellite_1.0.4     nlme_3.1-162       
+## [40] gtable_0.3.3        lifecycle_1.0.3     DBI_1.1.3          
+## [43] magrittr_2.0.3      KernSmooth_2.23-20  cli_3.6.1          
+## [46] stringi_1.7.12      leaflet_2.1.2       sp_1.6-0           
+## [49] generics_0.1.3      vctrs_0.6.1         tools_4.2.3        
+## [52] leafem_0.2.0        glue_1.6.2          hms_1.1.3          
+## [55] crosstalk_1.2.0     parallel_4.2.3      fastmap_1.1.1      
+## [58] yaml_2.3.7          timechange_0.2.0    colorspace_2.1-0   
+## [61] classInt_0.4-9      knitr_1.42
+\end{verbatim}
+
+  \bibliography{references.bib}
+
+\end{document}

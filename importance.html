@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Importance | PRIORITIZR WORKSHOP MANUAL</title>
+  <meta name="description" content="Manual for the prioritizr workshop." />
+  <meta name="generator" content="bookdown 0.33.2 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Importance | PRIORITIZR WORKSHOP MANUAL" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://prioritizr.github.io/workshop/images/cover.png" />
+  <meta property="og:description" content="Manual for the prioritizr workshop." />
+  <meta name="github-repo" content="prioritizr/workshop" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Importance | PRIORITIZR WORKSHOP MANUAL" />
+  
+  <meta name="twitter:description" content="Manual for the prioritizr workshop." />
+  <meta name="twitter:image" content="https://prioritizr.github.io/workshop/images/cover.png" />
+
+<meta name="author" content="Jeffrey Hanson and Richard Schuster" />
+
+
+<meta name="date" content="2023-04-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link rel="prev" href="spatial-prioritizations.html"/>
+<link rel="next" href="answers.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.1.2/leaflet.js"></script>
+<script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
+<script src="libs/leaflet-providers-plugin-2.1.2/leaflet-providers-plugin.js"></script>
+<link href="libs/HomeButton-0.0.1/home-button.css" rel="stylesheet" />
+<script src="libs/HomeButton-0.0.1/home-button.js"></script>
+<script src="libs/HomeButton-0.0.1/easy-button-src.min.js"></script>
+<script src="libs/clipboard-0.0.1/setClipboardText.js"></script>
+<link href="libs/mapviewCSS-0.0.1/mapview-popup.css" rel="stylesheet" />
+<link href="libs/mapviewCSS-0.0.1/mapview.css" rel="stylesheet" />
+<script src="libs/raster::raster(veg_data[[30]])_9b50e4-1/data_stars_rasterrasterveg_data30d284fa.txt"></script>
+<script src="libs/joda-0.0.1/joda.js"></script>
+<script src="libs/joda-0.0.1/addImageQuery-bindings.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PRIORITIZR WORKSHOP MANUAL</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome!</a></li>
+<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introduction.html"><a href="introduction.html#overview"><i class="fa fa-check"></i><b>2.1</b> Overview</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction.html"><a href="introduction.html#setup"><i class="fa fa-check"></i><b>2.2</b> Setting up your computer</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="introduction.html"><a href="introduction.html#r"><i class="fa fa-check"></i><b>2.2.1</b> R</a></li>
+<li class="chapter" data-level="2.2.2" data-path="introduction.html"><a href="introduction.html#rstudio"><i class="fa fa-check"></i><b>2.2.2</b> RStudio</a></li>
+<li class="chapter" data-level="2.2.3" data-path="introduction.html"><a href="introduction.html#r-packages"><i class="fa fa-check"></i><b>2.2.3</b> R packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="introduction.html"><a href="introduction.html#further-reading"><i class="fa fa-check"></i><b>2.3</b> Further reading</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>3</b> Data</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data.html"><a href="data.html#starting-out"><i class="fa fa-check"></i><b>3.1</b> Starting out</a></li>
+<li class="chapter" data-level="3.2" data-path="data.html"><a href="data.html#setting-up-the-r-session"><i class="fa fa-check"></i><b>3.2</b> Setting up the R session</a></li>
+<li class="chapter" data-level="3.3" data-path="data.html"><a href="data.html#data-import"><i class="fa fa-check"></i><b>3.3</b> Data import</a></li>
+<li class="chapter" data-level="3.4" data-path="data.html"><a href="data.html#planning-unit-data"><i class="fa fa-check"></i><b>3.4</b> Planning unit data</a></li>
+<li class="chapter" data-level="3.5" data-path="data.html"><a href="data.html#vegetation-data"><i class="fa fa-check"></i><b>3.5</b> Vegetation data</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="gap-analysis.html"><a href="gap-analysis.html"><i class="fa fa-check"></i><b>4</b> Gap analysis</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="gap-analysis.html"><a href="gap-analysis.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="gap-analysis.html"><a href="gap-analysis.html#feature-abundance"><i class="fa fa-check"></i><b>4.2</b> Feature abundance</a></li>
+<li class="chapter" data-level="4.3" data-path="gap-analysis.html"><a href="gap-analysis.html#feature-representation-by-protected-areas"><i class="fa fa-check"></i><b>4.3</b> Feature representation by protected areas</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="spatial-prioritizations.html"><a href="spatial-prioritizations.html"><i class="fa fa-check"></i><b>5</b> Spatial prioritizations</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="spatial-prioritizations.html"><a href="spatial-prioritizations.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="spatial-prioritizations.html"><a href="spatial-prioritizations.html#starting-out-simple"><i class="fa fa-check"></i><b>5.2</b> Starting out simple</a></li>
+<li class="chapter" data-level="5.3" data-path="spatial-prioritizations.html"><a href="spatial-prioritizations.html#adding-complexity"><i class="fa fa-check"></i><b>5.3</b> Adding complexity</a></li>
+<li class="chapter" data-level="5.4" data-path="spatial-prioritizations.html"><a href="spatial-prioritizations.html#penalizing-fragmentation"><i class="fa fa-check"></i><b>5.4</b> Penalizing fragmentation</a></li>
+<li class="chapter" data-level="5.5" data-path="spatial-prioritizations.html"><a href="spatial-prioritizations.html#budget-limited-prioritizations"><i class="fa fa-check"></i><b>5.5</b> Budget limited prioritizations</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="importance.html"><a href="importance.html"><i class="fa fa-check"></i><b>6</b> Importance</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="importance.html"><a href="importance.html#introduction-3"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="importance.html"><a href="importance.html#quantifying-irreplaceability"><i class="fa fa-check"></i><b>6.2</b> Quantifying irreplaceability</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i><b>7</b> Answers</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="answers.html"><a href="answers.html#data-1"><i class="fa fa-check"></i><b>7.1</b> Data</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="answers.html"><a href="answers.html#planning-unit-data-1"><i class="fa fa-check"></i><b>7.1.1</b> Planning unit data</a></li>
+<li class="chapter" data-level="7.1.2" data-path="answers.html"><a href="answers.html#vegetation-data-1"><i class="fa fa-check"></i><b>7.1.2</b> Vegetation data</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="answers.html"><a href="answers.html#gap-analysis-1"><i class="fa fa-check"></i><b>7.2</b> Gap analysis</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="answers.html"><a href="answers.html#feature-abundance-1"><i class="fa fa-check"></i><b>7.2.1</b> Feature abundance</a></li>
+<li class="chapter" data-level="7.2.2" data-path="answers.html"><a href="answers.html#feature-representation-by-protected-areas-1"><i class="fa fa-check"></i><b>7.2.2</b> Feature representation by protected areas</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="answers.html"><a href="answers.html#spatial-prioritizations-1"><i class="fa fa-check"></i><b>7.3</b> Spatial prioritizations</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="answers.html"><a href="answers.html#starting-out-simple-1"><i class="fa fa-check"></i><b>7.3.1</b> Starting out simple</a></li>
+<li class="chapter" data-level="7.3.2" data-path="answers.html"><a href="answers.html#adding-complexity-1"><i class="fa fa-check"></i><b>7.3.2</b> Adding complexity</a></li>
+<li class="chapter" data-level="7.3.3" data-path="answers.html"><a href="answers.html#penalizing-fragmentation-1"><i class="fa fa-check"></i><b>7.3.3</b> Penalizing fragmentation</a></li>
+<li class="chapter" data-level="7.3.4" data-path="answers.html"><a href="answers.html#budget-limited-prioritizations-1"><i class="fa fa-check"></i><b>7.3.4</b> Budget limited prioritizations</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="answers.html"><a href="answers.html#importance-1"><i class="fa fa-check"></i><b>7.4</b> Importance</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="answers.html"><a href="answers.html#quantifying-irreplaceability-1"><i class="fa fa-check"></i><b>7.4.1</b> Quantifying irreplaceability</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="acknowledgements.html"><a href="acknowledgements.html"><i class="fa fa-check"></i><b>8</b> Acknowledgements</a></li>
+<li class="chapter" data-level="9" data-path="session-information.html"><a href="session-information.html"><i class="fa fa-check"></i><b>9</b> Session information</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PRIORITIZR WORKSHOP MANUAL</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="importance" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Importance<a href="importance.html#importance" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introduction-3" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Introduction<a href="importance.html#introduction-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Systematic conservation planning involves identifying priority areas for conservation actions <span class="citation">(<a href="#ref-r13" role="doc-biblioref">Margules &amp; Pressey 2000</a>)</span>. As we saw in the previous section, we can generate a spatial prioritization that optimizes a particular objective, given a set of constraints, to identify a set of priority areas for management. This information is very useful because it provides a complete and cost-effective plan for achieving our conservation goals. However, when we just look at the priority areas in a spatial prioritization, we don’t necessarily know which priority areas – among all the priority areas in the spatial prioritization – are more or less important for conservation. For example, if we generated a spatial prioritization based on threatened and non-threatened species, it would be useful to know which priority areas are necessary to protect because they contain species that are not found anywhere else in the study area. To obtain this information, we can calculate <a href="https://prioritizr.net/reference/importance.html">importance scores</a> for the planning units selected in the prioritization. This information can be useful for scheduling implementation of conservation plans and finding compromises for stakeholder discussions <span class="citation">(<a href="#ref-r5" role="doc-biblioref">Pressey 1999</a>)</span>.</p>
+</div>
+<div id="quantifying-irreplaceability" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Quantifying irreplaceability<a href="importance.html#quantifying-irreplaceability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To keep things simple, let’s start by creating a new conservation planning problem and solving it to generate a spatial prioritization. This will be very similar to one of the prioritizations that we generated in the previous section. Specifically, we will use the minium set objective, 30% representation targets, locked in, locked out constraints, and binary decisions.</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="importance.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create prioritization problem</span></span>
+<span id="cb116-2"><a href="importance.html#cb116-2" aria-hidden="true" tabindex="-1"></a>p8 <span class="ot">&lt;-</span></span>
+<span id="cb116-3"><a href="importance.html#cb116-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">problem</span>(pu_data, veg_data, <span class="at">cost_column =</span> <span class="st">&quot;cost&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb116-4"><a href="importance.html#cb116-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_min_set_objective</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb116-5"><a href="importance.html#cb116-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_boundary_penalties</span>(<span class="at">penalty =</span> <span class="fl">0.001</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb116-6"><a href="importance.html#cb116-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_relative_targets</span>(<span class="fl">0.3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb116-7"><a href="importance.html#cb116-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_locked_in_constraints</span>(<span class="st">&quot;locked_in&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb116-8"><a href="importance.html#cb116-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_locked_out_constraints</span>(<span class="st">&quot;locked_out&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb116-9"><a href="importance.html#cb116-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_binary_decisions</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb116-10"><a href="importance.html#cb116-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_highs_solver</span>(<span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb116-11"><a href="importance.html#cb116-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-12"><a href="importance.html#cb116-12" aria-hidden="true" tabindex="-1"></a><span class="co"># print problem</span></span>
+<span id="cb116-13"><a href="importance.html#cb116-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p8)</span></code></pre></div>
+<pre><code>## A conservation problem (&lt;ConservationProblem&gt;)
+## ├•data
+## │├•features:    &quot;Banksia woodlands&quot; , … (33 total)
+## │└•planning units:
+## │ ├•data:       &lt;sftbl_dftbldata.frame&gt; (1130 total)
+## │ ├•costs:      continuous values (between 0.1925 and 61.9273)
+## │ ├•extent:     298809.5764, 5167774.5993, 613818.7743, 5502543.7119 (xmin, ymin, xmax, ymax)
+## │ └•CRS:        WGS 84 / UTM zone 55S (projected)
+## ├•formulation
+## │├•objective:   minimum set objective
+## │├•penalties:
+## ││└•1:          boundary penalties (`penalty` = 0.001, `edge_factor` = 0.5, …)
+## │├•targets:     relative targets (between 0.3 and 0.3)
+## │├•constraints:
+## ││├•1:          locked in constraints (257 planning units)
+## ││└•2:          locked out constraints (165 planning units)
+## │└•decisions:   binary decision
+## └•optimization
+##  ├•portfolio:   shuffle portfolio (`number_solutions` = 1, …)
+##  └•solver:      highs solver (`gap` = 0.1, `time_limit` = 2147483647, …)
+## # ℹ Use `summary(...)` to see complete formulation.</code></pre>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="importance.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="co"># solve problem,</span></span>
+<span id="cb118-2"><a href="importance.html#cb118-2" aria-hidden="true" tabindex="-1"></a>s8 <span class="ot">&lt;-</span> <span class="fu">solve</span>(p8)</span>
+<span id="cb118-3"><a href="importance.html#cb118-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb118-4"><a href="importance.html#cb118-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print solution</span></span>
+<span id="cb118-5"><a href="importance.html#cb118-5" aria-hidden="true" tabindex="-1"></a><span class="do">## note we use head() to show only show the first 6 rows</span></span>
+<span id="cb118-6"><a href="importance.html#cb118-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(s8)</span></code></pre></div>
+<pre><code>## Simple feature collection with 6 features and 6 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: 303910.1 ymin: 5485840 xmax: 335610.4 ymax: 5502544
+## Projected CRS: WGS 84 / UTM zone 55S
+## # A tibble: 6 × 7
+##      id  cost locked_in locked_out pa_status solution_1
+##   &lt;int&gt; &lt;dbl&gt; &lt;lgl&gt;     &lt;lgl&gt;          &lt;dbl&gt;      &lt;dbl&gt;
+## 1     1  60.2 FALSE     TRUE               0          0
+## 2     2  19.9 FALSE     FALSE              0          0
+## 3     3  59.7 FALSE     TRUE               0          0
+## 4     4  32.4 FALSE     FALSE              0          0
+## 5     5  26.2 FALSE     FALSE              0          0
+## 6     6  51.3 FALSE     TRUE               0          0
+## # ℹ 1 more variable: geom &lt;MULTIPOLYGON [m]&gt;</code></pre>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="importance.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot solution</span></span>
+<span id="cb120-2"><a href="importance.html#cb120-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb120-3"><a href="importance.html#cb120-3" aria-hidden="true" tabindex="-1"></a>  s8[, <span class="st">&quot;solution_1&quot;</span>], <span class="at">main =</span> <span class="st">&quot;Prioritization&quot;</span>,</span>
+<span id="cb120-4"><a href="importance.html#cb120-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">&quot;grey90&quot;</span>, <span class="st">&quot;darkgreen&quot;</span>)</span>
+<span id="cb120-5"><a href="importance.html#cb120-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="prioritizr-workshop-manual_files/figure-html/irrep-problem-1.png" width="65%" style="display: block; margin: auto;" /></p>
+<p>Now, we will calculate importance scores. Specifically, we will calculate importance scores based on <a href="https://prioritizr.net/reference/eval_ferrier_importance.html">irreplaceability metric</a> developed by Ferrier <em>et al.</em> <span class="citation">(<a href="#ref-r4" role="doc-biblioref">2000</a>)</span>. These scores describe how important each planning unit is for meeting the representation targets. Briefly, the metric calculates a score for each feature separately – so we can tell which planning units are more important for particular features – and a total score describing the overall importance each planning unit has meeting all the targets. Although the disadvantage of this method is that it does not account for planning unit costs <span class="citation">(c.f., <a href="https://prioritizr.net/reference/eval_replacement_importance.html" role="doc-biblioref">the replacement cost metric</a>, <a href="#ref-r14" role="doc-biblioref">Cabeza &amp; Moilanen 2006</a>)</span>, it is useful because it accounts for the representation targets and can be calculated relatively quickly for problems with many planning units and features.</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="importance.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate Ferrier scores</span></span>
+<span id="cb121-2"><a href="importance.html#cb121-2" aria-hidden="true" tabindex="-1"></a>i8 <span class="ot">&lt;-</span> <span class="fu">eval_ferrier_importance</span>(p8, s8[, <span class="st">&quot;solution_1&quot;</span>])</span>
+<span id="cb121-3"><a href="importance.html#cb121-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-4"><a href="importance.html#cb121-4" aria-hidden="true" tabindex="-1"></a><span class="co"># set NA values for planning units not selected in solution</span></span>
+<span id="cb121-5"><a href="importance.html#cb121-5" aria-hidden="true" tabindex="-1"></a>i8 <span class="ot">&lt;-</span></span>
+<span id="cb121-6"><a href="importance.html#cb121-6" aria-hidden="true" tabindex="-1"></a>  i8 <span class="sc">%&gt;%</span></span>
+<span id="cb121-7"><a href="importance.html#cb121-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(</span>
+<span id="cb121-8"><a href="importance.html#cb121-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="st">&quot;total&quot;</span>, <span class="fu">names</span>(veg_data)),</span>
+<span id="cb121-9"><a href="importance.html#cb121-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">function</span>(x) x <span class="sc">*</span> <span class="fu">if_else</span>(s8<span class="sc">$</span>solution_1 <span class="sc">&gt;</span> <span class="fl">0.5</span>, <span class="dv">1</span>, <span class="cn">NA_real_</span>)</span>
+<span id="cb121-10"><a href="importance.html#cb121-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb121-11"><a href="importance.html#cb121-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-12"><a href="importance.html#cb121-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-13"><a href="importance.html#cb121-13" aria-hidden="true" tabindex="-1"></a><span class="co"># print scores</span></span>
+<span id="cb121-14"><a href="importance.html#cb121-14" aria-hidden="true" tabindex="-1"></a><span class="do">## note we use head() to show only show the first 6 rows</span></span>
+<span id="cb121-15"><a href="importance.html#cb121-15" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(i8)</span></code></pre></div>
+<pre><code>## Simple feature collection with 6 features and 34 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: 303910.1 ymin: 5485840 xmax: 335610.4 ymax: 5502544
+## Projected CRS: WGS 84 / UTM zone 55S
+## # A tibble: 6 × 35
+##   `Banksia woodlands` Boulders/rock with algae, lichen …¹ Callitris forests an…²
+##                 &lt;dbl&gt;                               &lt;dbl&gt;                  &lt;dbl&gt;
+## 1                  NA                                  NA                     NA
+## 2                  NA                                  NA                     NA
+## 3                  NA                                  NA                     NA
+## 4                  NA                                  NA                     NA
+## 5                  NA                                  NA                     NA
+## 6                  NA                                  NA                     NA
+## # ℹ abbreviated names:
+## #   ¹​`Boulders/rock with algae, lichen or scattered plants, or alpine fjaeldmarks`,
+## #   ²​`Callitris forests and woodlands`
+## # ℹ 32 more variables: `Cool temperate rainforest` &lt;dbl&gt;,
+## #   `Eucalyptus (+/- tall) open forest with a dense broad-leaved and/or tree-fern understorey (wet sclerophyll)` &lt;dbl&gt;,
+## #   `Eucalyptus open forests with a shrubby understorey` &lt;dbl&gt;,
+## #   `Eucalyptus open woodlands with shrubby understorey` &lt;dbl&gt;, …</code></pre>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="importance.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot total scores across all features</span></span>
+<span id="cb123-2"><a href="importance.html#cb123-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(i8[, <span class="st">&quot;total&quot;</span>])</span></code></pre></div>
+<p><img src="prioritizr-workshop-manual_files/figure-html/irrep-maps-1.png" width="65%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="importance.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot scores for first feature</span></span>
+<span id="cb124-2"><a href="importance.html#cb124-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(i8[, <span class="fu">names</span>(veg_data)[<span class="dv">1</span>]])</span></code></pre></div>
+<p><img src="prioritizr-workshop-manual_files/figure-html/irrep-maps-2.png" width="65%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="importance.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot scores for second feature</span></span>
+<span id="cb125-2"><a href="importance.html#cb125-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(i8[, <span class="fu">names</span>(veg_data)[<span class="dv">1</span>]])</span></code></pre></div>
+<p>Here we can see that some planning units in the prioritization have much higher importance scores than other planning units. If you’re familiar with Marxan, the importance scores here convey a similar concept to the selection frequency. However, the advantage with this approach is that you don’t need to generate tens of thousands of solutions in order to evaluate the relative importance of different planning units. Additionally, you can see which planning units are more, or less, important for particular features. This can be useful to help understand why certain planning units were selected by the prioritization.</p>
+
+<div class="rmdquestion">
+<ol style="list-style-type: decimal">
+<li>Which parts of the study area have the highest importance values?</li>
+<li>How do the total importance values change when you decrease the targets from 30% to 10%?</li>
+</ol>
+</div>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-r14" class="csl-entry">
+Cabeza, M. &amp; Moilanen, A. (2006). <a href="https://doi.org/10.1016/j.biocon.2006.04.025">Replacement cost: A practical measure of site value for cost-effective reserve planning</a>. <em>Biological Conservation</em>, <em>132</em>, 336–342.
+</div>
+<div id="ref-r4" class="csl-entry">
+Ferrier, S., Pressey, R.L. &amp; Barrett, T.W. (2000). <a href="https://doi.org/10.1016/s0006-3207(99)00149-4">A new predictor of the irreplaceability of areas for achieving a conservation goal, its application to real-world planning, and a research agenda for further refinement</a>. <em>Biological Conservation</em>, <em>93</em>, 303–325.
+</div>
+<div id="ref-r13" class="csl-entry">
+Margules, C.R. &amp; Pressey, R.L. (2000). Systematic conservation planning. <em>Nature</em>, <em>405</em>, 243–253.
+</div>
+<div id="ref-r5" class="csl-entry">
+Pressey, R.L. (1999). Applications of irreplaceability analysis to planning and management problems. <em>Parks</em>, <em>9</em>, 42–51.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="spatial-prioritizations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="answers.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/prioritizr/workshop/edit/master/05-irreplaceability.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["prioritizr-workshop-manual.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Spatial prioritizations | PRIORITIZR WORKSHOP MANUAL</title>
+  <meta name="description" content="Manual for the prioritizr workshop." />
+  <meta name="generator" content="bookdown 0.33.2 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Spatial prioritizations | PRIORITIZR WORKSHOP MANUAL" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://prioritizr.github.io/workshop/images/cover.png" />
+  <meta property="og:description" content="Manual for the prioritizr workshop." />
+  <meta name="github-repo" content="prioritizr/workshop" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Spatial prioritizations | PRIORITIZR WORKSHOP MANUAL" />
+  
+  <meta name="twitter:description" content="Manual for the prioritizr workshop." />
+  <meta name="twitter:image" content="https://prioritizr.github.io/workshop/images/cover.png" />
+
+<meta name="author" content="Jeffrey Hanson and Richard Schuster" />
+
+
+<meta name="date" content="2023-04-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link rel="prev" href="gap-analysis.html"/>
+<link rel="next" href="importance.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.1.2/leaflet.js"></script>
+<script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
+<script src="libs/leaflet-providers-plugin-2.1.2/leaflet-providers-plugin.js"></script>
+<link href="libs/HomeButton-0.0.1/home-button.css" rel="stylesheet" />
+<script src="libs/HomeButton-0.0.1/home-button.js"></script>
+<script src="libs/HomeButton-0.0.1/easy-button-src.min.js"></script>
+<script src="libs/clipboard-0.0.1/setClipboardText.js"></script>
+<link href="libs/mapviewCSS-0.0.1/mapview-popup.css" rel="stylesheet" />
+<link href="libs/mapviewCSS-0.0.1/mapview.css" rel="stylesheet" />
+<script src="libs/raster::raster(veg_data[[30]])_9b50e4-1/data_stars_rasterrasterveg_data30d284fa.txt"></script>
+<script src="libs/joda-0.0.1/joda.js"></script>
+<script src="libs/joda-0.0.1/addImageQuery-bindings.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PRIORITIZR WORKSHOP MANUAL</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome!</a></li>
+<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introduction.html"><a href="introduction.html#overview"><i class="fa fa-check"></i><b>2.1</b> Overview</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction.html"><a href="introduction.html#setup"><i class="fa fa-check"></i><b>2.2</b> Setting up your computer</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="introduction.html"><a href="introduction.html#r"><i class="fa fa-check"></i><b>2.2.1</b> R</a></li>
+<li class="chapter" data-level="2.2.2" data-path="introduction.html"><a href="introduction.html#rstudio"><i class="fa fa-check"></i><b>2.2.2</b> RStudio</a></li>
+<li class="chapter" data-level="2.2.3" data-path="introduction.html"><a href="introduction.html#r-packages"><i class="fa fa-check"></i><b>2.2.3</b> R packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="introduction.html"><a href="introduction.html#further-reading"><i class="fa fa-check"></i><b>2.3</b> Further reading</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>3</b> Data</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data.html"><a href="data.html#starting-out"><i class="fa fa-check"></i><b>3.1</b> Starting out</a></li>
+<li class="chapter" data-level="3.2" data-path="data.html"><a href="data.html#setting-up-the-r-session"><i class="fa fa-check"></i><b>3.2</b> Setting up the R session</a></li>
+<li class="chapter" data-level="3.3" data-path="data.html"><a href="data.html#data-import"><i class="fa fa-check"></i><b>3.3</b> Data import</a></li>
+<li class="chapter" data-level="3.4" data-path="data.html"><a href="data.html#planning-unit-data"><i class="fa fa-check"></i><b>3.4</b> Planning unit data</a></li>
+<li class="chapter" data-level="3.5" data-path="data.html"><a href="data.html#vegetation-data"><i class="fa fa-check"></i><b>3.5</b> Vegetation data</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="gap-analysis.html"><a href="gap-analysis.html"><i class="fa fa-check"></i><b>4</b> Gap analysis</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="gap-analysis.html"><a href="gap-analysis.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="gap-analysis.html"><a href="gap-analysis.html#feature-abundance"><i class="fa fa-check"></i><b>4.2</b> Feature abundance</a></li>
+<li class="chapter" data-level="4.3" data-path="gap-analysis.html"><a href="gap-analysis.html#feature-representation-by-protected-areas"><i class="fa fa-check"></i><b>4.3</b> Feature representation by protected areas</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="spatial-prioritizations.html"><a href="spatial-prioritizations.html"><i class="fa fa-check"></i><b>5</b> Spatial prioritizations</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="spatial-prioritizations.html"><a href="spatial-prioritizations.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="spatial-prioritizations.html"><a href="spatial-prioritizations.html#starting-out-simple"><i class="fa fa-check"></i><b>5.2</b> Starting out simple</a></li>
+<li class="chapter" data-level="5.3" data-path="spatial-prioritizations.html"><a href="spatial-prioritizations.html#adding-complexity"><i class="fa fa-check"></i><b>5.3</b> Adding complexity</a></li>
+<li class="chapter" data-level="5.4" data-path="spatial-prioritizations.html"><a href="spatial-prioritizations.html#penalizing-fragmentation"><i class="fa fa-check"></i><b>5.4</b> Penalizing fragmentation</a></li>
+<li class="chapter" data-level="5.5" data-path="spatial-prioritizations.html"><a href="spatial-prioritizations.html#budget-limited-prioritizations"><i class="fa fa-check"></i><b>5.5</b> Budget limited prioritizations</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="importance.html"><a href="importance.html"><i class="fa fa-check"></i><b>6</b> Importance</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="importance.html"><a href="importance.html#introduction-3"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="importance.html"><a href="importance.html#quantifying-irreplaceability"><i class="fa fa-check"></i><b>6.2</b> Quantifying irreplaceability</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i><b>7</b> Answers</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="answers.html"><a href="answers.html#data-1"><i class="fa fa-check"></i><b>7.1</b> Data</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="answers.html"><a href="answers.html#planning-unit-data-1"><i class="fa fa-check"></i><b>7.1.1</b> Planning unit data</a></li>
+<li class="chapter" data-level="7.1.2" data-path="answers.html"><a href="answers.html#vegetation-data-1"><i class="fa fa-check"></i><b>7.1.2</b> Vegetation data</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="answers.html"><a href="answers.html#gap-analysis-1"><i class="fa fa-check"></i><b>7.2</b> Gap analysis</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="answers.html"><a href="answers.html#feature-abundance-1"><i class="fa fa-check"></i><b>7.2.1</b> Feature abundance</a></li>
+<li class="chapter" data-level="7.2.2" data-path="answers.html"><a href="answers.html#feature-representation-by-protected-areas-1"><i class="fa fa-check"></i><b>7.2.2</b> Feature representation by protected areas</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="answers.html"><a href="answers.html#spatial-prioritizations-1"><i class="fa fa-check"></i><b>7.3</b> Spatial prioritizations</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="answers.html"><a href="answers.html#starting-out-simple-1"><i class="fa fa-check"></i><b>7.3.1</b> Starting out simple</a></li>
+<li class="chapter" data-level="7.3.2" data-path="answers.html"><a href="answers.html#adding-complexity-1"><i class="fa fa-check"></i><b>7.3.2</b> Adding complexity</a></li>
+<li class="chapter" data-level="7.3.3" data-path="answers.html"><a href="answers.html#penalizing-fragmentation-1"><i class="fa fa-check"></i><b>7.3.3</b> Penalizing fragmentation</a></li>
+<li class="chapter" data-level="7.3.4" data-path="answers.html"><a href="answers.html#budget-limited-prioritizations-1"><i class="fa fa-check"></i><b>7.3.4</b> Budget limited prioritizations</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="answers.html"><a href="answers.html#importance-1"><i class="fa fa-check"></i><b>7.4</b> Importance</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="answers.html"><a href="answers.html#quantifying-irreplaceability-1"><i class="fa fa-check"></i><b>7.4.1</b> Quantifying irreplaceability</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="acknowledgements.html"><a href="acknowledgements.html"><i class="fa fa-check"></i><b>8</b> Acknowledgements</a></li>
+<li class="chapter" data-level="9" data-path="session-information.html"><a href="session-information.html"><i class="fa fa-check"></i><b>9</b> Session information</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PRIORITIZR WORKSHOP MANUAL</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="spatial-prioritizations" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Spatial prioritizations<a href="spatial-prioritizations.html#spatial-prioritizations" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introduction-2" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Introduction<a href="spatial-prioritizations.html#introduction-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Here we will develop prioritizations to identify priority areas for protected area establishment. Specifically, we will be using the <a href="https://prioritizr.net/">prioritizr R package</a> to generate prioritizations. Although other tools are also available for generating prioritizations – such as <a href="http://marxan.org/">Marxan</a> <span class="citation">(<a href="#ref-r9" role="doc-biblioref">Ardron <em>et al.</em> 2010</a>)</span>, and <a href="https://www.helsinki.fi/en/researchgroups/digital-geography-lab/software-developed-in-cbig#section-52992">Zonation</a> <span class="citation">(<a href="#ref-r10" role="doc-biblioref">Moilanen <em>et al.</em> 2005</a>)</span> – it is beyond the scope of this workshop to examine them. Additionally, it is important to understand that software for generating prioritizations are decision support tools. This means that the software is designed to help you make decisions—it can’t make decisions for you.</p>
+</div>
+<div id="starting-out-simple" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Starting out simple<a href="spatial-prioritizations.html#starting-out-simple" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To start things off, let’s keep things simple. Let’s create a prioritization using the <a href="https://prioritizr.net/reference/add_min_set_objective.html">minimum set formulation of the reserve selection problem</a> <span class="citation">(<a href="#ref-r15" role="doc-biblioref">Rodrigues <em>et al.</em> 2008</a>)</span>. This formulation means that we want a solution that will meet the targets for our biodiversity features for minimum cost. Here, we will set 5% targets for each vegetation class and use the data in the <code>cost</code> column to specify acquisition costs. One advantage of prioritizr is that, unlike the Marxan decision support tool, we do not have calibrate (SPFs) to ensure the solution meets the targets. This is because – when using this formulation — prioritizr should always return solutions that meet the targets. Although we strongly recommend using <a href="https://www.gurobi.com/">Gurobi</a> to solve problems (via <a href="https://prioritizr.net/reference/add_gurobi_solver.html"><code>add_gurobi_solver</code></a>), we will use the <a href="https://prioritizr.net/reference/add_highs_solver.html">HiGHS solver</a> (via <a href="https://prioritizr.net/reference/add_highs_solver.html"><code>add_highs_solver</code></a>) in this workshop since it is easier to install. This is because the Gurobi solver is much faster than the HiGHS solver (<a href="https://prioritizr.net/articles/gurobi_installation.html">see here for installation instructions</a>).</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="spatial-prioritizations.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print planning unit data</span></span>
+<span id="cb66-2"><a href="spatial-prioritizations.html#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="do">## note we use head() to show only show the first 6 rows</span></span>
+<span id="cb66-3"><a href="spatial-prioritizations.html#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pu_data)</span></code></pre></div>
+<pre><code>## Simple feature collection with 6 features and 5 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: 303910.1 ymin: 5485840 xmax: 335610.4 ymax: 5502544
+## Projected CRS: WGS 84 / UTM zone 55S
+## # A tibble: 6 × 6
+##      id  cost locked_in locked_out                                geom pa_status
+##   &lt;int&gt; &lt;dbl&gt; &lt;lgl&gt;     &lt;lgl&gt;                       &lt;MULTIPOLYGON [m]&gt;     &lt;dbl&gt;
+## 1     1  60.2 FALSE     TRUE       (((328497 5497704, 326783.8 550005…         0
+## 2     2  19.9 FALSE     FALSE      (((307121.6 5490487, 305344.4 5492…         0
+## 3     3  59.7 FALSE     TRUE       (((321726.1 5492382, 320111 549459…         0
+## 4     4  32.4 FALSE     FALSE      (((304314.5 5494324, 304342.2 5494…         0
+## 5     5  26.2 FALSE     FALSE      (((314958.5 5487057, 312336 549064…         0
+## 6     6  51.3 FALSE     TRUE       (((327904.3 5491218, 326594.6 5493…         0</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="spatial-prioritizations.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create prioritization problem</span></span>
+<span id="cb68-2"><a href="spatial-prioritizations.html#cb68-2" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span></span>
+<span id="cb68-3"><a href="spatial-prioritizations.html#cb68-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">problem</span>(pu_data, veg_data, <span class="at">cost_column =</span> <span class="st">&quot;cost&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb68-4"><a href="spatial-prioritizations.html#cb68-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_min_set_objective</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb68-5"><a href="spatial-prioritizations.html#cb68-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_relative_targets</span>(<span class="fl">0.05</span>) <span class="sc">%&gt;%</span> <span class="co"># 5% representation targets</span></span>
+<span id="cb68-6"><a href="spatial-prioritizations.html#cb68-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_binary_decisions</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb68-7"><a href="spatial-prioritizations.html#cb68-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_highs_solver</span>(<span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb68-8"><a href="spatial-prioritizations.html#cb68-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-9"><a href="spatial-prioritizations.html#cb68-9" aria-hidden="true" tabindex="-1"></a><span class="co"># print problem</span></span>
+<span id="cb68-10"><a href="spatial-prioritizations.html#cb68-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p1)</span></code></pre></div>
+<pre><code>## A conservation problem (&lt;ConservationProblem&gt;)
+## ├•data
+## │├•features:    &quot;Banksia woodlands&quot; , … (33 total)
+## │└•planning units:
+## │ ├•data:       &lt;sftbl_dftbldata.frame&gt; (1130 total)
+## │ ├•costs:      continuous values (between 0.1925 and 61.9273)
+## │ ├•extent:     298809.5764, 5167774.5993, 613818.7743, 5502543.7119 (xmin, ymin, xmax, ymax)
+## │ └•CRS:        WGS 84 / UTM zone 55S (projected)
+## ├•formulation
+## │├•objective:   minimum set objective
+## │├•penalties:   none specified
+## │├•targets:     relative targets (between 0.05 and 0.05)
+## │├•constraints: none specified
+## │└•decisions:   binary decision
+## └•optimization
+##  ├•portfolio:   shuffle portfolio (`number_solutions` = 1, …)
+##  └•solver:      highs solver (`gap` = 0.1, `time_limit` = 2147483647, …)
+## # ℹ Use `summary(...)` to see complete formulation.</code></pre>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="spatial-prioritizations.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># solve problem</span></span>
+<span id="cb70-2"><a href="spatial-prioritizations.html#cb70-2" aria-hidden="true" tabindex="-1"></a>s1 <span class="ot">&lt;-</span> <span class="fu">solve</span>(p1)</span>
+<span id="cb70-3"><a href="spatial-prioritizations.html#cb70-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-4"><a href="spatial-prioritizations.html#cb70-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print solution, the solution_1 column contains the solution values</span></span>
+<span id="cb70-5"><a href="spatial-prioritizations.html#cb70-5" aria-hidden="true" tabindex="-1"></a><span class="co"># indicating if a planning unit is (1) selected or (0) not</span></span>
+<span id="cb70-6"><a href="spatial-prioritizations.html#cb70-6" aria-hidden="true" tabindex="-1"></a><span class="do">## note we use head() to show only show the first 6 rows</span></span>
+<span id="cb70-7"><a href="spatial-prioritizations.html#cb70-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(s1)</span></code></pre></div>
+<pre><code>## Simple feature collection with 6 features and 6 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: 303910.1 ymin: 5485840 xmax: 335610.4 ymax: 5502544
+## Projected CRS: WGS 84 / UTM zone 55S
+## # A tibble: 6 × 7
+##      id  cost locked_in locked_out pa_status solution_1
+##   &lt;int&gt; &lt;dbl&gt; &lt;lgl&gt;     &lt;lgl&gt;          &lt;dbl&gt;      &lt;dbl&gt;
+## 1     1  60.2 FALSE     TRUE               0          0
+## 2     2  19.9 FALSE     FALSE              0          0
+## 3     3  59.7 FALSE     TRUE               0          0
+## 4     4  32.4 FALSE     FALSE              0          0
+## 5     5  26.2 FALSE     FALSE              0          0
+## 6     6  51.3 FALSE     TRUE               0          0
+## # ℹ 1 more variable: geom &lt;MULTIPOLYGON [m]&gt;</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="spatial-prioritizations.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate number of planning units selected in the prioritization</span></span>
+<span id="cb72-2"><a href="spatial-prioritizations.html#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(s1<span class="sc">$</span>solution_1)</span></code></pre></div>
+<pre><code>## [1] 72</code></pre>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="spatial-prioritizations.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate total cost of the prioritization</span></span>
+<span id="cb74-2"><a href="spatial-prioritizations.html#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(s1<span class="sc">$</span>solution_1 <span class="sc">*</span> s1<span class="sc">$</span>cost)</span></code></pre></div>
+<pre><code>## [1] 626.5873</code></pre>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="spatial-prioritizations.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot solution</span></span>
+<span id="cb76-2"><a href="spatial-prioritizations.html#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(s1[, <span class="st">&quot;solution_1&quot;</span>], <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">&quot;grey90&quot;</span>, <span class="st">&quot;darkgreen&quot;</span>))</span></code></pre></div>
+<p><img src="prioritizr-workshop-manual_files/figure-html/init-problem-1.png" width="65%" style="display: block; margin: auto;" /></p>
+<p>Now let’s examine the solution.</p>
+
+<div class="rmdquestion">
+<ol style="list-style-type: decimal">
+<li>How many planing units were selected in the prioritization?</li>
+<li>What proportion of planning units were selected in the prioritization?</li>
+<li>Is there a pattern in the spatial distribution of the priority areas?</li>
+<li>Can you verify that all of the targets were met in the prioritization (hint: <code>feature_representation(p1, s1[, "solution_1"])</code>)?</li>
+</ol>
+</div>
+</div>
+<div id="adding-complexity" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Adding complexity<a href="spatial-prioritizations.html#adding-complexity" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Our first prioritization suffers many limitations, so let’s add additional constraints to the problem to make it more useful. First, let’s lock in planing units that are already by covered protected areas. If some vegetation communities are already secured inside existing protected areas, then we might not need to add as many new protected areas to the existing protected area system to meet their targets. Since our planning unit data (<code>pu_data</code>) already contains this information in the <code>locked_in</code> column, we can use this column name to specify which planning units should be locked in.</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="spatial-prioritizations.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create prioritization problem</span></span>
+<span id="cb77-2"><a href="spatial-prioritizations.html#cb77-2" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span></span>
+<span id="cb77-3"><a href="spatial-prioritizations.html#cb77-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">problem</span>(pu_data, veg_data, <span class="at">cost_column =</span> <span class="st">&quot;cost&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb77-4"><a href="spatial-prioritizations.html#cb77-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_min_set_objective</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb77-5"><a href="spatial-prioritizations.html#cb77-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_relative_targets</span>(<span class="fl">0.05</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb77-6"><a href="spatial-prioritizations.html#cb77-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_locked_in_constraints</span>(<span class="st">&quot;locked_in&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb77-7"><a href="spatial-prioritizations.html#cb77-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_binary_decisions</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb77-8"><a href="spatial-prioritizations.html#cb77-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_highs_solver</span>(<span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb77-9"><a href="spatial-prioritizations.html#cb77-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-10"><a href="spatial-prioritizations.html#cb77-10" aria-hidden="true" tabindex="-1"></a><span class="co"># print problem</span></span>
+<span id="cb77-11"><a href="spatial-prioritizations.html#cb77-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p2)</span></code></pre></div>
+<pre><code>## A conservation problem (&lt;ConservationProblem&gt;)
+## ├•data
+## │├•features:    &quot;Banksia woodlands&quot; , … (33 total)
+## │└•planning units:
+## │ ├•data:       &lt;sftbl_dftbldata.frame&gt; (1130 total)
+## │ ├•costs:      continuous values (between 0.1925 and 61.9273)
+## │ ├•extent:     298809.5764, 5167774.5993, 613818.7743, 5502543.7119 (xmin, ymin, xmax, ymax)
+## │ └•CRS:        WGS 84 / UTM zone 55S (projected)
+## ├•formulation
+## │├•objective:   minimum set objective
+## │├•penalties:   none specified
+## │├•targets:     relative targets (between 0.05 and 0.05)
+## │├•constraints:
+## ││└•1:          locked in constraints (257 planning units)
+## │└•decisions:   binary decision
+## └•optimization
+##  ├•portfolio:   shuffle portfolio (`number_solutions` = 1, …)
+##  └•solver:      highs solver (`gap` = 0.1, `time_limit` = 2147483647, …)
+## # ℹ Use `summary(...)` to see complete formulation.</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="spatial-prioritizations.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># solve problem</span></span>
+<span id="cb79-2"><a href="spatial-prioritizations.html#cb79-2" aria-hidden="true" tabindex="-1"></a>s2 <span class="ot">&lt;-</span> <span class="fu">solve</span>(p2)</span>
+<span id="cb79-3"><a href="spatial-prioritizations.html#cb79-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-4"><a href="spatial-prioritizations.html#cb79-4" aria-hidden="true" tabindex="-1"></a><span class="co"># plot solution</span></span>
+<span id="cb79-5"><a href="spatial-prioritizations.html#cb79-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(s2[, <span class="st">&quot;solution_1&quot;</span>], <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">&quot;grey90&quot;</span>, <span class="st">&quot;darkgreen&quot;</span>))</span></code></pre></div>
+<p><img src="prioritizr-workshop-manual_files/figure-html/locked-in-problem-1.png" width="65%" style="display: block; margin: auto;" /></p>
+<p>Let’s pretend that we talked to an expert on the vegetation communities in our study system and they recommended that a 30% target was needed for each vegetation class. So, equipped with this information, let’s set the targets to 20%.</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="spatial-prioritizations.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create prioritization problem</span></span>
+<span id="cb80-2"><a href="spatial-prioritizations.html#cb80-2" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span></span>
+<span id="cb80-3"><a href="spatial-prioritizations.html#cb80-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">problem</span>(pu_data, veg_data, <span class="at">cost_column =</span> <span class="st">&quot;cost&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb80-4"><a href="spatial-prioritizations.html#cb80-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_min_set_objective</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb80-5"><a href="spatial-prioritizations.html#cb80-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_relative_targets</span>(<span class="fl">0.3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb80-6"><a href="spatial-prioritizations.html#cb80-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_locked_in_constraints</span>(<span class="st">&quot;locked_in&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb80-7"><a href="spatial-prioritizations.html#cb80-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_binary_decisions</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb80-8"><a href="spatial-prioritizations.html#cb80-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_highs_solver</span>(<span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb80-9"><a href="spatial-prioritizations.html#cb80-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb80-10"><a href="spatial-prioritizations.html#cb80-10" aria-hidden="true" tabindex="-1"></a><span class="co"># print problem</span></span>
+<span id="cb80-11"><a href="spatial-prioritizations.html#cb80-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p3)</span></code></pre></div>
+<pre><code>## A conservation problem (&lt;ConservationProblem&gt;)
+## ├•data
+## │├•features:    &quot;Banksia woodlands&quot; , … (33 total)
+## │└•planning units:
+## │ ├•data:       &lt;sftbl_dftbldata.frame&gt; (1130 total)
+## │ ├•costs:      continuous values (between 0.1925 and 61.9273)
+## │ ├•extent:     298809.5764, 5167774.5993, 613818.7743, 5502543.7119 (xmin, ymin, xmax, ymax)
+## │ └•CRS:        WGS 84 / UTM zone 55S (projected)
+## ├•formulation
+## │├•objective:   minimum set objective
+## │├•penalties:   none specified
+## │├•targets:     relative targets (between 0.3 and 0.3)
+## │├•constraints:
+## ││└•1:          locked in constraints (257 planning units)
+## │└•decisions:   binary decision
+## └•optimization
+##  ├•portfolio:   shuffle portfolio (`number_solutions` = 1, …)
+##  └•solver:      highs solver (`gap` = 0.1, `time_limit` = 2147483647, …)
+## # ℹ Use `summary(...)` to see complete formulation.</code></pre>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="spatial-prioritizations.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># solve problem</span></span>
+<span id="cb82-2"><a href="spatial-prioritizations.html#cb82-2" aria-hidden="true" tabindex="-1"></a>s3 <span class="ot">&lt;-</span> <span class="fu">solve</span>(p3)</span>
+<span id="cb82-3"><a href="spatial-prioritizations.html#cb82-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb82-4"><a href="spatial-prioritizations.html#cb82-4" aria-hidden="true" tabindex="-1"></a><span class="co"># plot solution</span></span>
+<span id="cb82-5"><a href="spatial-prioritizations.html#cb82-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(s3[, <span class="st">&quot;solution_1&quot;</span>], <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">&quot;grey90&quot;</span>, <span class="st">&quot;darkgreen&quot;</span>))</span></code></pre></div>
+<p><img src="prioritizr-workshop-manual_files/figure-html/update-targets-problem-1.png" width="65%" style="display: block; margin: auto;" /></p>
+<p>Next, let’s lock out highly degraded areas. Similar to before, this data is present in our planning unit data so we can use the <code>locked_out</code> column name to achieve this.</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="spatial-prioritizations.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create prioritization problem</span></span>
+<span id="cb83-2"><a href="spatial-prioritizations.html#cb83-2" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span></span>
+<span id="cb83-3"><a href="spatial-prioritizations.html#cb83-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">problem</span>(pu_data, veg_data, <span class="at">cost_column =</span> <span class="st">&quot;cost&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb83-4"><a href="spatial-prioritizations.html#cb83-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_min_set_objective</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb83-5"><a href="spatial-prioritizations.html#cb83-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_relative_targets</span>(<span class="fl">0.3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb83-6"><a href="spatial-prioritizations.html#cb83-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_locked_in_constraints</span>(<span class="st">&quot;locked_in&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb83-7"><a href="spatial-prioritizations.html#cb83-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_locked_out_constraints</span>(<span class="st">&quot;locked_out&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb83-8"><a href="spatial-prioritizations.html#cb83-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_binary_decisions</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb83-9"><a href="spatial-prioritizations.html#cb83-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_highs_solver</span>(<span class="at">verbose =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="spatial-prioritizations.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print problem</span></span>
+<span id="cb84-2"><a href="spatial-prioritizations.html#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p4)</span></code></pre></div>
+<pre><code>## A conservation problem (&lt;ConservationProblem&gt;)
+## ├•data
+## │├•features:    &quot;Banksia woodlands&quot; , … (33 total)
+## │└•planning units:
+## │ ├•data:       &lt;sftbl_dftbldata.frame&gt; (1130 total)
+## │ ├•costs:      continuous values (between 0.1925 and 61.9273)
+## │ ├•extent:     298809.5764, 5167774.5993, 613818.7743, 5502543.7119 (xmin, ymin, xmax, ymax)
+## │ └•CRS:        WGS 84 / UTM zone 55S (projected)
+## ├•formulation
+## │├•objective:   minimum set objective
+## │├•penalties:   none specified
+## │├•targets:     relative targets (between 0.3 and 0.3)
+## │├•constraints:
+## ││├•1:          locked in constraints (257 planning units)
+## ││└•2:          locked out constraints (165 planning units)
+## │└•decisions:   binary decision
+## └•optimization
+##  ├•portfolio:   shuffle portfolio (`number_solutions` = 1, …)
+##  └•solver:      highs solver (`gap` = 0.1, `time_limit` = 2147483647, …)
+## # ℹ Use `summary(...)` to see complete formulation.</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="spatial-prioritizations.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># solve problem</span></span>
+<span id="cb86-2"><a href="spatial-prioritizations.html#cb86-2" aria-hidden="true" tabindex="-1"></a>s4 <span class="ot">&lt;-</span> <span class="fu">solve</span>(p4)</span>
+<span id="cb86-3"><a href="spatial-prioritizations.html#cb86-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-4"><a href="spatial-prioritizations.html#cb86-4" aria-hidden="true" tabindex="-1"></a><span class="co"># plot solution</span></span>
+<span id="cb86-5"><a href="spatial-prioritizations.html#cb86-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(s4[, <span class="st">&quot;solution_1&quot;</span>],  <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">&quot;grey90&quot;</span>, <span class="st">&quot;darkgreen&quot;</span>))</span></code></pre></div>
+<p><img src="prioritizr-workshop-manual_files/figure-html/unnamed-chunk-16-1.png" width="65%" style="display: block; margin: auto;" /></p>
+<p>Now, let’s compare the solutions.</p>
+
+<div class="rmdquestion">
+<ol style="list-style-type: decimal">
+<li>What is the cost of the planning units selected in <code>s2</code>, <code>s3</code>, and <code>s4</code>?</li>
+<li>How many planning units are in <code>s2</code>, <code>s3</code>, and <code>s4</code>?</li>
+<li>Do the solutions with more planning units have a greater cost? Why or why not?</li>
+<li>Why does the first solution (<code>s1</code>) cost less than the second solution with protected areas locked into the solution (<code>s2</code>)?</li>
+<li>Why does the third solution (<code>s3</code>) cost less than the fourth solution solution with highly degraded areas locked out (<code>s4</code>)?</li>
+<li>Since planning units covered by existing protected areas have already been purchased, what is the cost for expanding the protected area system based on on the fourth prioritization (<code>s4</code>) (hint: total cost minus the cost of locked in planning units)?</li>
+<li>What happens if you specify targets that exceed the total amount of vegetation in the study area and try to solve the problem? You can do this by modifying the code to make <code>p4</code> with <code>add_absolute_targets(1000)</code> instead of <code>add_relative_targets(0.3)</code> and generating a new solution.</li>
+</ol>
+</div>
+</div>
+<div id="penalizing-fragmentation" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Penalizing fragmentation<a href="spatial-prioritizations.html#penalizing-fragmentation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Plans for protected area systems should facilitate gene flow and dispersal between individual reserves in the system <span class="citation">(<a href="#ref-r11" role="doc-biblioref">Beger <em>et al.</em> 2010</a>; <a href="#ref-r12" role="doc-biblioref">Hanson <em>et al.</em> 2022</a>)</span>. However, the prioritizations we have made so far have been highly fragmented. Similar to the Marxan decision support tool, we can add penalties to our conservation planning problem to penalize fragmentation (i.e. total exposed boundary length) and we also need to set a useful penalty value when adding such penalties (akin to Marxan’s boundary length multiplier value; BLM) <span class="citation">(<a href="#ref-r16" role="doc-biblioref">Beyer <em>et al.</em> 2016</a>)</span>. If we set our penalty value too low, then we will end up with a solution that is identical to the solution with no added penalties. If we set our penalty value too high, then prioritizr will take a long time to solve the problem and we will end up with a solution that contains lots of extra planning units that are not needed (since the penalty value is so high that minimizing fragmentation is more important than cost). As a rule of thumb, we generally want penalty values between 0.00001 and 0.01 but finding a useful penalty value requires calibration. The “correct” penalty value depends on the size of the planning units, the main objective values (e.g., cost values), and the effect of fragmentation on biodiversity persistence. Let’s create a new problem that is similar to our previous problem (<code>p4</code>) – except that it contains boundary length penalties and a slightly higher optimality gap to reduce runtime (default is 0.1) – and solve it. Since our planning unit data is in a spatial format (i.e., vector or raster data), prioritizr can automatically calculate the boundary data for us.</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="spatial-prioritizations.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create prioritization problem</span></span>
+<span id="cb87-2"><a href="spatial-prioritizations.html#cb87-2" aria-hidden="true" tabindex="-1"></a>p5 <span class="ot">&lt;-</span></span>
+<span id="cb87-3"><a href="spatial-prioritizations.html#cb87-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">problem</span>(pu_data, veg_data, <span class="at">cost_column =</span> <span class="st">&quot;cost&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb87-4"><a href="spatial-prioritizations.html#cb87-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_min_set_objective</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb87-5"><a href="spatial-prioritizations.html#cb87-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_boundary_penalties</span>(<span class="at">penalty =</span> <span class="fl">0.001</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb87-6"><a href="spatial-prioritizations.html#cb87-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_relative_targets</span>(<span class="fl">0.3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb87-7"><a href="spatial-prioritizations.html#cb87-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_locked_in_constraints</span>(<span class="st">&quot;locked_in&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb87-8"><a href="spatial-prioritizations.html#cb87-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_locked_out_constraints</span>(<span class="st">&quot;locked_out&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb87-9"><a href="spatial-prioritizations.html#cb87-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_binary_decisions</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb87-10"><a href="spatial-prioritizations.html#cb87-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_highs_solver</span>(<span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb87-11"><a href="spatial-prioritizations.html#cb87-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-12"><a href="spatial-prioritizations.html#cb87-12" aria-hidden="true" tabindex="-1"></a><span class="co"># print problem</span></span>
+<span id="cb87-13"><a href="spatial-prioritizations.html#cb87-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p5)</span></code></pre></div>
+<pre><code>## A conservation problem (&lt;ConservationProblem&gt;)
+## ├•data
+## │├•features:    &quot;Banksia woodlands&quot; , … (33 total)
+## │└•planning units:
+## │ ├•data:       &lt;sftbl_dftbldata.frame&gt; (1130 total)
+## │ ├•costs:      continuous values (between 0.1925 and 61.9273)
+## │ ├•extent:     298809.5764, 5167774.5993, 613818.7743, 5502543.7119 (xmin, ymin, xmax, ymax)
+## │ └•CRS:        WGS 84 / UTM zone 55S (projected)
+## ├•formulation
+## │├•objective:   minimum set objective
+## │├•penalties:
+## ││└•1:          boundary penalties (`penalty` = 0.001, `edge_factor` = 0.5, …)
+## │├•targets:     relative targets (between 0.3 and 0.3)
+## │├•constraints:
+## ││├•1:          locked in constraints (257 planning units)
+## ││└•2:          locked out constraints (165 planning units)
+## │└•decisions:   binary decision
+## └•optimization
+##  ├•portfolio:   shuffle portfolio (`number_solutions` = 1, …)
+##  └•solver:      highs solver (`gap` = 0.1, `time_limit` = 2147483647, …)
+## # ℹ Use `summary(...)` to see complete formulation.</code></pre>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="spatial-prioritizations.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co"># solve problem,</span></span>
+<span id="cb89-2"><a href="spatial-prioritizations.html#cb89-2" aria-hidden="true" tabindex="-1"></a>s5 <span class="ot">&lt;-</span> <span class="fu">solve</span>(p5)</span>
+<span id="cb89-3"><a href="spatial-prioritizations.html#cb89-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-4"><a href="spatial-prioritizations.html#cb89-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print solution</span></span>
+<span id="cb89-5"><a href="spatial-prioritizations.html#cb89-5" aria-hidden="true" tabindex="-1"></a><span class="do">## note we use head() to show only show the first 6 rows</span></span>
+<span id="cb89-6"><a href="spatial-prioritizations.html#cb89-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(s5)</span></code></pre></div>
+<pre><code>## Simple feature collection with 6 features and 6 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: 303910.1 ymin: 5485840 xmax: 335610.4 ymax: 5502544
+## Projected CRS: WGS 84 / UTM zone 55S
+## # A tibble: 6 × 7
+##      id  cost locked_in locked_out pa_status solution_1
+##   &lt;int&gt; &lt;dbl&gt; &lt;lgl&gt;     &lt;lgl&gt;          &lt;dbl&gt;      &lt;dbl&gt;
+## 1     1  60.2 FALSE     TRUE               0          0
+## 2     2  19.9 FALSE     FALSE              0          0
+## 3     3  59.7 FALSE     TRUE               0          0
+## 4     4  32.4 FALSE     FALSE              0          0
+## 5     5  26.2 FALSE     FALSE              0          0
+## 6     6  51.3 FALSE     TRUE               0          0
+## # ℹ 1 more variable: geom &lt;MULTIPOLYGON [m]&gt;</code></pre>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="spatial-prioritizations.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot solution</span></span>
+<span id="cb91-2"><a href="spatial-prioritizations.html#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(s5[, <span class="st">&quot;solution_1&quot;</span>], <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">&quot;grey90&quot;</span>, <span class="st">&quot;darkgreen&quot;</span>))</span></code></pre></div>
+<p><img src="prioritizr-workshop-manual_files/figure-html/boundary-problem-1.png" width="65%" style="display: block; margin: auto;" /></p>
+<p>Now let’s compare the solutions to the problems with (<code>s5</code>) and without (<code>s4</code>) the boundary length penalties.</p>
+
+<div class="rmdquestion">
+<ol style="list-style-type: decimal">
+<li>What is the cost the fourth (<code>s4</code>) and fifth (<code>s5</code>) solutions? Why does the fifth solution (<code>s5</code>) cost more than the fourth (<code>s4</code>) solution?</li>
+<li>Try setting the penalty value to 0.000000001 (i.e. <code>1e-9</code>) instead of 0.0005. What is the cost of the solution now? Is it different from the fourth solution (<code>s4</code>) (hint: try plotting the solutions to visualize them)? Is this is a useful penalty value? Why?</li>
+<li>Try setting the penalty value to 0.5. What is the cost of the solution now? Is it different from the fourth solution (<code>s4</code>) (hint: try plotting the solutions to visualize them)? Is this a useful penalty value? Why?</li>
+</ol>
+</div>
+</div>
+<div id="budget-limited-prioritizations" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Budget limited prioritizations<a href="spatial-prioritizations.html#budget-limited-prioritizations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In the real-world, the funding available for conservation is often very limited. As a consequence, decision makers often need prioritizations where the total cost of priority areas does not exceed a budget. In our fourth prioritization (<code>s4</code>), we found that we would need to spend an additional $1334 million AUD to ensure that each vegetation community is adequately represented in the protected area system. But what if the funds available for establishing new protected areas were limited to $100 million AUD? In this case, we need a “budget limited prioritization”. Budget limited prioritizations aim to maximize some measure of conservation benefit subject to a budget (e.g., <a href="https://prioritizr.net/reference/add_max_cover_objective.html">number of species with at least one occurrence in the protected area system</a>, or <a href="https://prioritizr.net/reference/add_max_phylo_div_objective.html">phylogenetic diversity</a>). Let’s create a prioritization that aims to minimize the target shortfalls as much as possible across all features whilst keeping within a pre-specified budget <span class="citation">(following <a href="#ref-r8" role="doc-biblioref">Jung <em>et al.</em> 2021</a>)</span>.</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="spatial-prioritizations.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co"># funds for additional land acquisition (same units as cost data)</span></span>
+<span id="cb92-2"><a href="spatial-prioritizations.html#cb92-2" aria-hidden="true" tabindex="-1"></a>funds <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb92-3"><a href="spatial-prioritizations.html#cb92-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb92-4"><a href="spatial-prioritizations.html#cb92-4" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the total budget for the prioritization</span></span>
+<span id="cb92-5"><a href="spatial-prioritizations.html#cb92-5" aria-hidden="true" tabindex="-1"></a>budget <span class="ot">&lt;-</span> funds <span class="sc">+</span> <span class="fu">sum</span>(s4<span class="sc">$</span>cost <span class="sc">*</span> s4<span class="sc">$</span>locked_in)</span>
+<span id="cb92-6"><a href="spatial-prioritizations.html#cb92-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(budget)</span></code></pre></div>
+<pre><code>## [1] 8575.56</code></pre>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="spatial-prioritizations.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create prioritization problem</span></span>
+<span id="cb94-2"><a href="spatial-prioritizations.html#cb94-2" aria-hidden="true" tabindex="-1"></a>p6 <span class="ot">&lt;-</span></span>
+<span id="cb94-3"><a href="spatial-prioritizations.html#cb94-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">problem</span>(pu_data, veg_data, <span class="at">cost_column =</span> <span class="st">&quot;cost&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb94-4"><a href="spatial-prioritizations.html#cb94-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_min_shortfall_objective</span>(budget) <span class="sc">%&gt;%</span></span>
+<span id="cb94-5"><a href="spatial-prioritizations.html#cb94-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_relative_targets</span>(<span class="fl">0.3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb94-6"><a href="spatial-prioritizations.html#cb94-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_locked_in_constraints</span>(<span class="st">&quot;locked_in&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb94-7"><a href="spatial-prioritizations.html#cb94-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_locked_out_constraints</span>(<span class="st">&quot;locked_out&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb94-8"><a href="spatial-prioritizations.html#cb94-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_binary_decisions</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb94-9"><a href="spatial-prioritizations.html#cb94-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_highs_solver</span>(<span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb94-10"><a href="spatial-prioritizations.html#cb94-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-11"><a href="spatial-prioritizations.html#cb94-11" aria-hidden="true" tabindex="-1"></a><span class="co"># print problem</span></span>
+<span id="cb94-12"><a href="spatial-prioritizations.html#cb94-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p6)</span></code></pre></div>
+<pre><code>## A conservation problem (&lt;ConservationProblem&gt;)
+## ├•data
+## │├•features:    &quot;Banksia woodlands&quot; , … (33 total)
+## │└•planning units:
+## │ ├•data:       &lt;sftbl_dftbldata.frame&gt; (1130 total)
+## │ ├•costs:      continuous values (between 0.1925 and 61.9273)
+## │ ├•extent:     298809.5764, 5167774.5993, 613818.7743, 5502543.7119 (xmin, ymin, xmax, ymax)
+## │ └•CRS:        WGS 84 / UTM zone 55S (projected)
+## ├•formulation
+## │├•objective:   minimum shortfall objective (`budget` = 8575.5601)
+## │├•penalties:   none specified
+## │├•targets:     relative targets (between 0.3 and 0.3)
+## │├•constraints:
+## ││├•1:          locked in constraints (257 planning units)
+## ││└•2:          locked out constraints (165 planning units)
+## │└•decisions:   binary decision
+## └•optimization
+##  ├•portfolio:   shuffle portfolio (`number_solutions` = 1, …)
+##  └•solver:      highs solver (`gap` = 0.1, `time_limit` = 2147483647, …)
+## # ℹ Use `summary(...)` to see complete formulation.</code></pre>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="spatial-prioritizations.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="co"># solve problem</span></span>
+<span id="cb96-2"><a href="spatial-prioritizations.html#cb96-2" aria-hidden="true" tabindex="-1"></a>s6 <span class="ot">&lt;-</span> <span class="fu">solve</span>(p6)</span>
+<span id="cb96-3"><a href="spatial-prioritizations.html#cb96-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-4"><a href="spatial-prioritizations.html#cb96-4" aria-hidden="true" tabindex="-1"></a><span class="co"># plot solution</span></span>
+<span id="cb96-5"><a href="spatial-prioritizations.html#cb96-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(s6[, <span class="st">&quot;solution_1&quot;</span>], <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">&quot;grey90&quot;</span>, <span class="st">&quot;darkgreen&quot;</span>))</span></code></pre></div>
+<p><img src="prioritizr-workshop-manual_files/figure-html/budget-problem-1.png" width="65%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="spatial-prioritizations.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate feature representation</span></span>
+<span id="cb97-2"><a href="spatial-prioritizations.html#cb97-2" aria-hidden="true" tabindex="-1"></a>r6 <span class="ot">&lt;-</span> <span class="fu">eval_feature_representation_summary</span>(p6, s6[, <span class="st">&quot;solution_1&quot;</span>])</span>
+<span id="cb97-3"><a href="spatial-prioritizations.html#cb97-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-4"><a href="spatial-prioritizations.html#cb97-4" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate number of features with targets met</span></span>
+<span id="cb97-5"><a href="spatial-prioritizations.html#cb97-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(r6<span class="sc">$</span>relative_held <span class="sc">&gt;=</span> <span class="fl">0.3</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 15</code></pre>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="spatial-prioritizations.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate average proportion of each feature represented by solution</span></span>
+<span id="cb99-2"><a href="spatial-prioritizations.html#cb99-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(r6<span class="sc">$</span>relative_held, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 0.3238168</code></pre>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="spatial-prioritizations.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="co"># find out which features have their targets met</span></span>
+<span id="cb101-2"><a href="spatial-prioritizations.html#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(r6<span class="sc">$</span>feature[r6<span class="sc">$</span>relative_held <span class="sc">&gt;=</span> <span class="fl">0.3</span>])</span></code></pre></div>
+<pre><code>##  [1] &quot;Boulders/rock with algae, lichen or scattered plants, or alpine fjaeldmarks&quot;                           
+##  [2] &quot;Cool temperate rainforest&quot;                                                                             
+##  [3] &quot;Eucalyptus open woodlands with shrubby understorey&quot;                                                    
+##  [4] &quot;Eucalyptus tall open forests and open forests with ferns, herbs, sedges, rushes or wet tussock grasses&quot;
+##  [5] &quot;Freshwater, dams, lakes, lagoons or aquatic plants&quot;                                                    
+##  [6] &quot;Heathlands&quot;                                                                                            
+##  [7] &quot;Leptospermum forests and woodlands&quot;                                                                    
+##  [8] &quot;Low closed forest or tall closed shrublands (including Acacia, Melaleuca and Banksia)&quot;                 
+##  [9] &quot;Mallee with a tussock grass understorey&quot;                                                               
+## [10] &quot;Melaleuca shrublands and open shrublands&quot;                                                              
+## [11] &quot;Mixed chenopod, samphire +/- forbs&quot;                                                                    
+## [12] &quot;Other Acacia tall open shrublands and shrublands&quot;                                                      
+## [13] &quot;Other open woodlands&quot;                                                                                  
+## [14] &quot;Other shrublands&quot;                                                                                      
+## [15] &quot;Sedgelands, rushs or reeds&quot;</code></pre>
+<p>We can also add weights to specify that it is more important to meet the targets for certain features and less important for other features. A common approach for weighting features is to assign a greater importance to features with smaller spatial distributions. The rationale behind this weighting method is that features with smaller spatial distributions are at greater risk of extinction. So, let’s calculate some weights for our vegetation communities and see how weighting the features changes our prioritization.</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="spatial-prioritizations.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate weights as the log inverse number of grid cells that each vegetation</span></span>
+<span id="cb103-2"><a href="spatial-prioritizations.html#cb103-2" aria-hidden="true" tabindex="-1"></a><span class="co"># class occupies, rescaled between 1 and 100</span></span>
+<span id="cb103-3"><a href="spatial-prioritizations.html#cb103-3" aria-hidden="true" tabindex="-1"></a>wts <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="fu">global</span>(veg_data, <span class="st">&quot;sum&quot;</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)[[<span class="dv">1</span>]]</span>
+<span id="cb103-4"><a href="spatial-prioritizations.html#cb103-4" aria-hidden="true" tabindex="-1"></a>wts <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(wts, <span class="at">to =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">10</span>))</span>
+<span id="cb103-5"><a href="spatial-prioritizations.html#cb103-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-6"><a href="spatial-prioritizations.html#cb103-6" aria-hidden="true" tabindex="-1"></a><span class="co"># print the name of the feature with smallest weight</span></span>
+<span id="cb103-7"><a href="spatial-prioritizations.html#cb103-7" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(veg_data)[<span class="fu">which.min</span>(wts)]</span></code></pre></div>
+<pre><code>## [1] &quot;Eucalyptus open forests with a shrubby understorey&quot;</code></pre>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="spatial-prioritizations.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print the name of the feature with greatest weight</span></span>
+<span id="cb105-2"><a href="spatial-prioritizations.html#cb105-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(veg_data)[<span class="fu">which.max</span>(wts)]</span></code></pre></div>
+<pre><code>## [1] &quot;Mallee with a tussock grass understorey&quot;</code></pre>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="spatial-prioritizations.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot histogram of weights</span></span>
+<span id="cb107-2"><a href="spatial-prioritizations.html#cb107-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(wts, <span class="at">xlab =</span> <span class="st">&quot;Feature weights&quot;</span>)</span>
+<span id="cb107-3"><a href="spatial-prioritizations.html#cb107-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-4"><a href="spatial-prioritizations.html#cb107-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create prioritization problem with weights</span></span>
+<span id="cb107-5"><a href="spatial-prioritizations.html#cb107-5" aria-hidden="true" tabindex="-1"></a>p7 <span class="ot">&lt;-</span></span>
+<span id="cb107-6"><a href="spatial-prioritizations.html#cb107-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">problem</span>(pu_data, veg_data, <span class="at">cost_column =</span> <span class="st">&quot;cost&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb107-7"><a href="spatial-prioritizations.html#cb107-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_min_shortfall_objective</span>(budget) <span class="sc">%&gt;%</span></span>
+<span id="cb107-8"><a href="spatial-prioritizations.html#cb107-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_relative_targets</span>(<span class="fl">0.3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb107-9"><a href="spatial-prioritizations.html#cb107-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_feature_weights</span>(wts) <span class="sc">%&gt;%</span></span>
+<span id="cb107-10"><a href="spatial-prioritizations.html#cb107-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_locked_in_constraints</span>(<span class="st">&quot;locked_in&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb107-11"><a href="spatial-prioritizations.html#cb107-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_locked_out_constraints</span>(<span class="st">&quot;locked_out&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb107-12"><a href="spatial-prioritizations.html#cb107-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_binary_decisions</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb107-13"><a href="spatial-prioritizations.html#cb107-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_highs_solver</span>(<span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb107-14"><a href="spatial-prioritizations.html#cb107-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-15"><a href="spatial-prioritizations.html#cb107-15" aria-hidden="true" tabindex="-1"></a><span class="co"># print problem</span></span>
+<span id="cb107-16"><a href="spatial-prioritizations.html#cb107-16" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p7)</span></code></pre></div>
+<p><img src="prioritizr-workshop-manual_files/figure-html/weights-problem-1.png" width="65%" style="display: block; margin: auto;" /></p>
+<pre><code>## A conservation problem (&lt;ConservationProblem&gt;)
+## ├•data
+## │├•features:    &quot;Banksia woodlands&quot; , … (33 total)
+## │└•planning units:
+## │ ├•data:       &lt;sftbl_dftbldata.frame&gt; (1130 total)
+## │ ├•costs:      continuous values (between 0.1925 and 61.9273)
+## │ ├•extent:     298809.5764, 5167774.5993, 613818.7743, 5502543.7119 (xmin, ymin, xmax, ymax)
+## │ └•CRS:        WGS 84 / UTM zone 55S (projected)
+## ├•formulation
+## │├•objective:   minimum shortfall objective (`budget` = 8575.5601)
+## │├•penalties:
+## ││└•1:          feature weights (`weights` = asymmetric continuous values (non-zero values between 1 and 10))
+## │├•targets:     relative targets (between 0.3 and 0.3)
+## │├•constraints:
+## ││├•1:          locked in constraints (257 planning units)
+## ││└•2:          locked out constraints (165 planning units)
+## │└•decisions:   binary decision
+## └•optimization
+##  ├•portfolio:   shuffle portfolio (`number_solutions` = 1, …)
+##  └•solver:      highs solver (`gap` = 0.1, `time_limit` = 2147483647, …)
+## # ℹ Use `summary(...)` to see complete formulation.</code></pre>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="spatial-prioritizations.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="co"># solve problem</span></span>
+<span id="cb109-2"><a href="spatial-prioritizations.html#cb109-2" aria-hidden="true" tabindex="-1"></a>s7 <span class="ot">&lt;-</span> <span class="fu">solve</span>(p7)</span>
+<span id="cb109-3"><a href="spatial-prioritizations.html#cb109-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-4"><a href="spatial-prioritizations.html#cb109-4" aria-hidden="true" tabindex="-1"></a><span class="co"># plot solution</span></span>
+<span id="cb109-5"><a href="spatial-prioritizations.html#cb109-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(s7[, <span class="st">&quot;solution_1&quot;</span>], <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">&quot;grey90&quot;</span>, <span class="st">&quot;darkgreen&quot;</span>))</span></code></pre></div>
+<p><img src="prioritizr-workshop-manual_files/figure-html/weights-problem-2.png" width="65%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="spatial-prioritizations.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate feature representation</span></span>
+<span id="cb110-2"><a href="spatial-prioritizations.html#cb110-2" aria-hidden="true" tabindex="-1"></a>r7 <span class="ot">&lt;-</span> <span class="fu">eval_feature_representation_summary</span>(p7, s7[, <span class="st">&quot;solution_1&quot;</span>])</span>
+<span id="cb110-3"><a href="spatial-prioritizations.html#cb110-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-4"><a href="spatial-prioritizations.html#cb110-4" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate number of features with targets met</span></span>
+<span id="cb110-5"><a href="spatial-prioritizations.html#cb110-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(r7<span class="sc">$</span>relative_held <span class="sc">&gt;=</span> <span class="fl">0.3</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 15</code></pre>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="spatial-prioritizations.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate average proportion of each feature represented by solution</span></span>
+<span id="cb112-2"><a href="spatial-prioritizations.html#cb112-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(r6<span class="sc">$</span>relative_held, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 0.3238168</code></pre>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="spatial-prioritizations.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="co"># find out which features have their targets met when we add weights</span></span>
+<span id="cb114-2"><a href="spatial-prioritizations.html#cb114-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(r7<span class="sc">$</span>feature[r7<span class="sc">$</span>relative_held <span class="sc">&gt;=</span> <span class="fl">0.3</span>])</span></code></pre></div>
+<pre><code>##  [1] &quot;Banksia woodlands&quot;                                                                    
+##  [2] &quot;Boulders/rock with algae, lichen or scattered plants, or alpine fjaeldmarks&quot;          
+##  [3] &quot;Cool temperate rainforest&quot;                                                            
+##  [4] &quot;Eucalyptus open woodlands with shrubby understorey&quot;                                   
+##  [5] &quot;Freshwater, dams, lakes, lagoons or aquatic plants&quot;                                   
+##  [6] &quot;Heathlands&quot;                                                                           
+##  [7] &quot;Leptospermum forests and woodlands&quot;                                                   
+##  [8] &quot;Low closed forest or tall closed shrublands (including Acacia, Melaleuca and Banksia)&quot;
+##  [9] &quot;Mallee with a tussock grass understorey&quot;                                              
+## [10] &quot;Melaleuca shrublands and open shrublands&quot;                                             
+## [11] &quot;Mixed chenopod, samphire +/- forbs&quot;                                                   
+## [12] &quot;Other Acacia tall open shrublands and shrublands&quot;                                     
+## [13] &quot;Other open woodlands&quot;                                                                 
+## [14] &quot;Other shrublands&quot;                                                                     
+## [15] &quot;Sedgelands, rushs or reeds&quot;</code></pre>
+
+<div class="rmdquestion">
+<ol style="list-style-type: decimal">
+<li>What is the name of the feature with the smallest weight?</li>
+<li>What is the cost of the sixth (<code>s6</code>) and seventh (<code>s7</code>) solutions?</li>
+<li>Does there seem to be a big difference in which planning units were selected in the sixth (<code>s6</code>) and seventh (<code>s7</code>) solutions?</li>
+<li>Is there a difference between which features are adequately represented in the sixth (<code>s6</code>) and seventh (<code>s7</code>) solutions? If so, what is the difference?</li>
+</ol>
+</div>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-r9" class="csl-entry">
+Ardron, J.A., Possingham, H.P. &amp; Klein, C.J. (2010). <em><span>Marxan Good Practices Handbook </span></em>, (2nd version)n. Pacific Marine Analysis; Research Association, Victoria, BC, Canada.
+</div>
+<div id="ref-r11" class="csl-entry">
+Beger, M., Linke, S., Watts, M., Game, E., Treml, E., Ball, I. &amp; Possingham, H.P. (2010). Incorporating asymmetric connectivity into spatial decision making for conservation. <em>Conservation Letters</em>, <em>3</em>, 359–368.
+</div>
+<div id="ref-r16" class="csl-entry">
+Beyer, H.L., Dujardin, Y., Watts, M.E. &amp; Possingham, H.P. (2016). Solving conservation planning problems with integer linear programming. <em>Ecological Modelling</em>, <em>328</em>, 14–22.
+</div>
+<div id="ref-r12" class="csl-entry">
+Hanson, J.O., Vincent, J., Schuster, R., Fahrig, L., Brennan, A., Martin, A.E., Hughes, J.S., Pither, R. &amp; Bennett, J.R. (2022). A comparison of approaches for including connectivity in systematic conservation planning. <em>Journal of Applied Ecology</em>, <em>59</em>, 2507–2519.
+</div>
+<div id="ref-r8" class="csl-entry">
+Jung, M., Arnell, A., Lamo, X. de, Garcı́a-Rangel, S., Lewis, M., Mark, J., Merow, C., Miles, L., Ondo, I., Pironon, S., Ravilious, C., Rivers, M., Schepaschenko, D., Tallowin, O., Soesbergen, A. van, Govaerts, R., Boyle, B.L., Enquist, B.J., Feng, X., Gallagher, R., Maitner, B., Meiri, S., Mulligan, M., Ofer, G., Roll, U., Hanson, J.O., Jetz, W., Marco, M.D., McGowan, J., Rinnan, D.S., Sachs, J.D., Lesiv, M., Adams, V.M., Andrew, S.C., Burger, J.R., Hannah, L., Marquet, P.A., McCarthy, J.K., Morueta-Holme, N., Newman, E.A., Park, D.S., Roehrdanz, P.R., Svenning, J.-C., Violle, C., Wieringa, J.J., Wynne, G., Fritz, S., Strassburg, B.B.N., Obersteiner, M., Kapos, V., Burgess, N., Schmidt-Traub, G. &amp; Visconti, P. (2021). Areas of global importance for conserving terrestrial biodiversity, carbon and water. <em>Nature Ecology and Evolution</em>, <em>5</em>, 1499–1509.
+</div>
+<div id="ref-r10" class="csl-entry">
+Moilanen, A., Franco, A.M.A., Early, R.I., Fox, R., Wintle, B. &amp; Thomas, C.D. (2005). <a href="https://doi.org/10.1098/rspb.2005.3164">Prioritizing multiple-use landscapes for conservation: Methods for large multi-species planning problems</a>. <em>Proceedings of the Royal Society B: Biological Sciences</em>, <em>272</em>, 1885–1891.
+</div>
+<div id="ref-r15" class="csl-entry">
+Rodrigues, A.S., Cerdeira, J.O. &amp; Gaston, K.J. (2008). Flexibility, efficiency, and accountability: Adapting reserve selection algorithms to more complex conservation problems. <em>Ecography</em>, <em>23</em>, 565–574.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="gap-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="importance.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/prioritizr/workshop/edit/master/04-prioritizations.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["prioritizr-workshop-manual.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
