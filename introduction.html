@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Introduction | PRIORITIZR WORKSHOP MANUAL</title>
   <meta name="description" content="Manual for the prioritizr workshop." />
-  <meta name="generator" content="bookdown 0.33.2 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.33.3 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Introduction | PRIORITIZR WORKSHOP MANUAL" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jeffrey Hanson and Richard Schuster" />
 
 
-<meta name="date" content="2023-04-13" />
+<meta name="date" content="2023-05-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -68,7 +68,7 @@
 <script src="libs/clipboard-0.0.1/setClipboardText.js"></script>
 <link href="libs/mapviewCSS-0.0.1/mapview-popup.css" rel="stylesheet" />
 <link href="libs/mapviewCSS-0.0.1/mapview.css" rel="stylesheet" />
-<script src="libs/raster::raster(veg_data[[30]])_6ec9a2-1/data_stars_rasterrasterveg_data30104397.txt"></script>
+<script src="libs/raster::raster(veg_data[[30]])_47c8f9-1/data_stars_rasterrasterveg_data30fb41d2.txt"></script>
 <script src="libs/joda-0.0.1/joda.js"></script>
 <script src="libs/joda-0.0.1/addImageQuery-bindings.js"></script>
 
@@ -138,6 +138,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
@@ -268,10 +272,10 @@ div.csl-indent {
 </div>
 <div id="setup" class="section level2 hasAnchor" number="2.2">
 <h2><span class="header-section-number">2.2</span> Setting up your computer<a href="introduction.html#setup" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>You will need to have both <a href="https://www.r-project.org">R</a> and <a href="https://www.rstudio.com/">RStudio</a> installed on your computer to complete this workshop. Although it is not imperative that you have the latest version of RStudio installed, <strong>you will need the latest version of R installed (i.e., version 4.2.3)</strong>. Please note that you might need administrative permissions to install these programs. After installing them, you will also need to install some R packages too.</p>
+<p>You will need to have both <a href="https://www.r-project.org">R</a> and <a href="https://www.rstudio.com/">RStudio</a> installed on your computer to complete this workshop. Although it is not imperative that you have the latest version of RStudio installed, <strong>you will need the latest version of R installed (i.e., version 4.3.0)</strong>. Please note that you might need administrative permissions to install these programs. After installing them, you will also need to install some R packages too.</p>
 <div id="r" class="section level3 hasAnchor" number="2.2.1">
 <h3><span class="header-section-number">2.2.1</span> R<a href="introduction.html#r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The <a href="https://www.r-project.org">R statistical computing environment</a> can be downloaded from the Comprehensive R Archive Network (CRAN). Specifically, you can download the latest version of R (version 4.2.3) from here: <a href="https://cloud.r-project.org" class="uri">https://cloud.r-project.org</a>. Please note that you will need to download the correct file for your operating system (i.e., Linux, macOS, Windows).</p>
+<p>The <a href="https://www.r-project.org">R statistical computing environment</a> can be downloaded from the Comprehensive R Archive Network (CRAN). Specifically, you can download the latest version of R (version 4.3.0) from here: <a href="https://cloud.r-project.org" class="uri">https://cloud.r-project.org</a>. Please note that you will need to download the correct file for your operating system (i.e., Linux, macOS, Windows).</p>
 </div>
 <div id="rstudio" class="section level3 hasAnchor" number="2.2.2">
 <h3><span class="header-section-number">2.2.2</span> RStudio<a href="introduction.html#rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -283,7 +287,7 @@ div.csl-indent {
 <p>An R package is a collection of R code and documentation that can be installed to enhance the standard R environment with additional functionality. Currently, there are over fifteen thousand R packages available on CRAN. Each of these R packages are developed to perform a specific task, such as <a href="https://cran.r-project.org/web/packages/readxl/index.html">reading Excel spreadsheets</a>, <a href="https://cran.r-project.org/web/packages/MODIStsp/index.html">downloading satellite imagery data</a>, <a href="https://cran.r-project.org/web/packages/wdpar/index.html">downloading and cleaning protected area data</a>, or <a href="https://cran.r-project.org/web/packages/ENMeval/index.html">fitting environmental niche models</a>. In fact, R has such a diverse ecosystem of R packages, that the question is almost always not “can I use R to …?” but “what R package can I use to …?”. During this workshop, we will use several R packages. To install these R packages, please enter the code below in the <em>Console</em> part of the RStudio interface and press enter. Note that you will require an Internet connection and the installation process may take some time to complete.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="introduction.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;remotes&quot;</span>)</span>
 <span id="cb1-2"><a href="introduction.html#cb1-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_cran</span>(</span>
-<span id="cb1-3"><a href="introduction.html#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">&quot;tidyverse&quot;</span>, <span class="st">&quot;mapview&quot;</span>, <span class="st">&quot;highs&quot;</span>, <span class="st">&quot;prioritizr&quot;</span>),</span>
+<span id="cb1-3"><a href="introduction.html#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">&quot;tidyverse&quot;</span>, <span class="st">&quot;highs&quot;</span>, <span class="st">&quot;prioritizr&quot;</span>, <span class="st">&quot;mapview&quot;</span>, <span class="st">&quot;units&quot;</span>),</span>
 <span id="cb1-4"><a href="introduction.html#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">upgrade =</span> <span class="st">&quot;always&quot;</span></span>
 <span id="cb1-5"><a href="introduction.html#cb1-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 </div>
