@@ -31,7 +31,7 @@ An R package is a collection of R code and documentation that can be installed t
 ```{r, eval = FALSE}
 install.packages("remotes")
 remotes::install_cran(
-  c("tidyverse", "mapview", "highs", "prioritizr"),
+  c("tidyverse", "highs", "prioritizr", "mapview", "units"),
   upgrade = "always"
 )
 ```
