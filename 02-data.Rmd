@@ -50,7 +50,7 @@ library(scales)     # package for rescaling numbers
 options(pillar.print_max = Inf)
 ```
 
-You should have already downloaded the data for the prioritizr workshop. If you have not already done so, you can download it from here: https://github.com/prioritizr/workshop/raw/master/data.zip. After downloading the data, you can unzip the data into a new folder. Next, you will need to set the working directory to this new folder. To achieve this, click on the _Session_ button on the RStudio menu bar, then click _Set Working Directory_, and then _Choose Directory_.
+You should have already downloaded the data for the prioritizr workshop. If you have not already done so, you can download it from here: https://github.com/prioritizr/workshop/raw/main/data.zip. After downloading the data, you can unzip the data into a new folder. Next, you will need to set the working directory to this new folder. To achieve this, click on the _Session_ button on the RStudio menu bar, then click _Set Working Directory_, and then _Choose Directory_.
 
 ```{r, out.width = "65%", echo = FALSE}
 knitr::include_graphics("images/rstudio-wd.png")
