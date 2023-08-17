@@ -189,7 +189,8 @@ plot(veg_data[["Sedgelands, rushs or reeds"]])
 ```{r "mapview-veg-data", eval = knitr::is_html_output(), out.width = "70%"}
 # plot an interactive map of the 30th class
 ## note that we use method = "ngb" because the data are not continuous
-mapview(raster::raster(veg_data[[30]]), method = "ngb")
+veg_data2 <- as(veg_data, "Raster")
+mapview(veg_data2[[30]], method = "ngb")
 ```
 
 ```{r "veg-data-2"}
