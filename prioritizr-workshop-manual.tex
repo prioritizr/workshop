@@ -639,8 +639,7 @@ Let's explore the vegetation data.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# plot an interactive map of the 30th class}
-\DocumentationTok{\#\# note that we convert the data to a Raster format and also}
-\DocumentationTok{\#\# use method = "ngb" because the data are not continuous}
+\DocumentationTok{\#\# note that we use method = "ngb" because the data are not continuous}
 \NormalTok{veg\_data2 }\OtherTok{\textless{}{-}} \FunctionTok{as}\NormalTok{(veg\_data, }\StringTok{"Raster"}\NormalTok{)}
 \FunctionTok{mapview}\NormalTok{(veg\_data2[[}\DecValTok{30}\NormalTok{]], }\AttributeTok{method =} \StringTok{"ngb"}\NormalTok{)}
 \end{Highlighting}
