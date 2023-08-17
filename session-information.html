@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 9 Session information | PRIORITIZR WORKSHOP MANUAL</title>
   <meta name="description" content="Manual for the prioritizr workshop." />
-  <meta name="generator" content="bookdown 0.33.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 9 Session information | PRIORITIZR WORKSHOP MANUAL" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jeffrey Hanson and Richard Schuster" />
 
 
-<meta name="date" content="2023-05-04" />
+<meta name="date" content="2023-08-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -60,7 +60,7 @@
 <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
 <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
 <script src="libs/leaflet-binding-2.1.2/leaflet.js"></script>
-<script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
+<script src="libs/leaflet-providers-1.13.0/leaflet-providers_1.13.0.js"></script>
 <script src="libs/leaflet-providers-plugin-2.1.2/leaflet-providers-plugin.js"></script>
 <link href="libs/HomeButton-0.0.1/home-button.css" rel="stylesheet" />
 <script src="libs/HomeButton-0.0.1/home-button.js"></script>
@@ -68,7 +68,7 @@
 <script src="libs/clipboard-0.0.1/setClipboardText.js"></script>
 <link href="libs/mapviewCSS-0.0.1/mapview-popup.css" rel="stylesheet" />
 <link href="libs/mapviewCSS-0.0.1/mapview.css" rel="stylesheet" />
-<script src="libs/raster::raster(veg_data[[30]])_47c8f9-1/data_stars_rasterrasterveg_data30fb41d2.txt"></script>
+<script src="libs/veg_data2[[30]]_82d03f-1/data_stars_veg_data230925ea7.txt"></script>
 <script src="libs/joda-0.0.1/joda.js"></script>
 <script src="libs/joda-0.0.1/addImageQuery-bindings.js"></script>
 
@@ -267,7 +267,7 @@ div.csl-indent {
 <h1><span class="header-section-number">Chapter 9</span> Session information<a href="session-information.html#session-information" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="session-information.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print session information</span></span>
 <span id="cb126-2"><a href="session-information.html#cb126-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
-<pre><code>## R version 4.3.0 (2023-04-21)
+<pre><code>## R version 4.3.1 (2023-06-16)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Ubuntu 20.04.6 LTS
 ## 
@@ -288,38 +288,38 @@ div.csl-indent {
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] scales_1.2.1     units_0.8-2      mapview_2.11.0   highs_0.1-6     
-##  [5] sf_1.0-12        terra_1.7-29     lubridate_1.9.2  forcats_1.0.0   
-##  [9] stringr_1.5.0    dplyr_1.1.2      purrr_1.0.1      readr_2.1.4     
-## [13] tidyr_1.3.0      tibble_3.2.1     ggplot2_3.4.2    tidyverse_2.0.0 
-## [17] prioritizr_8.0.2
+##  [1] scales_1.2.1     units_0.8-3      mapview_2.11.0   highs_0.1-10    
+##  [5] sf_1.0-14        terra_1.7-39     lubridate_1.9.2  forcats_1.0.0   
+##  [9] stringr_1.5.0    dplyr_1.1.2      purrr_1.0.2      readr_2.1.4     
+## [13] tidyr_1.3.0      tibble_3.2.1     ggplot2_3.4.3    tidyverse_2.0.0 
+## [17] prioritizr_8.0.3
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] tidyselect_1.2.0        farver_2.1.1            fastmap_1.1.1          
-##  [4] leaflet_2.1.2           digest_0.6.31           timechange_0.2.0       
-##  [7] lifecycle_1.0.3         ellipsis_0.3.2          magrittr_2.0.3         
-## [10] exactextractr_0.9.1     compiler_4.3.0          rlang_1.1.1            
-## [13] sass_0.4.6              tools_4.3.0             leafpop_0.1.0          
-## [16] utf8_1.2.3              yaml_2.3.7              knitr_1.42             
-## [19] brew_1.0-8              htmlwidgets_1.6.2       sp_1.6-0               
-## [22] classInt_0.4-9          KernSmooth_2.23-20      withr_2.5.0            
-## [25] grid_4.3.0              stats4_4.3.0            fansi_1.0.4            
-## [28] e1071_1.7-13            leafem_0.2.0            colorspace_2.1-0       
-## [31] cli_3.6.1               rmarkdown_2.21          generics_0.1.3         
-## [34] rstudioapi_0.14         tzdb_0.3.0              DBI_1.1.3              
-## [37] ape_5.7-1               cachem_1.0.8            proxy_0.4-27           
-## [40] assertthat_0.2.1        parallel_4.3.0          base64enc_0.1-3        
-## [43] vctrs_0.6.2             webshot_0.5.4           Matrix_1.5-4           
-## [46] jsonlite_1.8.4          bookdown_0.33.3         hms_1.1.3              
-## [49] systemfonts_1.0.4       crosstalk_1.2.0         jquerylib_0.1.4        
-## [52] glue_1.6.2              leaflet.providers_1.9.0 codetools_0.2-19       
-## [55] stringi_1.7.12          gtable_0.3.3            raster_3.6-20          
-## [58] munsell_0.5.0           pillar_1.9.0            htmltools_0.5.5        
-## [61] satellite_1.0.4         R6_2.5.1                evaluate_0.20          
-## [64] lattice_0.21-8          highr_0.10              png_0.1-8              
-## [67] backports_1.4.1         bslib_0.4.2             class_7.3-21           
-## [70] uuid_1.1-0              Rcpp_1.0.10             svglite_2.1.1          
-## [73] nlme_3.1-162            checkmate_2.2.0         xfun_0.39              
+##  [1] tidyselect_1.2.0         farver_2.1.1             fastmap_1.1.1           
+##  [4] leaflet_2.1.2            digest_0.6.33            timechange_0.2.0        
+##  [7] lifecycle_1.0.3          ellipsis_0.3.2           magrittr_2.0.3          
+## [10] exactextractr_0.9.1      compiler_4.3.1           rlang_1.1.1             
+## [13] sass_0.4.7               tools_4.3.1              leafpop_0.1.0           
+## [16] utf8_1.2.3               yaml_2.3.7               knitr_1.43              
+## [19] brew_1.0-8               htmlwidgets_1.6.2        sp_2.0-0                
+## [22] classInt_0.4-9           KernSmooth_2.23-21       withr_2.5.0             
+## [25] grid_4.3.1               stats4_4.3.1             fansi_1.0.4             
+## [28] e1071_1.7-13             leafem_0.2.0             colorspace_2.1-0        
+## [31] cli_3.6.1                rmarkdown_2.24           generics_0.1.3          
+## [34] rstudioapi_0.15.0        tzdb_0.4.0               DBI_1.1.3               
+## [37] ape_5.7-1                cachem_1.0.8             proxy_0.4-27            
+## [40] assertthat_0.2.1         parallel_4.3.1           base64enc_0.1-3         
+## [43] vctrs_0.6.3              webshot_0.5.5            Matrix_1.5-4.1          
+## [46] jsonlite_1.8.7           bookdown_0.35.1          hms_1.1.3               
+## [49] systemfonts_1.0.4        crosstalk_1.2.0          jquerylib_0.1.4         
+## [52] glue_1.6.2               leaflet.providers_1.13.0 codetools_0.2-19        
+## [55] stringi_1.7.12           gtable_0.3.3             raster_3.6-23           
+## [58] munsell_0.5.0            pillar_1.9.0             htmltools_0.5.6         
+## [61] satellite_1.0.4          R6_2.5.1                 evaluate_0.21           
+## [64] lattice_0.21-8           highr_0.10               png_0.1-8               
+## [67] backports_1.4.1          bslib_0.5.1              class_7.3-22            
+## [70] uuid_1.1-0               Rcpp_1.0.11              svglite_2.1.1           
+## [73] nlme_3.1-162             checkmate_2.2.0          xfun_0.40               
 ## [76] pkgconfig_2.0.3</code></pre>
 
 <div id="refs" class="references csl-bib-body hanging-indent">
